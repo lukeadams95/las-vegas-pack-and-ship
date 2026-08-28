@@ -80,6 +80,11 @@ publish directory.
 | Blog — on-site crating | `on-site-crating.html` |
 | Blog — pallet vs crate | `pallet-vs-crate-shipping.html` |
 
+Every "Free Quote" / "Request Quote" / "Get a Free Quote" button on the site
+points at `free-quote.html` — 88 links, re-pointed by `build/relink_quote_ctas.py`,
+which edits the `.dc.html` sources so a rebuild keeps them. The only exceptions
+are the two buttons on the Free Quote page itself, which scroll to its form.
+
 Filenames follow the ones named in the original build briefs. All internal
 links, nav dropdowns, sticky-bar links and mobile-menu links were rewritten to
 match, and are verified by the link audit.

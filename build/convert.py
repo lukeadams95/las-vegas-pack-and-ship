@@ -16,9 +16,19 @@ import struct
 SRC = os.path.join(os.path.dirname(__file__), "..", "project")
 OUT = os.path.join(os.path.dirname(__file__), "..", "docs")
 OVERRIDES = os.path.join(os.path.dirname(__file__), "overrides")
+STATIC = os.path.join(os.path.dirname(__file__), "static")
 SRC = os.path.abspath(SRC)
 OUT = os.path.abspath(OUT)
 OVERRIDES = os.path.abspath(OVERRIDES)
+STATIC = os.path.abspath(STATIC)
+
+# Favicons and the web manifest, linked from every page. Relative hrefs so the
+# site keeps working from a subdirectory as well as from a domain root.
+HEAD_ICONS = """<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">"""
 
 # design file (without .dc.html)  ->  published filename
 PAGES = {
@@ -309,6 +319,7 @@ def main():
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{title}</title>
+{HEAD_ICONS}
 {helmet}
 <link rel="stylesheet" href="site.css">
 <style>
@@ -342,6 +353,19 @@ def main():
             collect_assets(page, referenced)
             overrides.append(name)
 
+    # Root-level static files (favicons, web manifest) are copied verbatim.
+    static_copied = []
+    static_missing = []
+    if os.path.isdir(STATIC):
+        for name in sorted(os.listdir(STATIC)):
+            shutil.copy2(os.path.join(STATIC, name), os.path.join(OUT, name))
+            static_copied.append(name)
+    for name in ("favicon.ico", "favicon-32x32.png", "favicon-16x16.png",
+                 "apple-touch-icon.png", "android-chrome-192x192.png",
+                 "android-chrome-512x512.png", "site.webmanifest"):
+        if not os.path.exists(os.path.join(OUT, name)):
+            static_missing.append(name)
+
     # copy only the assets the built pages actually reference
     copied = 0
     missing = []
@@ -360,6 +384,11 @@ def main():
     if overrides:
         print(f"        {len(overrides)} replaced by hand-authored override: {', '.join(overrides)}")
     print(f"assets: {copied} copied, {len(slots)} extracted from image slots")
+    print(f"static: {len(static_copied)} copied from build/static/")
+    if static_missing:
+        print("MISSING ICONS (drop them in build/static/):")
+        for name in static_missing:
+            print("  ", name)
     if missing:
         print("MISSING ASSETS:")
         for m in missing:

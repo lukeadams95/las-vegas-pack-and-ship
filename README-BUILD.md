@@ -14,6 +14,7 @@ build/          the tooling that produced docs/
   site.js       the ported interaction logic
   smoke.js      headless Playwright check over all 18 pages
   overrides/    hand-authored pages that replace the generated ones
+  static/       files copied to the site root (favicons, web manifest)
 docs/           the built site — this is the deliverable
 ```
 
@@ -44,6 +45,20 @@ build reproducible without the converter silently overwriting your work.
 `free-quote.html` is currently the only override. It is self-contained: its own
 inline CSS and script, no `site.css` or `site.js`. Edit it in
 `build/overrides/`, not in `docs/`, or the next build will discard the change.
+
+### Favicons
+
+Every page links the standard icon set, and `build/static/` is copied to the
+site root on each build. The manifest is there; **the six icon files are not
+yet** — the build prints them under `MISSING ICONS` until they are added:
+
+```
+favicon.ico  favicon-16x16.png  favicon-32x32.png
+apple-touch-icon.png  android-chrome-192x192.png  android-chrome-512x512.png
+```
+
+Drop them into `build/static/` and rebuild. Until then the pages simply show no
+icon; nothing else is affected.
 
 ## Hosting
 

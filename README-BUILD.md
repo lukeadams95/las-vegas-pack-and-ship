@@ -48,17 +48,19 @@ inline CSS and script, no `site.css` or `site.js`. Edit it in
 
 ### Favicons
 
-Every page links the standard icon set, and `build/static/` is copied to the
-site root on each build. The manifest is there; **the six icon files are not
-yet** — the build prints them under `MISSING ICONS` until they are added:
+Every page links the standard icon set, and everything in `build/static/` is
+copied to the site root on each build:
 
 ```
 favicon.ico  favicon-16x16.png  favicon-32x32.png
 apple-touch-icon.png  android-chrome-192x192.png  android-chrome-512x512.png
+site.webmanifest
 ```
 
-Drop them into `build/static/` and rebuild. Until then the pages simply show no
-icon; nothing else is affected.
+To swap the icons, replace those files in `build/static/` and rebuild — not in
+`docs/`, and **not in the repo root**: only `docs/` is published, so an icon at
+the root never reaches the site. The build prints a `MISSING ICONS` list if any
+of them go absent.
 
 ## Hosting
 

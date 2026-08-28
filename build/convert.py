@@ -15,8 +15,10 @@ import struct
 
 SRC = os.path.join(os.path.dirname(__file__), "..", "project")
 OUT = os.path.join(os.path.dirname(__file__), "..", "docs")
+OVERRIDES = os.path.join(os.path.dirname(__file__), "overrides")
 SRC = os.path.abspath(SRC)
 OUT = os.path.abspath(OUT)
+OVERRIDES = os.path.abspath(OVERRIDES)
 
 # design file (without .dc.html)  ->  published filename
 PAGES = {
@@ -111,6 +113,14 @@ def extract_slot_images(state_path, assets_out):
             "size": webp_size(data),
         }
     return slots
+
+
+def collect_assets(page, referenced):
+    """Record every local asset a built page points at."""
+    for m in re.finditer(r'(?:src|href)="((?:assets|uploads)/[^"]+)"', page):
+        referenced.add(html.unescape(m.group(1)))
+    for m in re.finditer(r"url\((['\"]?)((?:assets|uploads)/[^)'\"]+)\1\)", page):
+        referenced.add(html.unescape(m.group(2)))
 
 
 def attrs_of(tag_text):
@@ -315,10 +325,22 @@ def main():
             fh.write(page)
         written.append(out_name)
 
-        for m in re.finditer(r'(?:src|href)="((?:assets|uploads)/[^"]+)"', page):
-            referenced.add(html.unescape(m.group(1)))
-        for m in re.finditer(r"url\((['\"]?)((?:assets|uploads)/[^)'\"]+)\1\)", page):
-            referenced.add(html.unescape(m.group(2)))
+        collect_assets(page, referenced)
+
+    # Hand-authored pages win over the generated ones. Anything in
+    # build/overrides/ is a page the user supplied directly rather than through
+    # a .dc.html design, so a rebuild must not clobber it.
+    overrides = []
+    if os.path.isdir(OVERRIDES):
+        for name in sorted(os.listdir(OVERRIDES)):
+            if not name.endswith(".html"):
+                continue
+            with open(os.path.join(OVERRIDES, name), encoding="utf-8") as fh:
+                page = fh.read()
+            with open(os.path.join(OUT, name), "w", encoding="utf-8") as fh:
+                fh.write(page)
+            collect_assets(page, referenced)
+            overrides.append(name)
 
     # copy only the assets the built pages actually reference
     copied = 0
@@ -335,6 +357,8 @@ def main():
         copied += 1
 
     print(f"pages:  {len(written)}")
+    if overrides:
+        print(f"        {len(overrides)} replaced by hand-authored override: {', '.join(overrides)}")
     print(f"assets: {copied} copied, {len(slots)} extracted from image slots")
     if missing:
         print("MISSING ASSETS:")

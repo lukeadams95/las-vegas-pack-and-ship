@@ -13,6 +13,7 @@ build/          the tooling that produced docs/
   site.css      shared styles for behaviour the DC runtime used to provide
   site.js       the ported interaction logic
   smoke.js      headless Playwright check over all 18 pages
+  overrides/    hand-authored pages that replace the generated ones
 docs/           the built site — this is the deliverable
 ```
 
@@ -32,6 +33,17 @@ need the network.
 
 Editing pages directly in `docs/` is fine too — nothing regenerates unless you
 run the converter, and if you do it will overwrite `docs/*.html`.
+
+### Hand-authored pages
+
+Any `.html` file in `build/overrides/` is copied into `docs/` after the
+generated pages, replacing the one with the same name. Use this for a page
+written by hand rather than converted from a `.dc.html` design — it keeps the
+build reproducible without the converter silently overwriting your work.
+
+`free-quote.html` is currently the only override. It is self-contained: its own
+inline CSS and script, no `site.css` or `site.js`. Edit it in
+`build/overrides/`, not in `docs/`, or the next build will discard the change.
 
 ## Hosting
 

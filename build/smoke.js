@@ -75,12 +75,22 @@ const note = (page, msg) => fail.push(`${page}: ${msg}`);
     await p.setViewportSize({ width: 800, height: 900 });
     await p.waitForTimeout(150);
     const panel = '.dc-if[data-cond="mobileNavOpen"]';
+    const shown = () =>
+      p.$eval('#mobile-nav-panel', (e) => getComputedStyle(e).display !== 'none');
     if (await p.$(panel)) {
+      // generated page: visibility is the [hidden] attribute on the wrapper
       if (await p.$eval(panel, (e) => !e.hidden)) note(file, 'mobile nav open before click');
       await p.click('#nav-hamburger');
       if (await p.$eval(panel, (e) => e.hidden)) note(file, 'hamburger did not open nav');
       await p.click('#nav-hamburger');
       if (await p.$eval(panel, (e) => !e.hidden)) note(file, 'hamburger did not close nav');
+    } else if (await p.$('#mobile-nav-panel')) {
+      // hand-authored page: its own script toggles display directly
+      if (await shown()) note(file, 'mobile nav open before click');
+      await p.click('#nav-hamburger');
+      if (!(await shown())) note(file, 'hamburger did not open nav');
+      await p.click('#nav-hamburger');
+      if (await shown()) note(file, 'hamburger did not close nav');
     } else {
       note(file, 'no mobile nav panel');
     }
@@ -129,6 +139,20 @@ const note = (page, msg) => fail.push(`${page}: ${msg}`);
       await p.keyboard.press('Escape');
       await p.waitForTimeout(100);
       if (await p.$eval(box, (e) => !e.hidden)) note(file, 'lightbox did not close on Escape');
+    }
+
+    // hand-authored quote form: submitting swaps the form for the success card
+    if (await p.$('#quote-form')) {
+      await p.fill('#quote-form input[name="name"]', 'Test');
+      await p.fill('#quote-form input[name="email"]', 'test@example.com');
+      await p.evaluate(() => document.getElementById('quote-form').requestSubmit());
+      await p.waitForTimeout(200);
+      const state = await p.evaluate(() => ({
+        form: getComputedStyle(document.getElementById('quote-form')).display,
+        ok: getComputedStyle(document.getElementById('quote-success')).display
+      }));
+      if (state.form !== 'none') note(file, 'form still visible after submit');
+      if (state.ok === 'none') note(file, 'success card not shown after submit');
     }
 
     // quote form submitted state

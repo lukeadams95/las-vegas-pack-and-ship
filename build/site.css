@@ -1,0 +1,26 @@
+/* Shared styles for behaviour the Design Components runtime used to provide.
+   Everything else stays in each page's own <style> block, exactly as designed. */
+
+[hidden] { display: none !important; }
+
+/* Carousel dot indicators (were bound to {{ dot0 }} … in the prototype) */
+.dc-dot { background: #e0ddd3; transition: background .2s ease; }
+.dc-dot.is-active { background: #D6A441; }
+
+/* <image-slot> replacement: frame clips, image is positioned by site.js so the
+   stored pan/zoom of each photo is reproduced exactly. */
+.img-slot { position: relative; overflow: hidden; }
+.img-slot-img {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  object-fit: cover;
+  transform: translate(-50%, -50%);
+}
+
+/* The testimonial stage is drag-to-advance; don't let the browser start a
+   native image drag mid-swipe. */
+.dc-dot, [data-dc-mousedown] img { -webkit-user-drag: none; user-drag: none; }

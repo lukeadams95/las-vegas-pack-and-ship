@@ -14,7 +14,7 @@ import shutil
 import struct
 
 SRC = os.path.join(os.path.dirname(__file__), "..", "project")
-OUT = os.path.join(os.path.dirname(__file__), "..", "site")
+OUT = os.path.join(os.path.dirname(__file__), "..", "docs")
 SRC = os.path.abspath(SRC)
 OUT = os.path.abspath(OUT)
 

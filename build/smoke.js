@@ -4,7 +4,7 @@ const { chromium } = require('playwright-core');
 const fs = require('fs');
 const path = require('path');
 
-const SITE = path.join(__dirname, '..', 'site');
+const SITE = path.join(__dirname, '..', 'docs');
 const url = (f) => 'file://' + path.join(SITE, f);
 
 const fail = [];

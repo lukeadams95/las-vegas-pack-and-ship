@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&amp;family=Work+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<script src="./image-slot.js"></script>
+<style>
+  body { margin: 0; }
+  a { color: #D6A441; text-decoration: none; }
+  a:hover { color: #b8863a; text-decoration: underline; }
+  .nav-item { position: relative; }
+  .nav-dropdown { display: none; position: absolute; top: 100%; left: 0; background: #FFFFFF; border: 1px solid #eee9dd; box-shadow: 0 12px 24px rgba(12,11,9,0.08); min-width: 240px; padding: 8px 0; z-index: 60; }
+  .nav-item:hover .nav-dropdown { display: block; }
+  .nav-dropdown a { display: block; padding: 10px 20px; color: #0C0B09; font-size: 14px; white-space: nowrap; }
+  .nav-dropdown a:hover { background: #FAF8F4; color: #D6A441; text-decoration: none; }
+  @media (max-width: 1100px) { #sticky-bar { display: none; } }
+  @media (max-width: 1100px) {
+    #main-nav { display: none !important; }
+    #nav-hamburger { display: flex !important; }
+  }
+  @media (min-width: 1101px) {
+    #mobile-nav-panel { display: none !important; }
+  }
+  .pill-link { transition: background .25s, color .25s, border-color .25s; }
+  .pill-link:hover { background:#D6A441 !important; color:#0C0B09 !important; border-color:#D6A441 !important; text-decoration:none !important; }
+  .gal-arrow { transition: background .2s, color .2s; cursor: pointer; }
+  .gal-arrow:hover { background: #D6A441 !important; color: #0C0B09 !important; }
+  .gal-dot { cursor: pointer; }
+  @media (max-width: 700px) { .icon-list-grid { grid-template-columns: 1fr !important; } }
+</style>
+</helmet>
+
+<div id="top" style="font-family:'Work Sans',sans-serif;color:#0C0B09;background:#FFFFFF;width:100%;overflow-x:clip;">
+
+  <!-- CONDENSED STICKY BAR -->
+  <div id="sticky-bar" style="position:fixed;top:0;left:0;right:0;z-index:60;background:#FFFFFF;box-shadow:0 4px 18px rgba(12,11,9,0.12);transform:translateY(-100%);transition:transform .32s ease;">
+    <div style="max-width:1460px;margin:0 auto;padding:10px 24px;display:flex;align-items:center;gap:24px;">
+      <a href="Las Vegas Pack and Ship.dc.html#home" style="display:flex;flex-shrink:0;"><img src="assets/logo-color.png" alt="Las Vegas Pack and Ship logo" style="height:56px;width:auto;object-fit:contain;flex-shrink:0;" /></a>
+      <nav style="display:flex;align-items:center;gap:22px;margin:0 auto;flex-wrap:wrap;">
+        <a href="Las Vegas Pack and Ship.dc.html#home" style="color:#0C0B09;font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:0.04em;font-size:13px;">Home</a>
+        <div class="nav-item">
+          <a href="javascript:void(0)" style="color:#0C0B09;font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:0.04em;font-size:13px;display:inline-flex;align-items:center;gap:6px;cursor:default;">Shipping &amp; Packing <span style="color:#D6A441;font-weight:700;">+</span></a>
+          <div class="nav-dropdown">
+            <a href="Local Packing and Shipping Store.dc.html">Local Packing &amp; Shipping Store</a>
+            <a href="Electronic Packing and Shipping.dc.html">Electronic Packing &amp; Shipping</a>
+            <a href="Local Packing and Shipping Supplies.dc.html">Packing, Shipping &amp; Moving Supplies</a>
+            <a href="Corrugated Fiberboard Packaging.dc.html">Custom Crating &amp; Corrugated Fiberboard Packaging</a>
+          </div>
+        </div>
+        <div class="nav-item">
+          <a href="Fine Art Shipping.dc.html" style="color:#0C0B09;font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:0.04em;font-size:13px;display:inline-flex;align-items:center;gap:6px;">Fine Art Services <span style="color:#D6A441;font-weight:700;">+</span></a>
+          <div class="nav-dropdown">
+            <a href="Fine Art Shipping.dc.html">Fine Art Shipping</a>
+            <a href="Fine Art Moving and Packing.dc.html">Fine Art Moving and Packing</a>
+            <a href="Art Courier Service.dc.html">Art Courier Service</a>
+            <a href="Art Consultation.dc.html">Art Consultation</a>
+            <a href="Art Installation.dc.html">Art Installation</a>
+            <a href="Vapor Barrier Bag Shipping.dc.html">Vapor Barrier Bag Shipping</a>
+          </div>
+        </div>
+        <div class="nav-item">
+          <a href="#top" style="color:#0C0B09;font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:0.04em;font-size:13px;display:inline-flex;align-items:center;gap:6px;">Projects <span style="color:#D6A441;font-weight:700;">+</span></a>
+          <div class="nav-dropdown">
+            <a href="#top" style="color:#0C0B09;border-bottom:2px solid #D6A441;">Rick's Restoration</a>
+          </div>
+        </div>
+        <a href="Contact Us.dc.html" style="color:#0C0B09;font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:0.04em;font-size:13px;">Contact</a>
+      </nav>
+      <div style="display:flex;align-items:center;gap:14px;flex-shrink:0;">
+        <div style="display:flex;align-items:center;gap:7px;">
+          <span style="font-family:'Work Sans',sans-serif;font-weight:700;font-size:17px;line-height:1;">
+            <span style="color:#4285F4;">G</span><span style="color:#EA4335;">o</span><span style="color:#FBBC05;">o</span><span style="color:#4285F4;">g</span><span style="color:#34A853;">l</span><span style="color:#EA4335;">e</span>
+          </span>
+          <span style="color:#D6A441;font-size:13px;letter-spacing:1px;">★★★★★</span>
+        </div>
+        <a href="Contact Us.dc.html" style="display:inline-block;background:#D6A441;color:#0C0B09;font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:0.06em;font-size:14px;padding:13px 20px;white-space:nowrap;" style-hover="background:#0C0B09;color:#D6A441;text-decoration:none;">Request Quote</a>
+        <a href="tel:17025099630" style="display:inline-block;background:#0C0B09;color:#FFFFFF;font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:0.06em;font-size:14px;padding:13px 20px;white-space:nowrap;" style-hover="background:#D6A441;color:#0C0B09;text-decoration:none;">1 (702) 509-9630</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- TOP BAR -->
+  <div style="background:#0C0B09;color:#FFFFFF;font-size:13px;padding:8px 24px;display:flex;justify-content:center;gap:24px;letter-spacing:0.03em;">
+    <span>Family owned &amp; operated since 1995</span>
+    <span style="color:#D6A441;">|</span>
+    <span style="font-size:13px;color:#FFFFFF;">4640 S. Polaris Ave, Las Vegas, NV 89103</span>
+  </div>
+
+  <!-- HEADER / NAV -->
+  <header style="position:sticky;top:0;z-index:50;background:#FFFFFF;border-bottom:1px solid #eee9dd;">
+    <div style="max-width:1280px;margin:0 auto;padding:16px 24px;display:flex;align-items:center;justify-content:space-between;gap:24px;">
+      <a href="Las Vegas Pack and Ship.dc.html#home" style="display:flex;flex-shrink:0;"><img src="assets/logo-color.png" alt="Las Vegas Pack and Ship logo" style="height: 96px; width: 183px; object-fit: contain; flex-shrink: 0; margin: -18px 0"></a>
+      <nav id="main-nav" style="display:flex;gap:30px;align-items:center;flex-wrap:wrap;">
+        <a href="Las Vegas Pack and Ship.dc.html#home" style="color:#0C0B09;font-size:14px;">Home</a>
+        <div class="nav-item">
+          <a href="javascript:void(0)" style="color:#0C0B09;font-size:14px;display:inline-flex;align-items:center;gap:4px;cursor:default;">Shipping &amp; Packing Services <span style="font-size:10px;color:#8a8880;">▾</span></a>
+          <div class="nav-dropdown">
+            <a href="Local Packing and Shipping Store.dc.html">Local Packing &amp; Shipping Store</a>
+            <a href="Electronic Packing and Shipping.dc.html">Electronic Packing &amp; Shipping</a>
+            <a href="Local Packing and Shipping Supplies.dc.html">Packing, Shipping &amp; Moving Supplies</a>
+            <a href="Corrugated Fiberboard Packaging.dc.html">Custom Crating &amp; Corrugated Fiberboard Packaging</a>
+          </div>
+        </div>
+        <div class="nav-item">
+          <a href="Fine Art Shipping.dc.html" style="color:#0C0B09;font-size:14px;display:inline-flex;align-items:center;gap:4px;">Fine Art Services <span style="font-size:10px;color:#8a8880;">▾</span></a>
+          <div class="nav-dropdown">
+            <a href="Fine Art Shipping.dc.html">Fine Art Shipping</a>
+            <a href="Fine Art Moving and Packing.dc.html">Fine Art Moving and Packing</a>
+            <a href="Art Courier Service.dc.html">Art Courier Service</a>
+            <a href="Art Consultation.dc.html">Art Consultation</a>
+            <a href="Art Installation.dc.html">Art Installation</a>
+            <a href="Vapor Barrier Bag Shipping.dc.html">Vapor Barrier Bag Shipping</a>
+          </div>
+        </div>
+        <div class="nav-item">
+          <a href="#top" style="color:#0C0B09;font-size:14px;display:inline-flex;align-items:center;gap:4px;">Projects <span style="font-size:10px;color:#8a8880;">▾</span></a>
+          <div class="nav-dropdown">
+            <a href="#top" style="color:#D6A441;font-weight:600;">Rick's Restoration</a>
+          </div>
+        </div>
+        <a href="Contact Us.dc.html" style="color:#0C0B09;font-size:14px;">Contact</a>
+      </nav>
+      <div style="display:flex;align-items:center;gap:16px;">
+        <a href="tel:17025099630" style="display:inline-flex;align-items:center;gap:8px;color:#0C0B09;font-weight:600;font-size:14px;white-space:nowrap;border:1.5px solid #0C0B09;padding:11px 18px;border-radius:4px;" style-hover="border-color:#D6A441;color:#D6A441;text-decoration:none;">1 (702) 509-9630</a>
+        <a href="Contact Us.dc.html" style="display:inline-block;position:relative;background:#D6A441;color:#0C0B09;font-weight:700;font-size:14px;padding:11px 22px;border:1.5px solid #0C0B09;border-radius:4px;white-space:nowrap;box-shadow:3px 3px 0 #0C0B09;" style-hover="transform:translate(1px,1px);box-shadow:2px 2px 0 #0C0B09;text-decoration:none;">Free Quote</a>
+        <button id="nav-hamburger" onClick="{{ toggleNav }}" style="display:none;background:none;border:1px solid #0C0B09;color:#0C0B09;font-size:20px;width:40px;height:40px;border-radius:2px;cursor:pointer;">☰</button>
+      </div>
+    </div>
+    <sc-if value="{{ mobileNavOpen }}">
+      <div id="mobile-nav-panel" style="display:flex;flex-direction:column;padding:8px 24px 20px;gap:14px;background:#FFFFFF;border-top:1px solid #eee9dd;">
+        <a href="Las Vegas Pack and Ship.dc.html#home" onClick="{{ closeNav }}" style="color:#0C0B09;font-size:15px;font-weight:600;">Home</a>
+        <div style="font-size:12px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#D6A441;margin-top:6px;">Shipping &amp; Packing Services</div>
+        <a href="Local Packing and Shipping Store.dc.html" onClick="{{ closeNav }}" style="color:#0C0B09;font-size:15px;padding-left:8px;">Local Packing &amp; Shipping Store</a>
+        <a href="Electronic Packing and Shipping.dc.html" onClick="{{ closeNav }}" style="color:#0C0B09;font-size:15px;padding-left:8px;">Electronic Packing &amp; Shipping</a>
+        <a href="Local Packing and Shipping Supplies.dc.html" onClick="{{ closeNav }}" style="color:#0C0B09;font-size:15px;padding-left:8px;">Packing, Shipping &amp; Moving Supplies</a>
+        <a href="Corrugated Fiberboard Packaging.dc.html" onClick="{{ closeNav }}" style="color:#0C0B09;font-size:15px;padding-left:8px;">Custom Crating &amp; Corrugated Fiberboard Packaging</a>
+        <div style="font-size:12px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#D6A441;margin-top:6px;">Fine Art Services</div>
+        <a href="Fine Art Shipping.dc.html" onClick="{{ closeNav }}" style="color:#0C0B09;font-size:15px;padding-left:8px;">Fine Art Shipping</a>
+        <a href="Fine Art Moving and Packing.dc.html" onClick="{{ closeNav }}" style="color:#0C0B09;font-size:15px;padding-left:8px;">Fine Art Moving and Packing</a>
+        <a href="Art Courier Service.dc.html" onClick="{{ closeNav }}" style="color:#0C0B09;font-size:15px;padding-left:8px;">Art Courier Service</a>
+        <a href="Art Consultation.dc.html" onClick="{{ closeNav }}" style="color:#0C0B09;font-size:15px;padding-left:8px;">Art Consultation</a>
+        <a href="Art Installation.dc.html" onClick="{{ closeNav }}" style="color:#0C0B09;font-size:15px;padding-left:8px;">Art Installation</a>
+        <a href="Vapor Barrier Bag Shipping.dc.html" onClick="{{ closeNav }}" style="color:#0C0B09;font-size:15px;padding-left:8px;">Vapor Barrier Bag Shipping</a>
+        <div style="font-size:12px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#D6A441;margin-top:6px;">Projects</div>
+        <a href="#top" onClick="{{ closeNav }}" style="color:#D6A441;font-size:15px;padding-left:8px;font-weight:600;">Rick's Restoration</a>
+        <a href="Contact Us.dc.html" onClick="{{ closeNav }}" style="color:#0C0B09;font-size:15px;font-weight:600;margin-top:6px;">Contact</a>
+        <a href="tel:17025099630" onClick="{{ closeNav }}" style="color:#D6A441;font-size:15px;font-weight:600;margin-top:6px;">Call 1 (702) 509-9630</a>
+      </div>
+    </sc-if>
+  </header>
+
+  <!-- HERO -->
+  <section id="home" style="position:relative;height:420px;max-height:420px;display:flex;align-items:center;overflow:hidden;background:#0C0B09;">
+    <div style="position:absolute;inset:0;background:radial-gradient(70% 90% at 20% 30%, rgba(214,164,65,.14), transparent 60%), linear-gradient(175deg,#1A1815 0%,#141310 45%,#0C0B09 100%);z-index:0;"></div>
+    <div style="position:relative;z-index:2;width:100%;max-width:1280px;margin:0 auto;padding:clamp(56px,8vw,96px) clamp(24px,6vw,64px);">
+      <div style="display:flex;align-items:center;gap:20px;max-width:780px;">
+        <div style="width:4px;align-self:stretch;background:#D6A441;flex-shrink:0;"></div>
+        <div>
+          <div style="color:#D6A441;font-size:13px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;margin-bottom:18px;">Projects</div>
+          <h1 style="font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:0.01em;font-size:clamp(30px,4.4vw,50px);line-height:1.14;margin:0 0 18px;color:#FFFFFF;">Rick's Restoration</h1>
+          <p style="font-size:17px;line-height:1.6;color:#d6d4cb;margin:0 0 32px;max-width:600px;">As seen on the History Channel &mdash; and trusted with some of the toughest antiques to ship.</p>
+          <div style="display:flex;flex-wrap:wrap;gap:16px;">
+            <a href="Contact Us.dc.html" style="display:inline-flex;align-items:center;gap:8px;background:#D6A441;color:#0C0B09;font-weight:600;font-size:15px;padding:15px 26px;border-radius:2px;" style-hover="background:#e8b95a;text-decoration:none;">Get a Free Quote ↗</a>
+            <a href="tel:17025099630" style="display:inline-flex;align-items:center;gap:8px;border:1.5px solid #FFFFFF;color:#FFFFFF;font-weight:600;font-size:15px;padding:15px 26px;border-radius:2px;" style-hover="border-color:#D6A441;color:#D6A441;text-decoration:none;">1 (702) 509-9630</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INTRO -->
+  <section style="padding:clamp(48px,7vw,80px) 24px;background:#FFFFFF;">
+    <div style="max-width:800px;margin:0 auto;text-align:center;">
+      <div style="color:#D6A441;font-size:14px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;margin-bottom:12px;">A Las Vegas Staple</div>
+      <h2 style="font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:0.01em;font-size:clamp(26px,3.4vw,38px);margin:0 0 16px;color:#0C0B09;">Restoring Antiques to Mint Condition</h2>
+      <div style="width:48px;height:3px;background:#D6A441;margin:0 auto 28px;"></div>
+      <p style="font-size:17px;line-height:1.85;color:#3a3934;margin:0;text-align:left;">Rick's Restoration, a local Las Vegas staple, restores antiques to mint condition. Rick Dale and his crew gained notoriety with some of the highest ratings ever on the History Channel with <a href="https://www.history.com/shows/american-restoration" target="_blank" rel="noopener">American Restoration</a>, an American reality television series. Rick Dale has been restoring various vintage antiques for over 30 years &mdash; his company first appeared on the reality TV hit series Pawn Stars, in that show's first-season episode titled "Time Machine."</p>
+    </div>
+  </section>
+
+  <!-- WHAT THEY RESTORE -->
+  <section style="padding:clamp(48px,7vw,88px) 24px;background:#FAF8F4;">
+    <div style="max-width:1000px;margin:0 auto;">
+      <div style="text-align:center;max-width:600px;margin:0 auto 40px;">
+        <div style="color:#D6A441;font-size:14px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;margin-bottom:12px;">Tough to Ship, Even Tougher to Restore</div>
+        <h2 style="font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:0.01em;font-size:clamp(26px,3.4vw,38px);margin:0;color:#0C0B09;">What They Restore</h2>
+        <div style="width:48px;height:3px;background:#D6A441;margin:16px auto 0;"></div>
+      </div>
+      <div class="icon-list-grid" style="display:grid;grid-template-columns:repeat(2,1fr);gap:16px;">
+        <div style="display:flex;align-items:center;gap:14px;background:#FFFFFF;border:1px solid #EDE8DC;border-radius:12px;padding:18px 20px;"><span style="color:#D6A441;font-weight:700;font-size:16px;">&#10003;</span><span style="font-size:15px;color:#0C0B09;">Vintage vending machines</span></div>
+        <div style="display:flex;align-items:center;gap:14px;background:#FFFFFF;border:1px solid #EDE8DC;border-radius:12px;padding:18px 20px;"><span style="color:#D6A441;font-weight:700;font-size:16px;">&#10003;</span><span style="font-size:15px;color:#0C0B09;">Vintage gas pumps</span></div>
+        <div style="display:flex;align-items:center;gap:14px;background:#FFFFFF;border:1px solid #EDE8DC;border-radius:12px;padding:18px 20px;"><span style="color:#D6A441;font-weight:700;font-size:16px;">&#10003;</span><span style="font-size:15px;color:#0C0B09;">Vintage pedal cars</span></div>
+        <div style="display:flex;align-items:center;gap:14px;background:#FFFFFF;border:1px solid #EDE8DC;border-radius:12px;padding:18px 20px;"><span style="color:#D6A441;font-weight:700;font-size:16px;">&#10003;</span><span style="font-size:15px;color:#0C0B09;">Vintage barber chairs</span></div>
+        <div style="display:flex;align-items:center;gap:14px;background:#FFFFFF;border:1px solid #EDE8DC;border-radius:12px;padding:18px 20px;"><span style="color:#D6A441;font-weight:700;font-size:16px;">&#10003;</span><span style="font-size:15px;color:#0C0B09;">Vintage motorcycles</span></div>
+        <div style="display:flex;align-items:center;gap:14px;background:#FFFFFF;border:1px solid #EDE8DC;border-radius:12px;padding:18px 20px;"><span style="color:#D6A441;font-weight:700;font-size:16px;">&#10003;</span><span style="font-size:15px;color:#0C0B09;">Vintage jukeboxes</span></div>
+        <div style="display:flex;align-items:center;gap:14px;background:#FFFFFF;border:1px solid #EDE8DC;border-radius:12px;padding:18px 20px;grid-column:1/-1;max-width:calc(50% - 8px);"><span style="color:#D6A441;font-weight:700;font-size:16px;">&#10003;</span><span style="font-size:15px;color:#0C0B09;">Vintage Coca-Cola machines</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- OUR ROLE -->
+  <section style="padding:clamp(48px,7vw,80px) 24px;background:#FFFFFF;">
+    <div style="max-width:800px;margin:0 auto;">
+      <div style="text-align:center;color:#D6A441;font-size:13px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;margin-bottom:12px;">Proud to Ship the Finished Work</div>
+      <h3 style="text-align:center;font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:0.01em;font-size:clamp(22px,2.6vw,28px);margin:0 0 16px;color:#0C0B09;">Proud to Ship What They Restore</h3>
+      <div style="width:48px;height:3px;background:#D6A441;margin:0 auto 28px;"></div>
+      <p style="font-size:16px;line-height:1.85;color:#3a3934;margin:0;text-align:center;">We're proud to have shipped some of these stunning antiques after they've been perfectly restored by Rick's Restoration. Our care and pride in the shipping and logistics field has made us the number one choice for shipping <a href="antique-packing-and-moving.html">large, valuable antiques</a>.</p>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section style="padding:clamp(48px,7vw,88px) 24px;background:#FAF8F4;">
+    <div style="max-width:900px;margin:0 auto;">
+      <div style="text-align:center;max-width:600px;margin:0 auto 40px;">
+        <div style="color:#D6A441;font-size:14px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;margin-bottom:12px;">Shipped and Delivered</div>
+        <h2 style="font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:0.01em;font-size:clamp(26px,3.4vw,38px);margin:0;color:#0C0B09;">Restored Pieces We've Shipped</h2>
+        <div style="width:48px;height:3px;background:#D6A441;margin:16px auto 0;"></div>
+      </div>
+      <div onMouseEnter="{{ pauseAuto }}" onMouseLeave="{{ resumeAuto }}" style="position:relative;">
+        <div style="border-radius:14px;overflow:hidden;border:1px solid #EDE8DC;box-shadow:0 18px 40px rgba(12,11,9,.10);background:#0C0B09;height:480px;display:flex;align-items:center;justify-content:center;">
+          <sc-if value="{{ isG0 }}" hint-placeholder-val="{{ true }}"><img src="assets/ricks-gallery-scale.webp" alt="Restored vintage Cardinal platform scale ready for shipping" style="max-width:100%;max-height:100%;display:block;object-fit:contain;"></sc-if>
+          <sc-if value="{{ isG1 }}"><img src="assets/ricks-gallery-tractor.webp" alt="Restored vintage John Deere pedal tractor ready for shipping" style="max-width:100%;max-height:100%;display:block;object-fit:contain;"></sc-if>
+          <sc-if value="{{ isG2 }}"><img src="assets/ricks-gallery-beetle.webp" alt="Restored vintage electric ride-on car ready for shipping" style="max-width:100%;max-height:100%;display:block;object-fit:contain;"></sc-if>
+          <sc-if value="{{ isG3 }}"><img src="assets/ricks-gallery-fountain.webp" alt="Restored vintage soda fountain dispenser ready for shipping" style="max-width:100%;max-height:100%;display:block;object-fit:contain;"></sc-if>
+          <sc-if value="{{ isG4 }}"><img src="assets/ricks-gallery-firetruck.webp" alt="Restored vintage fire truck pedal car ready for shipping" style="max-width:100%;max-height:100%;display:block;object-fit:contain;"></sc-if>
+        </div>
+        <button onClick="{{ prevSlide }}" class="gal-arrow" style="position:absolute;top:50%;left:16px;transform:translateY(-50%);width:44px;height:44px;border-radius:50%;background:#FFFFFF;border:1px solid #EDE8DC;color:#0C0B09;font-size:18px;box-shadow:0 6px 16px rgba(12,11,9,.16);">&#8249;</button>
+        <button onClick="{{ nextSlide }}" class="gal-arrow" style="position:absolute;top:50%;right:16px;transform:translateY(-50%);width:44px;height:44px;border-radius:50%;background:#FFFFFF;border:1px solid #EDE8DC;color:#0C0B09;font-size:18px;box-shadow:0 6px 16px rgba(12,11,9,.16);">&#8250;</button>
+      </div>
+      <div style="display:flex;gap:10px;justify-content:center;margin-top:20px;">
+        <span onClick="{{ setG0 }}" class="gal-dot" style="width:10px;height:10px;border-radius:50%;background:{{ dotG0 }};"></span>
+        <span onClick="{{ setG1 }}" class="gal-dot" style="width:10px;height:10px;border-radius:50%;background:{{ dotG1 }};"></span>
+        <span onClick="{{ setG2 }}" class="gal-dot" style="width:10px;height:10px;border-radius:50%;background:{{ dotG2 }};"></span>
+        <span onClick="{{ setG3 }}" class="gal-dot" style="width:10px;height:10px;border-radius:50%;background:{{ dotG3 }};"></span>
+        <span onClick="{{ setG4 }}" class="gal-dot" style="width:10px;height:10px;border-radius:50%;background:{{ dotG4 }};"></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- PALLETS AND CRATES -->
+  <section style="padding:clamp(48px,7vw,80px) 24px;background:#FFFFFF;">
+    <div style="max-width:800px;margin:0 auto;">
+      <div style="text-align:center;color:#D6A441;font-size:13px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;margin-bottom:12px;">Behind the Scenes</div>
+      <h3 style="text-align:center;font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:0.01em;font-size:clamp(22px,2.6vw,28px);margin:0 0 16px;color:#0C0B09;">Pallets and Crates in the Workflow</h3>
+      <div style="width:48px;height:3px;background:#D6A441;margin:0 auto 28px;"></div>
+      <p style="font-size:16px;line-height:1.85;color:#3a3934;margin:0 0 20px;">At Rick's Restorations, the renowned Las Vegas shop featured on American Restoration, pallets and wood crates play a practical role in the day-to-day workflow of handling large, heavy, and often fragile vintage items. The team frequently receives oversized antiques &mdash; gas pumps, vending machines, jukeboxes, or barber chairs &mdash; delivered on sturdy wooden pallets that provide a stable base for transport and initial inspection upon arrival.</p>
+      <p style="font-size:16px;line-height:1.85;color:#3a3934;margin:0;">These pallets let the crew maneuver heavy pieces safely around the workshop using forklifts or dollies, preventing damage to restored surfaces or delicate components during the early disassembly stages. Once projects are complete, the same pallets (or custom-built wood crates) become essential for secure packaging, ensuring painstakingly revived pieces survive shipping to excited clients without scratches, dents, or structural harm.</p>
+    </div>
+  </section>
+
+  <!-- A TOUCH OF INGENUITY -->
+  <section style="padding:clamp(48px,7vw,80px) 24px;background:#FAF8F4;">
+    <div style="max-width:800px;margin:0 auto;">
+      <div style="text-align:center;color:#D6A441;font-size:13px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;margin-bottom:12px;">Resourceful by Nature</div>
+      <h3 style="text-align:center;font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:0.01em;font-size:clamp(22px,2.6vw,28px);margin:0 0 16px;color:#0C0B09;">A Touch of Ingenuity</h3>
+      <div style="width:48px;height:3px;background:#D6A441;margin:0 auto 28px;"></div>
+      <p style="font-size:16px;line-height:1.85;color:#3a3934;margin:0 0 20px;">Beyond logistics, the rustic character of reclaimed pallets and crates occasionally inspires creative touches in restorations or shop operations. Rick Dale and his team, known for their resourceful approach to salvaging materials, might repurpose sections of weathered pallet wood for temporary jigs, supports during welding, or even rustic display elements that complement the vintage aesthetic of many projects.</p>
+      <p style="font-size:16px;line-height:1.85;color:#3a3934;margin:0;">Custom wood crates, often hand-crafted or sourced through specialized partners for international shipments, add an extra layer of protection for high-value items heading overseas. This blend of practicality and ingenuity keeps the restoration process efficient, cost-effective, and true to the shop's hands-on, no-nonsense style that made the business a fan favorite.</p>
+    </div>
+  </section>
+
+  <!-- CLOSING CTA -->
+  <section style="position:relative;overflow:hidden;background:#0C0B09;color:#FFFFFF;padding:clamp(64px,9vw,110px) 24px;">
+    <div style="position:absolute;inset:0;background:radial-gradient(70% 60% at 50% 40%, rgba(214,164,65,.14), transparent 70%);z-index:0;pointer-events:none;"></div>
+    <div style="position:relative;z-index:2;max-width:900px;margin:0 auto;text-align:center;">
+      <div style="color:#D6A441;font-size:13px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;margin-bottom:16px;">Ready When You Are</div>
+      <h2 style="font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:0.01em;font-size:clamp(26px,3.4vw,38px);margin:0 0 16px;">Have Something This Valuable to Ship?</h2>
+      <div style="width:48px;height:3px;background:#D6A441;margin:0 auto 24px;"></div>
+      <p style="font-size:16px;color:#d6d4cb;line-height:1.7;max-width:680px;margin:0 auto 36px;">If it survived a full restoration, it deserves a shipping partner that takes it just as seriously. Let's talk about getting your piece where it needs to go, safely.</p>
+      <div style="display:flex;flex-wrap:wrap;gap:16px;justify-content:center;">
+        <a href="Contact Us.dc.html" style="display:inline-flex;align-items:center;gap:8px;background:#D6A441;color:#0C0B09;font-weight:600;font-size:15px;padding:15px 26px;border-radius:2px;" style-hover="background:#e8b95a;text-decoration:none;">Get a Free Quote ↗</a>
+        <a href="tel:17025099630" style="display:inline-flex;align-items:center;gap:8px;border:1.5px solid #FFFFFF;color:#FFFFFF;font-weight:600;font-size:15px;padding:15px 26px;border-radius:2px;" style-hover="border-color:#D6A441;color:#D6A441;text-decoration:none;">1 (702) 509-9630</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer style="background:#0C0B09;color:#cfcdc4;padding:56px 24px 28px;border-top:1px solid rgba(214,164,65,0.3);">
+    <div style="max-width:1280px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:40px;margin-bottom:40px;">
+      <div>
+        <img src="assets/logo-bw.png" alt="Las Vegas Pack and Ship logo" style="height:46px;width:auto;object-fit:contain;margin-bottom:14px;filter:brightness(0) invert(1);">
+        <p style="font-size:14px;line-height:1.7;margin:0;">Serving Las Vegas, Henderson, and all of Nevada &mdash; and shipping fine art worldwide.</p>
+      </div>
+      <div>
+        <div style="color:#FFFFFF;font-size:15px;font-weight:600;margin-bottom:14px;">Contact</div>
+        <p style="font-size:14px;line-height:1.9;margin:0;">
+          <a href="tel:17025099630" style="color:#cfcdc4;">1-702-509-9630</a><br>
+          Las Vegas, Henderson &amp; all of Nevada
+        </p>
+      </div>
+      <div>
+        <div style="color:#FFFFFF;font-size:15px;font-weight:600;margin-bottom:14px;">Las Vegas Professional Warehouse Storage</div>
+        <p style="font-size:14px;line-height:1.7;margin:0;">4640 Polaris Ave.<br>Las Vegas, NV 89103</p>
+      </div>
+      <div>
+        <div style="color:#FFFFFF;font-size:15px;font-weight:600;margin-bottom:14px;">Las Vegas Strip Crating &amp; Logistics</div>
+        <p style="font-size:14px;line-height:1.7;margin:0;">4610 S. Polaris Ave.<br>Las Vegas, NV 89103</p>
+      </div>
+    </div>
+    <div style="max-width:1280px;margin:0 auto;border-top:1px solid #2a2823;padding-top:24px;display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;font-size:13px;">
+      <div>© 2026 Las Vegas Pack and Ship. All rights reserved.</div>
+      <div style="display:flex;gap:20px;">
+        <a href="Privacy Policy.dc.html" style="color:#cfcdc4;">Privacy Policy</a>
+        <a href="Las Vegas Pack and Ship.dc.html#" style="color:#cfcdc4;">Sitemap</a>
+      </div>
+    </div>
+  </footer>
+
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { mobileNavOpen: false, slide: 0 };
+  componentDidMount() {
+    this._autoPaused = false;
+    this._autoTimer = setInterval(() => {
+      if (this._autoPaused) return;
+      this.setState(s => ({ slide: (s.slide + 1) % 5 }));
+    }, 4000);
+  }
+  componentWillUnmount() {
+    if (this._autoTimer) clearInterval(this._autoTimer);
+  }
+  renderVals() {
+    const s = this.state.slide;
+    const active = '#D6A441', inactive = '#e0ddd3';
+    return {
+      mobileNavOpen: this.state.mobileNavOpen,
+      toggleNav: () => this.setState(st => ({ mobileNavOpen: !st.mobileNavOpen })),
+      closeNav: () => this.setState({ mobileNavOpen: false }),
+      isG0: s === 0, isG1: s === 1, isG2: s === 2, isG3: s === 3, isG4: s === 4,
+      dotG0: s === 0 ? active : inactive, dotG1: s === 1 ? active : inactive, dotG2: s === 2 ? active : inactive,
+      dotG3: s === 3 ? active : inactive, dotG4: s === 4 ? active : inactive,
+      setG0: () => this.setState({ slide: 0 }), setG1: () => this.setState({ slide: 1 }), setG2: () => this.setState({ slide: 2 }),
+      setG3: () => this.setState({ slide: 3 }), setG4: () => this.setState({ slide: 4 }),
+      prevSlide: () => this.setState(st => ({ slide: (st.slide + 4) % 5 })),
+      nextSlide: () => this.setState(st => ({ slide: (st.slide + 1) % 5 })),
+      pauseAuto: () => { this._autoPaused = true; },
+      resumeAuto: () => { this._autoPaused = false; },
+    };
+  }
+}
+
+</script>
+</body>
+</html>

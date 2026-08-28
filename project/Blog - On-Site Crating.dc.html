@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&amp;family=Work+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<script src="./image-slot.js"></script>
+<style>
+  body { margin: 0; }
+  a { color: #D6A441; text-decoration: none; }
+  a:hover { color: #b8863a; text-decoration: underline; }
+  .nav-item { position: relative; }
+  .nav-dropdown { display: none; position: absolute; top: 100%; left: 0; background: #FFFFFF; border: 1px solid #eee9dd; box-shadow: 0 12px 24px rgba(12,11,9,0.08); min-width: 240px; padding: 8px 0; z-index: 60; }
+  .nav-item:hover .nav-dropdown { display: block; }
+  .nav-dropdown a { display: block; padding: 10px 20px; color: #0C0B09; font-size: 14px; white-space: nowrap; }
+  .nav-dropdown a:hover { background: #FAF8F4; color: #D6A441; text-decoration: none; }
+  @media (max-width: 1100px) { #sticky-bar { display: none; } }
+  @media (max-width: 1100px) {
+    #main-nav { display: none !important; }
+    #nav-hamburger { display: flex !important; }
+  }
+  @media (min-width: 1101px) {
+    #mobile-nav-panel { display: none !important; }
+  }
+</style>
+</helmet>
+
+<div id="top" style="font-family:'Work Sans',sans-serif;color:#0C0B09;background:#FFFFFF;width:100%;overflow-x:clip;">
+
+  <!-- CONDENSED STICKY BAR -->
+  <div id="sticky-bar" style="position:fixed;top:0;left:0;right:0;z-index:60;background:#FFFFFF;box-shadow:0 4px 18px rgba(12,11,9,0.12);transform:translateY(-100%);transition:transform .32s ease;">
+    <div style="max-width:1460px;margin:0 auto;padding:10px 24px;display:flex;align-items:center;gap:24px;">
+      <a href="Las Vegas Pack and Ship.dc.html#home" style="display:flex;flex-shrink:0;"><img src="assets/logo-color.png" alt="Las Vegas Pack and Ship logo" style="height:56px;width:auto;object-fit:contain;flex-shrink:0;" /></a>
+      <nav style="display:flex;align-items:center;gap:22px;margin:0 auto;flex-wrap:wrap;">
+        <a href="Las Vegas Pack and Ship.dc.html#home" style="color:#0C0B09;font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:0.04em;font-size:13px;">Home</a>
+        <div class="nav-item">
+          <a href="javascript:void(0)" style="color:#0C0B09;font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:0.04em;font-size:13px;display:inline-flex;align-items:center;gap:6px;cursor:default;">Shipping &amp; Packing <span style="color:#D6A441;font-weight:700;">+</span></a>
+          <div class="nav-dropdown">
+            <a href="Local Packing and Shipping Store.dc.html">Local Packing &amp; Shipping Store</a>
+            <a href="Electronic Packing and Shipping.dc.html">Electronic Packing &amp; Shipping</a>
+            <a href="Local Packing and Shipping Supplies.dc.html">Packing, Shipping &amp; Moving Supplies</a>
+            <a href="Corrugated Fiberboard Packaging.dc.html">Custom Crating &amp; Corrugated Fiberboard Packaging</a>
+          </div>
+        </div>
+        <div class="nav-item">
+          <a href="Fine Art Shipping.dc.html" style="color:#0C0B09;font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:0.04em;font-size:13px;display:inline-flex;align-items:center;gap:6px;">Fine Art Services <span style="color:#D6A441;font-weight:700;">+</span></a>
+          <div class="nav-dropdown">
+            <a href="Fine Art Shipping.dc.html">Fine Art Shipping</a>
+            <a href="Fine Art Moving and Packing.dc.html">Fine Art Moving and Packing</a>
+            <a href="Art Courier Service.dc.html">Art Courier Service</a>
+            <a href="Art Consultation.dc.html">Art Consultation</a>
+            <a href="Art Installation.dc.html">Art Installation</a>
+            <a href="Vapor Barrier Bag Shipping.dc.html">Vapor Barrier Bag Shipping</a>
+          </div>
+        </div>
+        <div class="nav-item">
+          <a href="javascript:void(0)" style="color:#0C0B09;font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:0.04em;font-size:13px;display:inline-flex;align-items:center;gap:6px;cursor:default;">Projects <span style="color:#D6A441;font-weight:700;">+</span></a>
+          <div class="nav-dropdown">
+            <a href="Rick's Restoration.dc.html">Rick's Restoration</a>
+          </div>
+        </div>
+        <a href="Contact Us.dc.html" style="color:#0C0B09;font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:0.04em;font-size:13px;">Contact</a>
+      </nav>
+      <div style="display:flex;align-items:center;gap:14px;flex-shrink:0;">
+        <div style="display:flex;align-items:center;gap:7px;">
+          <span style="font-family:'Work Sans',sans-serif;font-weight:700;font-size:17px;line-height:1;">
+            <span style="color:#4285F4;">G</span><span style="color:#EA4335;">o</span><span style="color:#FBBC05;">o</span><span style="color:#4285F4;">g</span><span style="color:#34A853;">l</span><span style="color:#EA4335;">e</span>
+          </span>
+          <span style="color:#D6A441;font-size:13px;letter-spacing:1px;">★★★★★</span>
+        </div>
+        <a href="Contact Us.dc.html" style="display:inline-block;background:#D6A441;color:#0C0B09;font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:0.06em;font-size:14px;padding:13px 20px;white-space:nowrap;" style-hover="background:#0C0B09;color:#D6A441;text-decoration:none;">Request Quote</a>
+        <a href="tel:17025099630" style="display:inline-block;background:#0C0B09;color:#FFFFFF;font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:0.06em;font-size:14px;padding:13px 20px;white-space:nowrap;" style-hover="background:#D6A441;color:#0C0B09;text-decoration:none;">1 (702) 509-9630</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- TOP BAR -->
+  <div style="background:#0C0B09;color:#FFFFFF;font-size:13px;padding:8px 24px;display:flex;justify-content:center;gap:24px;letter-spacing:0.03em;">
+    <span>Family owned &amp; operated since 1995</span>
+    <span style="color:#D6A441;">|</span>
+    <span style="font-size:13px;color:#FFFFFF;">4640 S. Polaris Ave, Las Vegas, NV 89103</span>
+  </div>
+
+  <!-- HEADER / NAV -->
+  <header style="position:sticky;top:0;z-index:50;background:#FFFFFF;border-bottom:1px solid #eee9dd;">
+    <div style="max-width:1280px;margin:0 auto;padding:16px 24px;display:flex;align-items:center;justify-content:space-between;gap:24px;">
+      <a href="Las Vegas Pack and Ship.dc.html#home" style="display:flex;flex-shrink:0;"><img src="assets/logo-color.png" alt="Las Vegas Pack and Ship logo" style="height: 96px; width: 183px; object-fit: contain; flex-shrink: 0; margin: -18px 0"></a>
+      <nav id="main-nav" style="display:flex;gap:30px;align-items:center;flex-wrap:wrap;">
+        <a href="Las Vegas Pack and Ship.dc.html#home" style="color:#0C0B09;font-size:14px;">Home</a>
+        <div class="nav-item">
+          <a href="javascript:void(0)" style="color:#0C0B09;font-size:14px;display:inline-flex;align-items:center;gap:4px;cursor:default;">Shipping &amp; Packing Services <span style="font-size:10px;color:#8a8880;">▾</span></a>
+          <div class="nav-dropdown">
+            <a href="Local Packing and Shipping Store.dc.html">Local Packing &amp; Shipping Store</a>
+            <a href="Electronic Packing and Shipping.dc.html">Electronic Packing &amp; Shipping</a>
+            <a href="Local Packing and Shipping Supplies.dc.html">Packing, Shipping &amp; Moving Supplies</a>
+            <a href="Corrugated Fiberboard Packaging.dc.html">Custom Crating &amp; Corrugated Fiberboard Packaging</a>
+          </div>
+        </div>
+        <div class="nav-item">
+          <a href="Fine Art Shipping.dc.html" style="color:#0C0B09;font-size:14px;display:inline-flex;align-items:center;gap:4px;">Fine Art Services <span style="font-size:10px;color:#8a8880;">▾</span></a>
+          <div class="nav-dropdown">
+            <a href="Fine Art Shipping.dc.html">Fine Art Shipping</a>
+            <a href="Fine Art Moving and Packing.dc.html">Fine Art Moving and Packing</a>
+            <a href="Art Courier Service.dc.html">Art Courier Service</a>
+            <a href="Art Consultation.dc.html">Art Consultation</a>
+            <a href="Art Installation.dc.html">Art Installation</a>
+            <a href="Vapor Barrier Bag Shipping.dc.html">Vapor Barrier Bag Shipping</a>
+          </div>
+        </div>
+        <div class="nav-item">
+          <a href="javascript:void(0)" style="color:#0C0B09;font-size:14px;display:inline-flex;align-items:center;gap:4px;cursor:default;">Projects <span style="font-size:10px;color:#8a8880;">▾</span></a>
+          <div class="nav-dropdown">
+            <a href="Rick's Restoration.dc.html">Rick's Restoration</a>
+          </div>
+        </div>
+        <a href="Contact Us.dc.html" style="color:#0C0B09;font-size:14px;">Contact</a>
+      </nav>
+      <div style="display:flex;align-items:center;gap:16px;">
+        <a href="tel:17025099630" style="display:inline-flex;align-items:center;gap:8px;color:#0C0B09;font-weight:600;font-size:14px;white-space:nowrap;border:1.5px solid #0C0B09;padding:11px 18px;border-radius:4px;" style-hover="border-color:#D6A441;color:#D6A441;text-decoration:none;">1 (702) 509-9630</a>
+        <a href="Contact Us.dc.html" style="display:inline-block;position:relative;background:#D6A441;color:#0C0B09;font-weight:700;font-size:14px;padding:11px 22px;border:1.5px solid #0C0B09;border-radius:4px;white-space:nowrap;box-shadow:3px 3px 0 #0C0B09;" style-hover="transform:translate(1px,1px);box-shadow:2px 2px 0 #0C0B09;text-decoration:none;">Free Quote</a>
+        <button id="nav-hamburger" onClick="{{ toggleNav }}" style="display:none;background:none;border:1px solid #0C0B09;color:#0C0B09;font-size:20px;width:40px;height:40px;border-radius:2px;cursor:pointer;">☰</button>
+      </div>
+    </div>
+    <sc-if value="{{ mobileNavOpen }}">
+      <div id="mobile-nav-panel" style="display:flex;flex-direction:column;padding:8px 24px 20px;gap:14px;background:#FFFFFF;border-top:1px solid #eee9dd;">
+        <a href="Las Vegas Pack and Ship.dc.html#home" onClick="{{ closeNav }}" style="color:#0C0B09;font-size:15px;font-weight:600;">Home</a>
+        <div style="font-size:12px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#D6A441;margin-top:6px;">Shipping &amp; Packing Services</div>
+        <a href="Local Packing and Shipping Store.dc.html" onClick="{{ closeNav }}" style="color:#0C0B09;font-size:15px;padding-left:8px;">Local Packing &amp; Shipping Store</a>
+        <a href="Electronic Packing and Shipping.dc.html" onClick="{{ closeNav }}" style="color:#0C0B09;font-size:15px;padding-left:8px;">Electronic Packing &amp; Shipping</a>
+        <a href="Local Packing and Shipping Supplies.dc.html" onClick="{{ closeNav }}" style="color:#0C0B09;font-size:15px;padding-left:8px;">Packing, Shipping &amp; Moving Supplies</a>
+        <a href="Corrugated Fiberboard Packaging.dc.html" onClick="{{ closeNav }}" style="color:#0C0B09;font-size:15px;padding-left:8px;">Custom Crating &amp; Corrugated Fiberboard Packaging</a>
+        <div style="font-size:12px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#D6A441;margin-top:6px;">Fine Art Services</div>
+        <a href="Fine Art Shipping.dc.html" onClick="{{ closeNav }}" style="color:#0C0B09;font-size:15px;padding-left:8px;">Fine Art Shipping</a>
+        <a href="Fine Art Moving and Packing.dc.html" onClick="{{ closeNav }}" style="color:#0C0B09;font-size:15px;padding-left:8px;">Fine Art Moving and Packing</a>
+        <a href="Art Courier Service.dc.html" onClick="{{ closeNav }}" style="color:#0C0B09;font-size:15px;padding-left:8px;">Art Courier Service</a>
+        <a href="Art Consultation.dc.html" onClick="{{ closeNav }}" style="color:#0C0B09;font-size:15px;padding-left:8px;">Art Consultation</a>
+        <a href="Art Installation.dc.html" onClick="{{ closeNav }}" style="color:#0C0B09;font-size:15px;padding-left:8px;">Art Installation</a>
+        <a href="Vapor Barrier Bag Shipping.dc.html" onClick="{{ closeNav }}" style="color:#0C0B09;font-size:15px;padding-left:8px;">Vapor Barrier Bag Shipping</a>
+        <div style="font-size:12px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#D6A441;margin-top:6px;">Projects</div>
+        <a href="Rick's Restoration.dc.html" onClick="{{ closeNav }}" style="color:#0C0B09;font-size:15px;padding-left:8px;">Rick's Restoration</a>
+        <a href="Contact Us.dc.html" onClick="{{ closeNav }}" style="color:#0C0B09;font-size:15px;font-weight:600;margin-top:6px;">Contact</a>
+        <a href="tel:17025099630" onClick="{{ closeNav }}" style="color:#D6A441;font-size:15px;font-weight:600;margin-top:6px;">Call 1 (702) 509-9630</a>
+      </div>
+    </sc-if>
+  </header>
+
+  <!-- ARTICLE HEADER -->
+  <section id="home" style="position:relative;padding:clamp(48px,7vw,80px) 24px clamp(32px,5vw,48px);background:#0C0B09;">
+    <div style="max-width:760px;margin:0 auto;">
+      <div style="color:#D6A441;font-size:13px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;margin-bottom:18px;">Packing and Shipping Help</div>
+      <h1 style="font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:0.01em;font-size:clamp(28px,4vw,44px);line-height:1.18;margin:0 0 20px;color:#FFFFFF;">How On-Site Crating Works</h1>
+      <div style="display:flex;gap:16px;flex-wrap:wrap;font-size:13px;color:#a8a598;letter-spacing:0.02em;">
+        <span>By Las Vegas Pack and Ship</span>
+        <span style="color:#D6A441;">|</span>
+        <span>12 February, 2026</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ARTICLE BODY -->
+  <section style="padding:clamp(48px,7vw,72px) 24px;background:#FFFFFF;">
+    <article style="max-width:760px;margin:0 auto;font-size:17px;line-height:1.85;color:#3a3934;">
+      <image-slot id="blog-crating-photo" style="width:100%;height:360px;border-radius:14px;overflow:hidden;margin-bottom:38px;" shape="rounded" radius="14" placeholder="Blog photo"></image-slot>
+      <p style="margin:0 0 22px;">Welcome to today's fast-paced industrial world, transporting valuable assets like electronics, heavy machinery, and other industrial equipment requires more than just basic packaging.</p>
+      <p style="margin:0 0 34px;">How on-site crating works: a specialized service that brings professional packing expertise directly to your location. This approach not only ensures the safe handling of oversized or delicate items but also streamlines the entire logistics process. Companies like Las Vegas Crating and Logistics exemplify how leveraging professional services can lead to significant time and cost savings while providing unmatched expertise in custom-fabricated wood crates.</p>
+
+      <h2 style="font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:0.01em;font-size:23px;color:#0C0B09;margin:0 0 18px;">What Is On-Site Crating?</h2>
+      <p style="margin:0 0 22px;">On-site crating involves experts arriving at your facility to assess, measure, and build custom crates around your items without the need to transport them to a separate warehouse first.</p>
+      <p style="margin:0 0 22px;">This method is particularly useful for bulky or sensitive equipment that can't be easily moved. Instead of risking damage during preliminary transport, professionals use high-quality materials like ISPM-15 heat-treated wood to create tailored enclosures on the spot. These large crates can include features such as shock-resistant padding, hinged doors, windows, and secure lids to protect against impacts, moisture, and other hazards during shipping.</p>
+      <p style="margin:0 0 34px;">Imagine a scenario where a manufacturing plant needs to ship a large piece of heavy machinery overseas. Rather than disassembling and hauling it to a crating facility, on-site services allow for immediate packaging, reducing downtime and potential mishandling.</p>
+
+      <h2 style="font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:0.01em;font-size:23px;color:#0C0B09;margin:0 0 18px;">The Expertise Behind Custom Fabricated Wood Crates</h2>
+      <p style="margin:0 0 22px;">Custom crating isn't a one-size-fits-all solution. For electronics, crates must incorporate anti-static materials and cushioning to prevent electrical damage or vibrations. Heavy machinery, on the other hand, requires reinforced structures capable of supporting immense weights, often with built-in pallets for easy forklift access. Industrial applications might involve crates for everything from data center servers to antique neon signs used in Las Vegas casinos.</p>
+      <p style="margin:0 0 22px;">Las Vegas Crating and Logistics brings over 25 years of experience to the table, with a team of logistics experts skilled in building crates from wood, plastic, or metal. They handle single-unit projects or mass production, ensuring compliance with international standards like ISPM-15 for pest-free shipping. Their services extend to heat shrink wrapping, art installations, and even cross-docking for seamless freight transitions.</p>
+      <p style="margin:0 0 22px;">This level of customization protects high-value items during domestic or international transport via air, land, or sea.</p>
+      <p style="margin:0 0 34px;">For instance, in the electronics sector, their crates safeguard sensitive components from electrostatic discharge and physical shocks, which is crucial for industries like gaming and entertainment prevalent in Las Vegas.</p>
+
+      <h2 style="font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:0.01em;font-size:23px;color:#0C0B09;margin:0 0 18px;">Time Savings: Efficiency at Your Doorstep</h2>
+      <p style="margin:0 0 22px;">One of the primary advantages of on-site crating is the elimination of unnecessary steps in the supply chain. Traditional methods might involve multiple trips: first to move items to a crating site, then to a shipping hub. With on-site services, everything happens in one visit, minimizing production interruptions.</p>
+      <p style="margin:0 0 22px;">Las Vegas Crating and Logistics optimizes this by offering tracked and insured deliveries, ensuring your items arrive on schedule. Their exclusive contracts with freight providers allow for faster routing, often reducing transit times by days.</p>
+      <p style="margin:0 0 22px;">For businesses dealing with time-sensitive projects, such as trade shows or casino equipment relocations, this means quicker turnaround and less operational downtime.</p>
+      <p style="margin:0 0 34px;">Consider a heavy machinery move: on-site crating can be completed in hours, allowing immediate pickup and shipment, rather than waiting weeks for off-site processing.</p>
+
+      <h2 style="font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:0.01em;font-size:23px;color:#0C0B09;margin:0 0 18px;">Money Savings: Cost-Effective Solutions Without Compromising Quality</h2>
+      <p style="margin:0 0 22px;">Cost efficiency is another hallmark of professional on-site crating. By building crates to exact specifications, waste is minimized&mdash;no excess materials or oversized boxes that inflate shipping fees. Las Vegas Crating and Logistics leverages their warehouse storage and transportation expertise to bundle services, offering competitive pricing that includes packing, crating, and logistics under one roof.</p>
+      <p style="margin:0 0 22px;">Insurance and tracking further protect against financial losses from damage or delays. For industrial applications, their ability to handle large-scale moves&mdash;like data center relocations&mdash;reduces the need for multiple vendors, cutting overall expenses. Businesses save on labor costs too, as the company's team manages the entire process, freeing up your staff for core operations.</p>
+      <p style="margin:0 0 34px;">In a city like Las Vegas, where events and conventions demand rapid setup and teardown, these savings can amount to thousands per project.</p>
+
+      <h2 style="font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:0.01em;font-size:23px;color:#0C0B09;margin:0 0 18px;">Why Choose Las Vegas Crating and Logistics?</h2>
+      <p style="margin:0 0 22px;">As a family-owned operation with deep roots in Las Vegas, this company stands out for its specialized services tailored to local needs, including casino pickups, convention support, large crating, and fine art handling.</p>
+      <p style="margin:0 0 22px;">Their 25+ years of experience in freight brokerage, warehousing, and specialty moving ensure reliability for both residential and commercial clients.</p>
+      <p style="margin:0 0 34px;">Whether you're shipping electronics for a tech expo or heavy machinery for an industrial upgrade, their on-site crating provides peace of mind through expert craftsmanship and integrated logistics.</p>
+
+      <h2 style="font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:0.01em;font-size:23px;color:#0C0B09;margin:0 0 18px;">Conclusion</h2>
+      <p style="margin:0 0 22px;">On-site crating revolutionizes how businesses handle shipping challenges, offering tailored protection for electronics, heavy machinery, and industrial assets. By partnering with experts like Las Vegas Crating and Logistics, you not only safeguard your investments but also unlock substantial time and money savings. If you're in Las Vegas or beyond, consider reaching out for a consultation&mdash;their proven track record speaks for itself.</p>
+      <p style="margin:0;">Ready to streamline your next move? Contact them today at (702) 748-4973 or visit their website for more details.</p>
+    </article>
+  </section>
+
+  <!-- CLOSING CTA -->
+  <section style="position:relative;overflow:hidden;background:#0C0B09;color:#FFFFFF;padding:clamp(56px,8vw,90px) 24px;">
+    <div style="position:absolute;inset:0;background:radial-gradient(70% 60% at 50% 40%, rgba(214,164,65,.14), transparent 70%);z-index:0;pointer-events:none;"></div>
+    <div style="position:relative;z-index:2;max-width:760px;margin:0 auto;text-align:center;">
+      <h2 style="font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:0.01em;font-size:clamp(24px,3vw,32px);margin:0 0 16px;">Need On-Site Crating?</h2>
+      <p style="font-size:16px;color:#d6d4cb;line-height:1.7;margin:0 auto 32px;">Las Vegas Pack and Ship builds custom crates on location for electronics, machinery, and industrial equipment &mdash; no separate trip required.</p>
+      <div style="display:flex;flex-wrap:wrap;gap:16px;justify-content:center;">
+        <a href="Contact Us.dc.html" style="display:inline-flex;align-items:center;gap:8px;background:#D6A441;color:#0C0B09;font-weight:600;font-size:15px;padding:15px 26px;border-radius:2px;" style-hover="background:#e8b95a;text-decoration:none;">Get a Free Quote ↗</a>
+        <a href="tel:17025099630" style="display:inline-flex;align-items:center;gap:8px;border:1.5px solid #FFFFFF;color:#FFFFFF;font-weight:600;font-size:15px;padding:15px 26px;border-radius:2px;" style-hover="border-color:#D6A441;color:#D6A441;text-decoration:none;">1 (702) 509-9630</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer style="background:#0C0B09;color:#cfcdc4;padding:56px 24px 28px;border-top:1px solid rgba(214,164,65,0.3);">
+    <div style="max-width:1280px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:40px;margin-bottom:40px;">
+      <div>
+        <a href="Las Vegas Pack and Ship.dc.html#home" style="display:inline-block;"><img src="assets/logo-bw.png" alt="Las Vegas Pack and Ship logo" style="height:46px;width:auto;object-fit:contain;margin-bottom:14px;filter:brightness(0) invert(1);"></a>
+        <p style="font-size:14px;line-height:1.7;margin:0;">Serving Las Vegas, Henderson, and all of Nevada &mdash; and shipping fine art worldwide.</p>
+      </div>
+      <div>
+        <div style="color:#FFFFFF;font-size:15px;font-weight:600;margin-bottom:14px;">Contact</div>
+        <p style="font-size:14px;line-height:1.9;margin:0;">
+          <a href="tel:17025099630" style="color:#cfcdc4;">1-702-509-9630</a><br>
+          Las Vegas, Henderson &amp; all of Nevada
+        </p>
+      </div>
+      <div>
+        <div style="color:#FFFFFF;font-size:15px;font-weight:600;margin-bottom:14px;">Las Vegas Professional Warehouse Storage</div>
+        <p style="font-size:14px;line-height:1.7;margin:0;">4640 Polaris Ave.<br>Las Vegas, NV 89103</p>
+      </div>
+      <div>
+        <div style="color:#FFFFFF;font-size:15px;font-weight:600;margin-bottom:14px;">Las Vegas Strip Crating &amp; Logistics</div>
+        <p style="font-size:14px;line-height:1.7;margin:0;">4610 S. Polaris Ave.<br>Las Vegas, NV 89103</p>
+      </div>
+    </div>
+    <div style="max-width:1280px;margin:0 auto;border-top:1px solid #2a2823;padding-top:24px;display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;font-size:13px;">
+      <div>© 2026 Las Vegas Pack and Ship. All rights reserved.</div>
+      <div style="display:flex;gap:20px;">
+        <a href="Privacy Policy.dc.html" style="color:#cfcdc4;">Privacy Policy</a>
+        <a href="Las Vegas Pack and Ship.dc.html#" style="color:#cfcdc4;">Sitemap</a>
+      </div>
+    </div>
+  </footer>
+
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { mobileNavOpen: false };
+  componentDidMount() {
+    this._onScroll = () => {
+      const bar = document.getElementById('sticky-bar');
+      const hero = document.getElementById('home');
+      if (!bar || !hero) return;
+      const barActive = getComputedStyle(bar).display !== 'none';
+      const past = barActive && window.scrollY > hero.offsetTop + hero.offsetHeight - 120;
+      bar.style.transform = past ? 'translateY(0)' : 'translateY(-100%)';
+      const head = document.querySelector('header');
+      if (head) { head.style.visibility = past ? 'hidden' : 'visible'; head.style.position = past ? 'relative' : 'sticky'; }
+    };
+    window.addEventListener('scroll', this._onScroll, { passive: true });
+    window.addEventListener('resize', this._onScroll);
+    this._onScroll();
+  }
+  componentWillUnmount() {
+    if (this._onScroll) { window.removeEventListener('scroll', this._onScroll); window.removeEventListener('resize', this._onScroll); }
+  }
+  renderVals() {
+    return {
+      mobileNavOpen: this.state.mobileNavOpen,
+      toggleNav: () => this.setState(s => ({ mobileNavOpen: !s.mobileNavOpen })),
+      closeNav: () => this.setState({ mobileNavOpen: false }),
+    };
+  }
+}
+
+</script>
+</body>
+</html>

@@ -1,0 +1,919 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&amp;family=Work+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<script src="./image-slot.js"></script>
+<style>
+  body { margin: 0; }
+  a { color: #D6A441; text-decoration: none; }
+  a:hover { color: #b8863a; text-decoration: underline; }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+  @keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+  .wwd-card img.wwd-photo { filter: blur(10px) saturate(0.6) brightness(0.4); transform: scale(1.12); transition: filter 0.45s ease, transform 0.45s ease; }
+  .wwd-card:hover img.wwd-photo { filter: none; transform: scale(1.02); }
+  .wwd-card .wwd-overlay, .wwd-card .wwd-text { transition: opacity 0.45s ease; }
+  .wwd-card .wwd-overlay { background: linear-gradient(180deg, rgba(12,11,9,0.28) 0%, rgba(12,11,9,0.74) 100%), rgba(255,255,255,0.10); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); box-shadow: inset 0 1px 0 rgba(255,255,255,0.22); }
+  .wwd-card:hover .wwd-overlay, .wwd-card:hover .wwd-text { opacity: 0; }
+  .svc-card { transition: transform .3s ease, box-shadow .3s ease, filter .3s ease; }
+  .svc-card:hover { transform: translateY(-6px); box-shadow: 0 22px 46px rgba(12,11,9,.28); filter: saturate(1.08); }
+  @media (max-width: 900px) { .svc-grid { grid-template-columns: repeat(2, 1fr) !important; } }
+  @media (max-width: 600px) { .svc-grid { grid-template-columns: 1fr !important; } }
+  @media (max-width: 1100px) { #sticky-bar { display: none; } }
+  .nav-item { position: relative; }
+  .nav-dropdown { display: none; position: absolute; top: 100%; left: 0; background: #FFFFFF; border: 1px solid #eee9dd; box-shadow: 0 12px 24px rgba(12,11,9,0.08); min-width: 240px; padding: 8px 0; z-index: 60; }
+  .nav-item:hover .nav-dropdown { display: block; }
+  .nav-dropdown a { display: block; padding: 10px 20px; color: #0C0B09; font-size: 14px; white-space: nowrap; }
+  .nav-dropdown a:hover { background: #FAF8F4; color: #D6A441; text-decoration: none; }
+  @media (max-width: 1100px) {
+    #main-nav { display: none !important; }
+    #nav-hamburger { display: flex !important; }
+  }
+  @media (min-width: 1101px) {
+    #mobile-nav-panel { display: none !important; }
+  }
+  @media (max-width: 960px) {
+    .stack-grid { grid-template-columns: 1fr !important; }
+  }
+</style>
+</helmet>
+
+<div style="font-family:'Work Sans',sans-serif;color:#0C0B09;background:#FFFFFF;width:100%;overflow-x:clip;">
+
+  <!-- CONDENSED STICKY BAR -->
+  <div id="sticky-bar" style="position:fixed;top:0;left:0;right:0;z-index:60;background:#FFFFFF;box-shadow:0 4px 18px rgba(12,11,9,0.12);transform:translateY(-100%);transition:transform .32s ease;">
+    <div style="max-width:1460px;margin:0 auto;padding:10px 24px;display:flex;align-items:center;gap:24px;">
+      <a href="#home" style="display:flex;flex-shrink:0;"><img src="assets/logo-color.png" alt="Las Vegas Pack and Ship logo" style="height:56px;width:auto;object-fit:contain;flex-shrink:0;" /></a>
+      <nav style="display:flex;align-items:center;gap:22px;margin:0 auto;flex-wrap:wrap;">
+        <a href="#home" style="color:#0C0B09;font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:0.04em;font-size:13px;border-bottom:2px solid #D6A441;padding-bottom:3px;">Home</a>
+        <div class="nav-item">
+          <a href="#local-store" style="color:#0C0B09;font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:0.04em;font-size:13px;display:inline-flex;align-items:center;gap:6px;">Shipping &amp; Packing <span style="color:#D6A441;font-weight:700;">+</span></a>
+          <div class="nav-dropdown">
+            <a href="Local Packing and Shipping Store.dc.html">Local Packing &amp; Shipping Store</a>
+            <a href="Electronic Packing and Shipping.dc.html">Electronic Packing &amp; Shipping</a>
+            <a href="Local Packing and Shipping Supplies.dc.html">Packing, Shipping &amp; Moving Supplies</a>
+            <a href="Corrugated Fiberboard Packaging.dc.html">Custom Crating &amp; Corrugated Fiberboard Packaging</a>
+          </div>
+        </div>
+        <div class="nav-item">
+          <a href="#fine-art" style="color:#0C0B09;font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:0.04em;font-size:13px;display:inline-flex;align-items:center;gap:6px;">Fine Art Services <span style="color:#D6A441;font-weight:700;">+</span></a>
+          <div class="nav-dropdown">
+            <a href="Fine Art Shipping.dc.html">Fine Art Shipping</a>
+            <a href="Fine Art Moving and Packing.dc.html">Fine Art Moving and Packing</a>
+            <a href="Art Courier Service.dc.html">Art Courier Service</a>
+            <a href="Art Consultation.dc.html">Art Consultation</a>
+            <a href="Art Installation.dc.html">Art Installation</a>
+            <a href="Vapor Barrier Bag Shipping.dc.html">Vapor Barrier Bag Shipping</a>
+          </div>
+        </div>
+        <div class="nav-item">
+          <a href="#projects" style="color:#0C0B09;font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:0.04em;font-size:13px;display:inline-flex;align-items:center;gap:6px;">Projects <span style="color:#D6A441;font-weight:700;">+</span></a>
+          <div class="nav-dropdown">
+            <a href="Rick's Restoration.dc.html">Rick's Restoration</a>
+          </div>
+        </div>
+        <a href="#contact" style="color:#0C0B09;font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:0.04em;font-size:13px;">Contact</a>
+      </nav>
+      <div style="display:flex;align-items:center;gap:14px;flex-shrink:0;">
+        <div style="display:flex;align-items:center;gap:7px;">
+          <span style="font-family:'Work Sans',sans-serif;font-weight:700;font-size:17px;line-height:1;">
+            <span style="color:#4285F4;">G</span><span style="color:#EA4335;">o</span><span style="color:#FBBC05;">o</span><span style="color:#4285F4;">g</span><span style="color:#34A853;">l</span><span style="color:#EA4335;">e</span>
+          </span>
+          <span style="color:#D6A441;font-size:13px;letter-spacing:1px;">★★★★★</span>
+        </div>
+        <a href="#contact" style="display:inline-block;background:#D6A441;color:#0C0B09;font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:0.06em;font-size:14px;padding:13px 20px;white-space:nowrap;" style-hover="background:#0C0B09;color:#D6A441;text-decoration:none;">Request Quote</a>
+        <a href="tel:17025099630" style="display:inline-block;background:#0C0B09;color:#FFFFFF;font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:0.06em;font-size:14px;padding:13px 20px;white-space:nowrap;" style-hover="background:#D6A441;color:#0C0B09;text-decoration:none;">1 (702) 509-9630</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- TOP BAR -->
+  <div style="background:#0C0B09;color:#FFFFFF;font-size:13px;padding:8px 24px;display:flex;justify-content:center;gap:24px;letter-spacing:0.03em;">
+    <span>Family owned &amp; operated since 1995</span>
+    <span style="color:#D6A441;">|</span>
+    <span style="font-size:13px;color:#FFFFFF;">4640 S. Polaris Ave, Las Vegas, NV 89103</span>
+  </div>
+
+  <!-- HEADER / NAV -->
+  <header style="position:sticky;top:0;z-index:50;background:#FFFFFF;border-bottom:1px solid #eee9dd;">
+    <div style="max-width:1280px;margin:0 auto;padding:16px 24px;display:flex;align-items:center;justify-content:space-between;gap:24px;">
+      <a href="#home" style="display:flex;flex-shrink:0;"><img src="assets/logo-color.png" alt="Las Vegas Pack and Ship logo" style="height: 96px; width: 183px; object-fit: contain; flex-shrink: 0; margin: -18px 0"></a>
+      <nav id="main-nav" style="display:flex;gap:30px;align-items:center;flex-wrap:wrap;">
+        <a href="#home" style="color:#D6A441;font-size:14px;font-weight:600;">Home</a>
+        <div class="nav-item">
+          <a href="#local-store" style="color:#0C0B09;font-size:14px;display:inline-flex;align-items:center;gap:4px;">Shipping &amp; Packing Services <span style="font-size:10px;color:#8a8880;">▾</span></a>
+          <div class="nav-dropdown">
+            <a href="Local Packing and Shipping Store.dc.html">Local Packing &amp; Shipping Store</a>
+            <a href="Electronic Packing and Shipping.dc.html">Electronic Packing &amp; Shipping</a>
+            <a href="Local Packing and Shipping Supplies.dc.html">Packing, Shipping &amp; Moving Supplies</a>
+            <a href="Corrugated Fiberboard Packaging.dc.html">Custom Crating &amp; Corrugated Fiberboard Packaging</a>
+          </div>
+        </div>
+        <div class="nav-item">
+          <a href="#fine-art" style="color:#0C0B09;font-size:14px;display:inline-flex;align-items:center;gap:4px;">Fine Art Services <span style="font-size:10px;color:#8a8880;">▾</span></a>
+          <div class="nav-dropdown">
+            <a href="Fine Art Shipping.dc.html">Fine Art Shipping</a>
+            <a href="Fine Art Moving and Packing.dc.html">Fine Art Moving and Packing</a>
+            <a href="Art Courier Service.dc.html">Art Courier Service</a>
+            <a href="Art Consultation.dc.html">Art Consultation</a>
+            <a href="Art Installation.dc.html">Art Installation</a>
+            <a href="Vapor Barrier Bag Shipping.dc.html">Vapor Barrier Bag Shipping</a>
+          </div>
+        </div>
+        <div class="nav-item">
+          <a href="#projects" style="color:#0C0B09;font-size:14px;display:inline-flex;align-items:center;gap:4px;">Projects <span style="font-size:10px;color:#8a8880;">▾</span></a>
+          <div class="nav-dropdown">
+            <a href="Rick's Restoration.dc.html">Rick's Restoration</a>
+          </div>
+        </div>
+        <a href="#contact" style="color:#0C0B09;font-size:14px;">Contact</a>
+      </nav>
+      <div style="display:flex;align-items:center;gap:16px;">
+        <a href="tel:17025099630" style="display:inline-flex;align-items:center;gap:8px;color:#0C0B09;font-weight:600;font-size:14px;white-space:nowrap;border:1.5px solid #0C0B09;padding:11px 18px;border-radius:4px;" style-hover="border-color:#D6A441;color:#D6A441;text-decoration:none;">1 (702) 509-9630</a>
+        <a href="#contact" style="display:inline-block;position:relative;background:#D6A441;color:#0C0B09;font-weight:700;font-size:14px;padding:11px 22px;border:1.5px solid #0C0B09;border-radius:4px;white-space:nowrap;box-shadow:3px 3px 0 #0C0B09;" style-hover="transform:translate(1px,1px);box-shadow:2px 2px 0 #0C0B09;text-decoration:none;">Free Quote</a>
+        <button id="nav-hamburger" onClick="{{ toggleNav }}" style="display:none;background:none;border:1px solid #0C0B09;color:#0C0B09;font-size:20px;width:40px;height:40px;border-radius:2px;cursor:pointer;">☰</button>
+      </div>
+    </div>
+    <sc-if value="{{ mobileNavOpen }}">
+      <div id="mobile-nav-panel" style="display:flex;flex-direction:column;padding:8px 24px 20px;gap:14px;background:#FFFFFF;border-top:1px solid #eee9dd;">
+        <a href="#home" onClick="{{ closeNav }}" style="color:#0C0B09;font-size:15px;font-weight:600;">Home</a>
+        <div style="font-size:12px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#D6A441;margin-top:6px;">Shipping &amp; Packing Services</div>
+        <a href="Local Packing and Shipping Store.dc.html" onClick="{{ closeNav }}" style="color:#0C0B09;font-size:15px;padding-left:8px;">Local Packing &amp; Shipping Store</a>
+        <a href="Electronic Packing and Shipping.dc.html" onClick="{{ closeNav }}" style="color:#0C0B09;font-size:15px;padding-left:8px;">Electronic Packing &amp; Shipping</a>
+        <a href="Local Packing and Shipping Supplies.dc.html" onClick="{{ closeNav }}" style="color:#0C0B09;font-size:15px;padding-left:8px;">Packing, Shipping &amp; Moving Supplies</a>
+        <a href="Corrugated Fiberboard Packaging.dc.html" onClick="{{ closeNav }}" style="color:#0C0B09;font-size:15px;padding-left:8px;">Custom Crating &amp; Corrugated Fiberboard Packaging</a>
+        <div style="font-size:12px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#D6A441;margin-top:6px;">Fine Art Services</div>
+        <a href="Fine Art Shipping.dc.html" onClick="{{ closeNav }}" style="color:#0C0B09;font-size:15px;padding-left:8px;">Fine Art Shipping</a>
+        <a href="Fine Art Moving and Packing.dc.html" onClick="{{ closeNav }}" style="color:#0C0B09;font-size:15px;padding-left:8px;">Fine Art Moving and Packing</a>
+        <a href="Art Courier Service.dc.html" onClick="{{ closeNav }}" style="color:#0C0B09;font-size:15px;padding-left:8px;">Art Courier Service</a>
+        <a href="Art Consultation.dc.html" onClick="{{ closeNav }}" style="color:#0C0B09;font-size:15px;padding-left:8px;">Art Consultation</a>
+        <a href="Art Installation.dc.html" onClick="{{ closeNav }}" style="color:#0C0B09;font-size:15px;padding-left:8px;">Art Installation</a>
+        <a href="Vapor Barrier Bag Shipping.dc.html" onClick="{{ closeNav }}" style="color:#0C0B09;font-size:15px;padding-left:8px;">Vapor Barrier Bag Shipping</a>
+        <div style="font-size:12px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#D6A441;margin-top:6px;">Projects</div>
+        <a href="Rick's Restoration.dc.html" onClick="{{ closeNav }}" style="color:#0C0B09;font-size:15px;padding-left:8px;">Rick's Restoration</a>
+        <a href="#contact" onClick="{{ closeNav }}" style="color:#0C0B09;font-size:15px;font-weight:600;margin-top:6px;">Contact</a>
+        <a href="tel:17025099630" onClick="{{ closeNav }}" style="color:#D6A441;font-size:15px;font-weight:600;margin-top:6px;">Call 1 (702) 509-9630</a>
+      </div>
+    </sc-if>
+  </header>
+
+  <!-- HERO -->
+  <section id="home" style="position:relative;min-height:600px;display:flex;align-items:center;overflow:hidden;background:#0C0B09;">
+    <img src="uploads/20260430_101325 (1).webp" alt="Las Vegas Pack and Ship truck on a residential delivery" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;">
+    <div style="position:absolute;inset:0;background:linear-gradient(90deg, rgba(12,11,9,0.92) 0%, rgba(12,11,9,0.75) 45%, rgba(12,11,9,0.35) 100%);z-index:1;"></div>
+    <div style="position:relative;z-index:2;width:100%;max-width:1280px;margin:0 auto;padding:clamp(48px,8vw,100px) clamp(24px,6vw,64px);display:flex;align-items:center;justify-content:space-between;gap:40px;flex-wrap:wrap;">
+      <div style="display:flex;align-items:center;gap:20px;">
+        <div style="width:4px;align-self:stretch;background:#D6A441;flex-shrink:0;"></div>
+        <div style="max-width:560px;">
+          <div style="color:#D6A441;font-size:13px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;margin-bottom:18px;">Unleash the Power of Packing</div>
+          <h1 style="font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:0.01em;font-size:clamp(32px,4.6vw,54px);line-height:1.15;margin:0 0 22px;color:#FFFFFF;">Save time and money with our local pack &amp; ship stores</h1>
+          <p style="font-size:16px;line-height:1.7;color:#d6d4cb;margin:0 0 32px;">From everyday parcels to museum-quality fine art, our family has packed and shipped it all since 1995 — anything, to anywhere.</p>
+          <div style="display:flex;flex-wrap:wrap;gap:16px;">
+            <a href="#contact" style="display:inline-flex;align-items:center;gap:8px;background:#D6A441;color:#0C0B09;font-weight:600;font-size:15px;padding:15px 26px;border-radius:2px;" style-hover="background:#e8b95a;text-decoration:none;">Get a Free Quote ↗</a>
+            <a href="tel:17025099630" style="display:inline-flex;align-items:center;gap:8px;border:1.5px solid #FFFFFF;color:#FFFFFF;font-weight:600;font-size:15px;padding:15px 26px;border-radius:2px;" style-hover="border-color:#D6A441;color:#D6A441;text-decoration:none;">1 (702) 509-9630</a>
+          </div>
+        </div>
+      </div>
+      <div style="background:#FFFFFF;border:2px solid #D6A441;border-radius:6px;padding:32px;width:100%;max-width:360px;box-shadow:0 20px 40px rgba(0,0,0,0.35);">
+        <h3 style="font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:0.01em;font-size:20px;margin:0 0 6px;color:#0C0B09;">Get a Free Quote</h3>
+        <p style="font-size:13px;color:#5a5952;margin:0 0 20px;">We'll get back to you within one business day.</p>
+        <div style="display:flex;flex-direction:column;gap:12px;">
+          <input type="text" placeholder="Name" style="background:#FAF8F4;border:1px solid #e8e4da;color:#0C0B09;padding:12px 14px;border-radius:2px;font-size:14px;font-family:'Work Sans',sans-serif;width:100%;box-sizing:border-box;">
+          <input type="tel" placeholder="Phone" style="background:#FAF8F4;border:1px solid #e8e4da;color:#0C0B09;padding:12px 14px;border-radius:2px;font-size:14px;font-family:'Work Sans',sans-serif;width:100%;box-sizing:border-box;">
+          <input type="text" placeholder="What do you need to ship?" style="background:#FAF8F4;border:1px solid #e8e4da;color:#0C0B09;padding:12px 14px;border-radius:2px;font-size:14px;font-family:'Work Sans',sans-serif;width:100%;box-sizing:border-box;">
+          <a href="#contact" style="display:block;text-align:center;background:#D6A441;color:#0C0B09;font-weight:600;font-size:15px;padding:13px;border-radius:2px;margin-top:6px;" style-hover="background:#e8b95a;text-decoration:none;">Request Quote</a>
+        </div>
+      </div>
+    </div>
+    <div style="position:absolute;top:24px;left:clamp(24px,6vw,64px);z-index:2;display:flex;align-items:center;gap:10px;background:#FFFFFF;border-radius:24px;padding:8px 16px;box-shadow:0 4px 12px rgba(0,0,0,0.2);">
+      <span style="font-family:'Work Sans',sans-serif;font-weight:700;font-size:18px;">
+        <span style="color:#4285F4;">G</span><span style="color:#EA4335;">o</span><span style="color:#FBBC05;">o</span><span style="color:#4285F4;">g</span><span style="color:#34A853;">l</span><span style="color:#EA4335;">e</span>
+      </span>
+      <span style="color:#0C0B09;font-size:15px;font-weight:700;">4.7</span>
+      <span style="color:#D6A441;font-size:13px;letter-spacing:1px;">★★★★★</span>
+      <span style="width:1px;height:18px;background:#e0ddd3;"></span>
+      <span style="color:#5a5952;font-size:13px;">12 Google reviews</span>
+    </div>
+  </section>
+
+  <!-- CLIENTS STRIP -->
+  <section style="background:#FAF8F4;padding:40px 24px;border-bottom:1px solid #e8e4da;">
+    <div style="max-width:1280px;margin:0 auto;">
+      <h3 style="text-align:center;font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:0.01em;font-size:18px;margin:0 0 28px;color:#0C0B09;">Our Clients<span style="display:block;width:48px;height:3px;background:#D6A441;margin:8px auto 0;"></span></h3>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:24px;align-items:center;">
+        <img src="assets/client-wynn.png" alt="Wynn Resorts logo" style="width:100%;height:56px;object-fit:contain;">
+        <img src="assets/client-ricks.png" alt="Rick's Restorations logo" style="width:100%;height:56px;object-fit:contain;">
+        <img src="assets/client-sothebys.png" alt="Sotheby's logo" style="width:100%;height:56px;object-fit:contain;">
+        <img src="assets/client-bonhams.png" alt="Bonhams logo" style="width:100%;height:56px;object-fit:contain;">
+      </div>
+    </div>
+  </section>
+  <section style="background:#FFFFFF;padding:clamp(48px,7vw,96px) 24px;">
+    <div class="stack-grid" style="max-width:1280px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;">
+      <div style="position:relative;padding:0 32px 32px 0;">
+        <image-slot id="about-img" src="uploads/20201223_102210 (1).webp" style="width:100%;height:380px;display:block;" shape="rect" radius="2" placeholder="Craftsman crating a painting in the warehouse"></image-slot>
+        
+      </div>
+      <div style="display:flex;gap:20px;align-items:flex-start;">
+        <div style="width:4px;align-self:stretch;background:#D6A441;flex-shrink:0;"></div>
+        <div>
+        <div style="color:#D6A441;font-size:13px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;margin-bottom:14px;">Our Services</div>
+        <h2 style="font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:0.01em;font-size:clamp(26px,3.4vw,38px);line-height:1.15;margin:0 0 20px;color:#0C0B09;">A Nevada family business, trusted with fine art since 1995</h2>
+        <p style="font-size:16px;line-height:1.7;color:#5a5952;margin:0 0 32px;">Run by a father-and-son team, we serve private collectors, art dealers, galleries, artists, and auction houses across the U.S. and internationally — handling everything from pianos and paintings to sculptures, marble statues, and antique furniture.</p>
+        <div style="display:flex;flex-direction:column;gap:26px;">
+          <div style="display:flex;gap:18px;align-items:flex-start;">
+            <div style="width:44px;height:44px;border-radius:50%;background:#0C0B09;color:#D6A441;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:18px;">◆</div>
+            <div>
+              <div style="font-size:17px;font-weight:600;color:#0C0B09;margin-bottom:4px;">Museum-Quality Crating</div>
+              <p style="font-size:14px;color:#5a5952;line-height:1.6;margin:0;">ISPM-15 heat-treated wood crates and vapor barrier moisture bags for safe transit anywhere.</p>
+            </div>
+          </div>
+          <div style="display:flex;gap:18px;align-items:flex-start;">
+            <div style="width:44px;height:44px;border-radius:50%;background:#0C0B09;color:#D6A441;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:18px;">◆</div>
+            <div>
+              <div style="font-size:17px;font-weight:600;color:#0C0B09;margin-bottom:4px;">White-Glove Courier Delivery</div>
+              <p style="font-size:14px;color:#5a5952;line-height:1.6;margin:0;">Insured artwork transport and storage, handled personally from pickup to final placement.</p>
+            </div>
+          </div>
+          <div style="display:flex;gap:18px;align-items:flex-start;">
+            <div style="width:44px;height:44px;border-radius:50%;background:#0C0B09;color:#D6A441;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:18px;">◆</div>
+            <div>
+              <div style="font-size:17px;font-weight:600;color:#0C0B09;margin-bottom:4px;">Customs &amp; Insurance Support</div>
+              <p style="font-size:14px;color:#5a5952;line-height:1.6;margin:0;">Customs brokerage and art insurance assistance, so international shipments move hassle-free.</p>
+            </div>
+          </div>
+        </div>
+        </div>
+      </div>
+    </div>
+    <div style="position:relative;z-index:3;display:flex;flex-wrap:wrap;gap:16px;justify-content:center;margin:clamp(36px,5vw,52px) auto 0;">
+      <a href="#home" style="display:inline-flex;align-items:center;gap:8px;background:#D6A441;color:#0C0B09;font-weight:600;font-size:15px;padding:15px 26px;border-radius:2px;" style-hover="background:#e8b95a;text-decoration:none;">Get a Free Quote ↗</a>
+      <a href="tel:17025099630" style="display:inline-flex;align-items:center;gap:8px;border:1.5px solid #0C0B09;color:#0C0B09;font-weight:600;font-size:15px;padding:15px 26px;border-radius:2px;" style-hover="border-color:#D6A441;color:#D6A441;text-decoration:none;">1 (702) 509-9630</a>
+    </div>
+  </section>
+
+  <!-- SERVICES GRID -->
+  <section id="local-store" style="position:relative;padding:clamp(48px,7vw,88px) 24px;overflow:hidden;background:#0C0B09;">
+    <img src="assets/wwd-section-bg.webp" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;" />
+    <div style="position:absolute;inset:0;background:rgba(12,11,9,0.55);z-index:1;"></div>
+    <div style="position:absolute;inset:0;background:linear-gradient(90deg, rgba(12,11,9,0.85) 0%, rgba(12,11,9,0.15) 30%, rgba(12,11,9,0.15) 70%, rgba(12,11,9,0.85) 100%);z-index:1;pointer-events:none;"></div>
+    <div style="position:relative;z-index:2;max-width:1280px;margin:0 auto;">
+      <div style="text-align:center;max-width:680px;margin:0 auto 48px;">
+        <div style="color:#D6A441;font-size:14px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;margin-bottom:12px;">What We Do</div>
+        <h2 style="font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:0.01em;font-size:clamp(26px,3.4vw,38px);margin:0;color:#FFFFFF;">We pack and ship anything, anywhere</h2>
+      <div style="width:48px;height:3px;background:#D6A441;margin:16px auto 0;"></div>
+      </div>
+      <div class="services-grid" style="display:grid;grid-template-columns:repeat(4,1fr);gap:28px;">
+        <div class="wwd-card" style="position:relative;min-height:260px;display:flex;flex-direction:column;justify-content:flex-end;overflow:hidden;border:1px solid rgba(255,255,255,0.18);border-radius:18px;">
+          <img src="assets/wwd-fix-1.webp" alt="" class="wwd-photo" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;" />
+          <div class="wwd-overlay" style="position:absolute;inset:0;z-index:1;"></div>
+          <div class="wwd-text" style="position:relative;z-index:2;padding:28px;">
+            <div style="width:40px;height:40px;border:2px solid #D6A441;color:#D6A441;font-weight:700;display:flex;align-items:center;justify-content:center;margin-bottom:18px;">01</div>
+            <h3 style="font-size:18px;margin:0 0 8px;color:#FFFFFF;">Every packing &amp; shipping supply you need</h3>
+            <p style="font-size:15px;color:#cfcdc4;line-height:1.6;margin:0;">We ship anything to anywhere — boxes, tape, labels, and materials for every job.</p>
+          </div>
+        </div>
+        <div class="wwd-card" style="position:relative;min-height:260px;display:flex;flex-direction:column;justify-content:flex-end;overflow:hidden;border:1px solid rgba(255,255,255,0.18);border-radius:18px;">
+          <img src="assets/wwd-fix-2.webp" alt="" class="wwd-photo" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;" />
+          <div class="wwd-overlay" style="position:absolute;inset:0;z-index:1;"></div>
+          <div class="wwd-text" style="position:relative;z-index:2;padding:28px;">
+            <div style="width:40px;height:40px;border:2px solid #D6A441;color:#D6A441;font-weight:700;display:flex;align-items:center;justify-content:center;margin-bottom:18px;">02</div>
+            <h3 style="font-size:18px;margin:0 0 8px;color:#FFFFFF;">Vintage antiques &amp; fragile belongings</h3>
+            <p style="font-size:15px;color:#cfcdc4;line-height:1.6;margin:0;">Hard-to-ship, delicate, or irreplaceable — we've handled it before.</p>
+          </div>
+        </div>
+        <div class="wwd-card" style="position:relative;min-height:260px;display:flex;flex-direction:column;justify-content:flex-end;overflow:hidden;border:1px solid rgba(255,255,255,0.18);border-radius:18px;">
+          <img src="assets/wwd-fix-3.webp" alt="" class="wwd-photo" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;" />
+          <div class="wwd-overlay" style="position:absolute;inset:0;z-index:1;"></div>
+          <div class="wwd-text" style="position:relative;z-index:2;padding:28px;">
+            <div style="width:40px;height:40px;border:2px solid #D6A441;color:#D6A441;font-weight:700;display:flex;align-items:center;justify-content:center;margin-bottom:18px;">03</div>
+            <h3 style="font-size:18px;margin:0 0 8px;color:#FFFFFF;">Custom boxes for online sellers</h3>
+            <p style="font-size:15px;color:#cfcdc4;line-height:1.6;margin:0;">Bulk rates for Etsy and online store owners shipping in volume.</p>
+          </div>
+        </div>
+        <div class="wwd-card" style="position:relative;min-height:260px;display:flex;flex-direction:column;justify-content:flex-end;overflow:hidden;border:1px solid rgba(255,255,255,0.18);border-radius:18px;">
+          <img src="assets/wwd-fix-4.webp" alt="" class="wwd-photo" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;" />
+          <div class="wwd-overlay" style="position:absolute;inset:0;z-index:1;"></div>
+          <div class="wwd-text" style="position:relative;z-index:2;padding:28px;">
+            <div style="width:40px;height:40px;border:2px solid #D6A441;color:#D6A441;font-weight:700;display:flex;align-items:center;justify-content:center;margin-bottom:18px;">04</div>
+            <h3 style="font-size:18px;margin:0 0 8px;color:#FFFFFF;">Custom boxes for oversized items</h3>
+            <p style="font-size:15px;color:#cfcdc4;line-height:1.6;margin:0;">Unique shapes and dimensions, built to fit exactly what you're sending.</p>
+          </div>
+        </div>
+        <div class="wwd-card" style="position:relative;min-height:260px;display:flex;flex-direction:column;justify-content:flex-end;overflow:hidden;border:1px solid rgba(255,255,255,0.18);border-radius:18px;">
+          <img src="assets/wwd-fix-5.webp" alt="" class="wwd-photo" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;" />
+          <div class="wwd-overlay" style="position:absolute;inset:0;z-index:1;"></div>
+          <div class="wwd-text" style="position:relative;z-index:2;padding:28px;">
+            <div style="width:40px;height:40px;border:2px solid #D6A441;color:#D6A441;font-weight:700;display:flex;align-items:center;justify-content:center;margin-bottom:18px;">05</div>
+            <h3 style="font-size:18px;margin:0 0 8px;color:#FFFFFF;">Large &amp; specialty furniture moving</h3>
+            <p style="font-size:15px;color:#cfcdc4;line-height:1.6;margin:0;">From oversized furniture to specialty pieces, moved with care.</p>
+          </div>
+        </div>
+        <div id="fine-art" class="wwd-card" style="position:relative;min-height:260px;display:flex;flex-direction:column;justify-content:flex-end;overflow:hidden;border:1px solid rgba(255,255,255,0.18);border-radius:18px;">
+          <img src="assets/wwd-fix-6.webp" alt="" class="wwd-photo" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;" />
+          <div class="wwd-overlay" style="position:absolute;inset:0;z-index:1;"></div>
+          <div class="wwd-text" style="position:relative;z-index:2;padding:28px;">
+            <div style="width:40px;height:40px;border:2px solid #D6A441;color:#D6A441;font-weight:700;display:flex;align-items:center;justify-content:center;margin-bottom:18px;">06</div>
+            <h3 style="font-size:18px;margin:0 0 8px;color:#FFFFFF;">Fine art shipping, storage &amp; mailing</h3>
+            <p style="font-size:15px;color:#cfcdc4;line-height:1.6;margin:0;">A true white-glove approach for your most valuable pieces.</p>
+          </div>
+        </div>
+        <div class="wwd-card" style="position:relative;min-height:260px;display:flex;flex-direction:column;justify-content:flex-end;overflow:hidden;border:1px solid rgba(255,255,255,0.18);border-radius:18px;">
+          <img src="assets/wwd-fix-7.webp" alt="" class="wwd-photo" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;" />
+          <div class="wwd-overlay" style="position:absolute;inset:0;z-index:1;"></div>
+          <div class="wwd-text" style="position:relative;z-index:2;padding:28px;">
+            <div style="width:40px;height:40px;border:2px solid #D6A441;color:#D6A441;font-weight:700;display:flex;align-items:center;justify-content:center;margin-bottom:18px;">07</div>
+            <h3 style="font-size:18px;margin:0 0 8px;color:#FFFFFF;">Custom wood crates for vintage signs</h3>
+            <p style="font-size:15px;color:#cfcdc4;line-height:1.6;margin:0;">ISPM-15 heat-treated crates that meet international customs codes.</p>
+          </div>
+        </div>
+        <div class="wwd-card" style="position:relative;min-height:260px;display:flex;flex-direction:column;justify-content:flex-end;overflow:hidden;border:1px solid rgba(255,255,255,0.18);border-radius:18px;">
+          <img src="assets/wwd-fix-8.webp" alt="" class="wwd-photo" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;" />
+          <div class="wwd-overlay" style="position:absolute;inset:0;z-index:1;"></div>
+          <div class="wwd-text" style="position:relative;z-index:2;padding:28px;">
+            <div style="width:40px;height:40px;border:2px solid #D6A441;color:#D6A441;font-weight:700;display:flex;align-items:center;justify-content:center;margin-bottom:18px;">08</div>
+            <h3 style="font-size:18px;margin:0 0 8px;color:#FFFFFF;">Motorcycle &amp; oversized item crating</h3>
+            <p style="font-size:15px;color:#cfcdc4;line-height:1.6;margin:0;">Not sure how to pack it? Call today — we'll figure it out.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div style="position:relative;z-index:3;display:flex;flex-wrap:wrap;gap:16px;justify-content:center;margin:clamp(36px,5vw,52px) auto 0;">
+      <a href="#home" style="display:inline-flex;align-items:center;gap:8px;background:#D6A441;color:#0C0B09;font-weight:600;font-size:15px;padding:15px 26px;border-radius:2px;" style-hover="background:#e8b95a;text-decoration:none;">Get a Free Quote ↗</a>
+      <a href="tel:17025099630" style="display:inline-flex;align-items:center;gap:8px;border:1.5px solid #FFFFFF;color:#FFFFFF;font-weight:600;font-size:15px;padding:15px 26px;border-radius:2px;" style-hover="border-color:#D6A441;color:#D6A441;text-decoration:none;">1 (702) 509-9630</a>
+    </div>
+  </section>
+
+  <!-- SERVICES CARDS -->
+  <section id="courier" style="padding:clamp(48px,7vw,88px) 24px;border-bottom:1px solid #e8e4da;background:#FFFFFF;">
+    <div style="max-width:1280px;margin:0 auto;">
+      <div style="text-align:center;max-width:620px;margin:0 auto 48px;">
+        <div style="color:#D6A441;font-size:14px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;margin-bottom:12px;">Our Services</div>
+        <h2 style="font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:0.01em;font-size:clamp(26px,3.4vw,38px);margin:0;color:#0C0B09;">Explore Our Services</h2>
+        <div style="width:48px;height:3px;background:#D6A441;margin:16px auto 0;"></div>
+      </div>
+      <div class="svc-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px;">
+        <a href="#courier" class="svc-card" style="display:flex;align-items:center;gap:18px;min-height:104px;padding:22px 26px;text-decoration:none;background:linear-gradient(100deg, #0C0B09 0%, #1A1712 38%, #8A6A22 78%, #D6A441 100%);border:1px solid rgba(214,164,65,0.35);">
+          <span style="font-size:24px;flex-shrink:0;">🚚</span>
+          <span style="font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:0.04em;font-size:18px;line-height:1.25;color:#FFFFFF;">Art Courier Service</span>
+        </a>
+        <a href="#local-store" class="svc-card" style="display:flex;align-items:center;gap:18px;min-height:104px;padding:22px 26px;text-decoration:none;background:linear-gradient(100deg, #0C0B09 0%, #1A1712 38%, #8A6A22 78%, #D6A441 100%);border:1px solid rgba(214,164,65,0.35);">
+          <span style="font-size:24px;flex-shrink:0;">🛋</span>
+          <span style="font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:0.04em;font-size:18px;line-height:1.25;color:#FFFFFF;">Antiques Packing &amp; Moving</span>
+        </a>
+        <a href="#fine-art" class="svc-card" style="display:flex;align-items:center;gap:18px;min-height:104px;padding:22px 26px;text-decoration:none;background:linear-gradient(100deg, #0C0B09 0%, #1A1712 38%, #8A6A22 78%, #D6A441 100%);border:1px solid rgba(214,164,65,0.35);">
+          <span style="font-size:24px;flex-shrink:0;">🖼</span>
+          <span style="font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:0.04em;font-size:18px;line-height:1.25;color:#FFFFFF;">Fine Art Moving &amp; Packing</span>
+        </a>
+        <a href="#consultation" class="svc-card" style="display:flex;align-items:center;gap:18px;min-height:104px;padding:22px 26px;text-decoration:none;background:linear-gradient(100deg, #0C0B09 0%, #1A1712 38%, #8A6A22 78%, #D6A441 100%);border:1px solid rgba(214,164,65,0.35);">
+          <span style="font-size:24px;flex-shrink:0;">💬</span>
+          <span style="font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:0.04em;font-size:18px;line-height:1.25;color:#FFFFFF;">Art Consultation</span>
+        </a>
+        <a href="#fine-art" class="svc-card" style="display:flex;align-items:center;gap:18px;min-height:104px;padding:22px 26px;text-decoration:none;background:linear-gradient(100deg, #0C0B09 0%, #1A1712 38%, #8A6A22 78%, #D6A441 100%);border:1px solid rgba(214,164,65,0.35);">
+          <span style="font-size:24px;flex-shrink:0;">✈</span>
+          <span style="font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:0.04em;font-size:18px;line-height:1.25;color:#FFFFFF;">Air &amp; Sea Fine Art Shipping</span>
+        </a>
+        <a href="#local-store" class="svc-card" style="display:flex;align-items:center;gap:18px;min-height:104px;padding:22px 26px;text-decoration:none;background:linear-gradient(100deg, #0C0B09 0%, #1A1712 38%, #8A6A22 78%, #D6A441 100%);border:1px solid rgba(214,164,65,0.35);">
+          <span style="font-size:24px;flex-shrink:0;">🪑</span>
+          <span style="font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:0.04em;font-size:18px;line-height:1.25;color:#FFFFFF;">Furniture Moving</span>
+        </a>
+        <a href="Art Installation.dc.html" class="svc-card" style="display:flex;align-items:center;gap:18px;min-height:104px;padding:22px 26px;text-decoration:none;background:linear-gradient(100deg, #0C0B09 0%, #1A1712 38%, #8A6A22 78%, #D6A441 100%);border:1px solid rgba(214,164,65,0.35);">
+          <span style="font-size:24px;flex-shrink:0;">🔧</span>
+          <span style="font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:0.04em;font-size:18px;line-height:1.25;color:#FFFFFF;">Art Installation</span>
+        </a>
+        <a href="#local-store" class="svc-card" style="display:flex;align-items:center;gap:18px;min-height:104px;padding:22px 26px;text-decoration:none;background:linear-gradient(100deg, #0C0B09 0%, #1A1712 38%, #8A6A22 78%, #D6A441 100%);border:1px solid rgba(214,164,65,0.35);">
+          <span style="font-size:24px;flex-shrink:0;">📦</span>
+          <span style="font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:0.04em;font-size:18px;line-height:1.25;color:#FFFFFF;">Custom Crating &amp; Packing</span>
+        </a>
+        <a href="#fine-art" class="svc-card" style="display:flex;align-items:center;gap:18px;min-height:104px;padding:22px 26px;text-decoration:none;background:linear-gradient(100deg, #0C0B09 0%, #1A1712 38%, #8A6A22 78%, #D6A441 100%);border:1px solid rgba(214,164,65,0.35);">
+          <span style="font-size:24px;flex-shrink:0;">🏛</span>
+          <span style="font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:0.04em;font-size:18px;line-height:1.25;color:#FFFFFF;">Gallery Collection Shipping</span>
+        </a>
+      </div>
+    </div>
+    <div style="position:relative;z-index:3;display:flex;flex-wrap:wrap;gap:16px;justify-content:center;margin:clamp(36px,5vw,52px) auto 0;">
+      <a href="#home" style="display:inline-flex;align-items:center;gap:8px;background:#D6A441;color:#0C0B09;font-weight:600;font-size:15px;padding:15px 26px;border-radius:2px;" style-hover="background:#e8b95a;text-decoration:none;">Get a Free Quote ↗</a>
+      <a href="tel:17025099630" style="display:inline-flex;align-items:center;gap:8px;border:1.5px solid #0C0B09;color:#0C0B09;font-weight:600;font-size:15px;padding:15px 26px;border-radius:2px;" style-hover="border-color:#D6A441;color:#D6A441;text-decoration:none;">1 (702) 509-9630</a>
+    </div>
+  </section>
+
+  <!-- FOUR COLUMN HIGHLIGHTS -->
+  <section style="padding:clamp(48px,7vw,80px) 24px;background:#FAF8F4;">
+    <div style="max-width:1280px;margin:0 auto;">
+      <h2 style="text-align:center;font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:0.01em;font-size:clamp(26px,3.4vw,38px);margin:0 0 16px;color:#0C0B09;">Your Full Service One Stop Pack and Ship Spot</h2>
+      <div style="width:48px;height:3px;background:#D6A441;margin:0 auto 40px;"></div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:36px;">
+      <div style="text-align:center;">
+        <div style="width:72px;height:72px;border-radius:50%;background:#0C0B09;margin:0 auto 18px;display:flex;align-items:center;justify-content:center;">
+          <img src="assets/icon-affordable-shipping.svg" alt="Affordable Shipping icon" style="width:32px;height:32px;" />
+        </div>
+        <h4 style="font-size:17px;margin:0 0 8px;">Affordable Shipping</h4>
+        <p style="font-size:14px;color:#5a5952;line-height:1.6;margin:0;">Compare rates and get the lowest fees in Las Vegas.</p>
+      </div>
+      <div style="text-align:center;">
+        <div style="width:72px;height:72px;border-radius:50%;background:#0C0B09;margin:0 auto 18px;display:flex;align-items:center;justify-content:center;">
+          <img src="assets/icon-we-sell-boxes.svg" alt="We Sell Boxes icon" style="width:32px;height:32px;" />
+        </div>
+        <h4 style="font-size:17px;margin:0 0 8px;">We Sell Boxes</h4>
+        <p style="font-size:14px;color:#5a5952;line-height:1.6;margin:0;">Every shape you need — if we don't have it, we'll make it.</p>
+      </div>
+      <div style="text-align:center;">
+        <div style="width:72px;height:72px;border-radius:50%;background:#0C0B09;margin:0 auto 18px;display:flex;align-items:center;justify-content:center;">
+          <img src="assets/icon-safe-secure.svg" alt="Safe &amp; Secure icon" style="width:32px;height:32px;" />
+        </div>
+        <h4 style="font-size:17px;margin:0 0 8px;">Safe &amp; Secure</h4>
+        <p style="font-size:14px;color:#5a5952;line-height:1.6;margin:0;">The most protective packing and transport methods available.</p>
+      </div>
+      <div style="text-align:center;">
+        <div style="width:72px;height:72px;border-radius:50%;background:#0C0B09;margin:0 auto 18px;display:flex;align-items:center;justify-content:center;">
+          <img src="assets/icon-store-value.svg" alt="Store Full of Value icon" style="width:32px;height:32px;" />
+        </div>
+        <h4 style="font-size:17px;margin:0 0 8px;">Store Full of Value</h4>
+        <p style="font-size:14px;color:#5a5952;line-height:1.6;margin:0;">A local store stocked for every packing and shipping need.</p>
+      </div>
+    </div>
+    </div>
+    <div style="position:relative;z-index:3;display:flex;flex-wrap:wrap;gap:16px;justify-content:center;margin:clamp(36px,5vw,52px) auto 0;">
+      <a href="#home" style="display:inline-flex;align-items:center;gap:8px;background:#D6A441;color:#0C0B09;font-weight:600;font-size:15px;padding:15px 26px;border-radius:2px;" style-hover="background:#e8b95a;text-decoration:none;">Get a Free Quote ↗</a>
+      <a href="tel:17025099630" style="display:inline-flex;align-items:center;gap:8px;border:1.5px solid #0C0B09;color:#0C0B09;font-weight:600;font-size:15px;padding:15px 26px;border-radius:2px;" style-hover="border-color:#D6A441;color:#D6A441;text-decoration:none;">1 (702) 509-9630</a>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section style="padding:clamp(48px,7vw,88px) 24px;background:#FFFFFF;overflow:hidden;">
+    <h2 style="text-align:center;font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:0.01em;font-size:clamp(26px,3.4vw,38px);margin:0 0 16px;color:#0C0B09;">What Our Clients Are Saying</h2>
+    <div style="width:48px;height:3px;background:#D6A441;margin:0 auto 40px;"></div>
+    <div onTouchStart="{{ onSwipeStart }}" onTouchEnd="{{ onSwipeEnd }}" onMouseDown="{{ onDragStart }}" onMouseUp="{{ onDragEnd }}" onMouseEnter="{{ pauseAuto }}" onMouseLeave="{{ resumeAuto }}" style="max-width:1000px;margin:0 auto;display:flex;align-items:center;gap:56px;flex-wrap:wrap;touch-action:pan-y;cursor:grab;user-select:none;">
+      <div style="position:relative;width:160px;height:160px;flex-shrink:0;margin:0 auto;">
+        <svg viewBox="0 0 160 160" style="width:160px;height:160px;position:absolute;top:0;left:0;animation:spin 24s linear infinite;">
+          <defs><path id="tp-circle" d="M 80,80 m -62,0 a 62,62 0 1,1 124,0 a 62,62 0 1,1 -124,0" /></defs>
+          <text font-family="Work Sans, sans-serif" font-size="9.5" font-weight="700" letter-spacing="2" fill="#0C0B09">
+            <textPath href="#tp-circle" startOffset="0%">TESTIMONIALS &#8226; TESTIMONIALS &#8226; TESTIMONIALS &#8226; TESTIMONIALS &#8226;</textPath>
+          </text>
+        </svg>
+        <div style="position:absolute;inset:18px;border-radius:50%;background:#FFFFFF;border:1px solid #e8e4da;display:flex;align-items:center;justify-content:center;">
+          <span style="font-family:'Oswald',sans-serif;font-size:68px;color:#D6A441;line-height:1;">&ldquo;</span>
+        </div>
+      </div>
+      <div style="flex:1;min-width:280px;">
+        <div style="color:#D6A441;font-size:16px;letter-spacing:2px;margin-bottom:14px;">★★★★★</div>
+        <sc-if value="{{ isT0 }}" hint-placeholder-val="{{ true }}">
+          <p style="font-size:19px;line-height:1.6;color:#0C0B09;margin:0 0 22px;">&ldquo;I'm so freaking impressed with this company!! I came in last minute to meet a deadline and Will made it happen — these guys are legit.&rdquo;</p>
+        </sc-if>
+        <sc-if value="{{ isT1 }}">
+          <p style="font-size:19px;line-height:1.6;color:#0C0B09;margin:0 0 22px;">&ldquo;They had a team on standby to pick up and deliver a motorcycle and parts — took care of everything from A to Z. Really impressed.&rdquo;</p>
+        </sc-if>
+        <sc-if value="{{ isT2 }}">
+          <p style="font-size:19px;line-height:1.6;color:#0C0B09;margin:0 0 22px;">&ldquo;I needed framed artwork shipped and had no idea how. The team packaged it by hand — it arrived on time and in perfect condition.&rdquo;</p>
+        </sc-if>
+        <sc-if value="{{ isT3 }}">
+          <p style="font-size:19px;line-height:1.6;color:#0C0B09;margin:0 0 22px;">&ldquo;Will took great pride and care wrapping and boxing up my fragile antique figurine. He did a beautiful job — I highly recommend this place.&rdquo;</p>
+        </sc-if>
+        <sc-if value="{{ isT4 }}">
+          <p style="font-size:19px;line-height:1.6;color:#0C0B09;margin:0 0 22px;">&ldquo;Needed to ship a large tent to Japan on short notice — best rates around, friendly service, and it arrived in perfect condition 5 days later.&rdquo;</p>
+        </sc-if>
+        <sc-if value="{{ isT5 }}">
+          <p style="font-size:19px;line-height:1.6;color:#0C0B09;margin:0 0 22px;">&ldquo;So much easier to ship with Chris and his crew — always polite and assuring. You really feel like you're in the hands of professionals.&rdquo;</p>
+        </sc-if>
+        <div style="display:flex;align-items:center;gap:12px;">
+          <div style="width:44px;height:44px;border-radius:50%;background:#FAF8F4;border:1px solid #e8e4da;display:flex;align-items:center;justify-content:center;font-family:'Work Sans',sans-serif;font-weight:700;font-size:18px;flex-shrink:0;">
+            <span style="color:#4285F4;">G</span><span style="color:#EA4335;">o</span><span style="color:#FBBC05;">o</span><span style="color:#4285F4;">g</span><span style="color:#34A853;">l</span><span style="color:#EA4335;">e</span>
+          </div>
+          <div>
+            <sc-if value="{{ isT0 }}" hint-placeholder-val="{{ true }}"><div style="font-weight:600;font-size:15px;color:#0C0B09;">Palapa Depot</div><div style="font-size:13px;color:#6b6a64;">Google review &middot; 3 months ago</div></sc-if>
+            <sc-if value="{{ isT1 }}"><div style="font-weight:600;font-size:15px;color:#0C0B09;">Kostas Perpirakis</div><div style="font-size:13px;color:#6b6a64;">Local Guide &middot; a month ago</div></sc-if>
+            <sc-if value="{{ isT2 }}"><div style="font-weight:600;font-size:15px;color:#0C0B09;">Dominik Schirmann</div><div style="font-size:13px;color:#6b6a64;">Google review &middot; a month ago</div></sc-if>
+            <sc-if value="{{ isT3 }}"><div style="font-weight:600;font-size:15px;color:#0C0B09;">Loren Ambrose</div><div style="font-size:13px;color:#6b6a64;">Google review &middot; a year ago</div></sc-if>
+            <sc-if value="{{ isT4 }}"><div style="font-weight:600;font-size:15px;color:#0C0B09;">J Cropps</div><div style="font-size:13px;color:#6b6a64;">Google review &middot; 2 years ago</div></sc-if>
+            <sc-if value="{{ isT5 }}"><div style="font-weight:600;font-size:15px;color:#0C0B09;">Phoenix Deats</div><div style="font-size:13px;color:#6b6a64;">Local Guide &middot; a month ago</div></sc-if>
+          </div>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:10px;">
+        <span onClick="{{ setT0 }}" style="width:10px;height:10px;border-radius:50%;background:{{ dot0 }};cursor:pointer;"></span>
+        <span onClick="{{ setT1 }}" style="width:10px;height:10px;border-radius:50%;background:{{ dot1 }};cursor:pointer;"></span>
+        <span onClick="{{ setT2 }}" style="width:10px;height:10px;border-radius:50%;background:{{ dot2 }};cursor:pointer;"></span>
+        <span onClick="{{ setT3 }}" style="width:10px;height:10px;border-radius:50%;background:{{ dot3 }};cursor:pointer;"></span>
+        <span onClick="{{ setT4 }}" style="width:10px;height:10px;border-radius:50%;background:{{ dot4 }};cursor:pointer;"></span>
+        <span onClick="{{ setT5 }}" style="width:10px;height:10px;border-radius:50%;background:{{ dot5 }};cursor:pointer;"></span>
+      </div>
+    </div>
+    <div style="position:relative;z-index:3;display:flex;flex-wrap:wrap;gap:16px;justify-content:center;margin:clamp(36px,5vw,52px) auto 0;">
+      <a href="#home" style="display:inline-flex;align-items:center;gap:8px;background:#D6A441;color:#0C0B09;font-weight:600;font-size:15px;padding:15px 26px;border-radius:2px;" style-hover="background:#e8b95a;text-decoration:none;">Get a Free Quote ↗</a>
+      <a href="tel:17025099630" style="display:inline-flex;align-items:center;gap:8px;border:1.5px solid #0C0B09;color:#0C0B09;font-weight:600;font-size:15px;padding:15px 26px;border-radius:2px;" style-hover="border-color:#D6A441;color:#D6A441;text-decoration:none;">1 (702) 509-9630</a>
+    </div>
+  </section>
+
+  <!-- LATEST NEWS -->
+  <section style="background:#FAF8F4;padding:clamp(48px,7vw,88px) 24px;">
+    <div style="max-width:1280px;margin:0 auto;">
+      <div style="text-align:center;max-width:600px;margin:0 auto 48px;">
+        <div style="color:#D6A441;font-size:14px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;margin-bottom:12px;">Latest News</div>
+        <h2 style="font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:0.01em;font-size:clamp(26px,3.4vw,38px);margin:0;">From our blog</h2>
+      <div style="width:48px;height:3px;background:#D6A441;margin:16px auto 0;"></div>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:28px;">
+        <a href="Blog - Reused Cardboard Boxes.dc.html" style="display:flex;flex-direction:column;background:#FFFFFF;border:1px solid #EDE8DC;border-radius:18px;padding:16px;text-decoration:none;transition:box-shadow .25s,transform .25s;" style-hover="box-shadow:0 18px 40px rgba(12,11,9,.10);transform:translateY(-4px);">
+          <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;padding:6px 6px 14px;">
+            <span style="background:#F6F1E4;color:#0C0B09;font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;padding:6px 12px;border-radius:999px;">Packing</span>
+            <span style="color:#8C8677;font-size:11px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;">LVPS &mdash; 27 Dec, 2024</span>
+          </div>
+          <image-slot id="blog-post-photo" style="width:100%;height:200px;border-radius:12px;overflow:hidden;" shape="rounded" radius="12" placeholder="Blog photo"></image-slot>
+          <div style="padding:20px 6px 6px;display:flex;flex-direction:column;gap:16px;">
+            <h3 style="font-family:'Oswald',sans-serif;text-transform:uppercase;font-size:19px;color:#0C0B09;margin:0;line-height:1.3;">Can You Re-Use Recycled Cardboard Boxes for Packing and Shipping?</h3>
+            <span style="display:inline-flex;align-items:center;gap:8px;color:#D6A441;font-size:13px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;">Read More <span style="font-size:15px;">&rarr;</span></span>
+          </div>
+        </a>
+        <a href="Blog - On-Site Crating.dc.html" style="display:flex;flex-direction:column;background:#FFFFFF;border:1px solid #EDE8DC;border-radius:18px;padding:16px;text-decoration:none;transition:box-shadow .25s,transform .25s;" style-hover="box-shadow:0 18px 40px rgba(12,11,9,.10);transform:translateY(-4px);">
+          <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;padding:6px 6px 14px;">
+            <span style="background:#F6F1E4;color:#0C0B09;font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;padding:6px 12px;border-radius:999px;">Crating</span>
+            <span style="color:#8C8677;font-size:11px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;">LVPS &mdash; 12 Jan, 2025</span>
+          </div>
+          <image-slot id="blog-crating-photo" style="width:100%;height:200px;border-radius:12px;overflow:hidden;" shape="rounded" radius="12" placeholder="Blog photo"></image-slot>
+          <div style="padding:20px 6px 6px;display:flex;flex-direction:column;gap:16px;">
+            <h3 style="font-family:'Oswald',sans-serif;text-transform:uppercase;font-size:19px;color:#0C0B09;margin:0;line-height:1.3;">How On-Site Crating Works</h3>
+            <span style="display:inline-flex;align-items:center;gap:8px;color:#D6A441;font-size:13px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;">Read More <span style="font-size:15px;">&rarr;</span></span>
+          </div>
+        </a>
+        <a href="Blog - Pallet and Crate Shipping.dc.html" style="display:flex;flex-direction:column;background:#FFFFFF;border:1px solid #EDE8DC;border-radius:18px;padding:16px;text-decoration:none;transition:box-shadow .25s,transform .25s;" style-hover="box-shadow:0 18px 40px rgba(12,11,9,.10);transform:translateY(-4px);">
+          <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;padding:6px 6px 14px;">
+            <span style="background:#F6F1E4;color:#0C0B09;font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;padding:6px 12px;border-radius:999px;">Freight</span>
+            <span style="color:#8C8677;font-size:11px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;">LVPS &mdash; 03 Feb, 2025</span>
+          </div>
+          <image-slot id="blog-pallet-photo" style="width:100%;height:200px;border-radius:12px;overflow:hidden;" shape="rounded" radius="12" placeholder="Blog photo"></image-slot>
+          <div style="padding:20px 6px 6px;display:flex;flex-direction:column;gap:16px;">
+            <h3 style="font-family:'Oswald',sans-serif;text-transform:uppercase;font-size:19px;color:#0C0B09;margin:0;line-height:1.3;">Pallet and Crate Shipping: What's the Difference?</h3>
+            <span style="display:inline-flex;align-items:center;gap:8px;color:#D6A441;font-size:13px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;">Read More <span style="font-size:15px;">&rarr;</span></span>
+          </div>
+        </a>
+      </div>
+      <div style="display:flex;justify-content:center;margin-top:40px;">
+        <a href="#" style="display:inline-flex;align-items:center;gap:14px;border:1px solid #0C0B09;border-radius:999px;padding:8px 8px 8px 24px;color:#0C0B09;text-decoration:none;font-size:13px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;transition:background .25s,color .25s;" style-hover="background:#0C0B09;color:#FFFFFF;">
+          View All Posts
+          <span style="width:38px;height:38px;border-radius:50%;background:#D6A441;color:#0C0B09;display:inline-flex;align-items:center;justify-content:center;font-size:16px;">&#8599;</span>
+        </a>
+      </div>
+    </div>
+    <div style="position:relative;z-index:3;display:flex;flex-wrap:wrap;gap:16px;justify-content:center;margin:clamp(36px,5vw,52px) auto 0;">
+      <a href="#home" style="display:inline-flex;align-items:center;gap:8px;background:#D6A441;color:#0C0B09;font-weight:600;font-size:15px;padding:15px 26px;border-radius:2px;" style-hover="background:#e8b95a;text-decoration:none;">Get a Free Quote ↗</a>
+      <a href="tel:17025099630" style="display:inline-flex;align-items:center;gap:8px;border:1.5px solid #0C0B09;color:#0C0B09;font-weight:600;font-size:15px;padding:15px 26px;border-radius:2px;" style-hover="border-color:#D6A441;color:#D6A441;text-decoration:none;">1 (702) 509-9630</a>
+    </div>
+  </section>
+
+  <!-- SUPPLY CATEGORIES -->
+  <section id="supplies" style="position:relative;overflow:hidden;padding:clamp(48px,7vw,88px) 24px;background:#0C0B09;background-image:radial-gradient(120% 90% at 80% 0%, rgba(214,164,65,.10), transparent 60%), linear-gradient(175deg,#1A1815 0%,#141310 45%,#0C0B09 100%);">
+    <div style="position:absolute;inset:0;background-image:radial-gradient(circle at 50% 50%, rgba(255,255,255,.06) 0 1px, transparent 1px);background-size:14px 14px;mask-image:linear-gradient(180deg,rgba(0,0,0,1) 0%,rgba(0,0,0,1) 55%,rgba(0,0,0,0) 92%);-webkit-mask-image:linear-gradient(180deg,rgba(0,0,0,1) 0%,rgba(0,0,0,1) 55%,rgba(0,0,0,0) 92%);pointer-events:none;"></div>
+    <div style="position:relative;max-width:1280px;margin:0 auto;">
+      <div style="text-align:center;max-width:600px;margin:0 auto 56px;">
+        <div style="color:#D6A441;font-size:14px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;margin-bottom:12px;">Supplies</div>
+        <h2 style="font-family:'Oswald',sans-serif;color:#FFFFFF;text-transform:uppercase;letter-spacing:0.01em;font-size:clamp(26px,3.4vw,38px);margin:0;">Shop by category</h2>
+        <div style="width:48px;height:3px;background:#D6A441;margin:16px auto 0;"></div>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(24px,4vw,48px) clamp(16px,3vw,32px);">
+        <a href="#" style="display:flex;flex-direction:column;align-items:center;gap:18px;text-decoration:none;">
+          <span style="width:clamp(88px,11vw,120px);height:clamp(88px,11vw,120px);border-radius:50%;border:1px dashed rgba(255,255,255,.28);display:flex;align-items:center;justify-content:center;transition:border-color .25s,background .25s;" style-hover="border-color:#D6A441;background:rgba(214,164,65,.10);">
+            <svg width="46" height="46" viewBox="0 0 48 48" fill="none" stroke="#F2B929" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M24 6a12 12 0 00-7 21.8V32h14v-4.2A12 12 0 0024 6z"/><path d="M19 38h10M21 42h6"/></svg>
+          </span>
+          <span style="color:#FFFFFF;font-size:14px;font-weight:600;letter-spacing:0.04em;text-align:center;max-width:180px;">Creative Ideas</span>
+        </a>
+        <a href="#" style="display:flex;flex-direction:column;align-items:center;gap:18px;text-decoration:none;">
+          <span style="width:clamp(88px,11vw,120px);height:clamp(88px,11vw,120px);border-radius:50%;border:1px dashed rgba(255,255,255,.28);display:flex;align-items:center;justify-content:center;transition:border-color .25s,background .25s;" style-hover="border-color:#D6A441;background:rgba(214,164,65,.10);">
+            <svg width="46" height="46" viewBox="0 0 48 48" fill="none" stroke="#F2B929" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 16l18-8 18 8-18 8-18-8z"/><path d="M6 16v16l18 8 18-8V16"/><path d="M24 24v16"/></svg>
+          </span>
+          <span style="color:#FFFFFF;font-size:14px;font-weight:600;letter-spacing:0.04em;text-align:center;max-width:180px;">Bulk Cargo Boxes</span>
+        </a>
+        <a href="#" style="display:flex;flex-direction:column;align-items:center;gap:18px;text-decoration:none;">
+          <span style="width:clamp(88px,11vw,120px);height:clamp(88px,11vw,120px);border-radius:50%;border:1px dashed rgba(255,255,255,.28);display:flex;align-items:center;justify-content:center;transition:border-color .25s,background .25s;" style-hover="border-color:#D6A441;background:rgba(214,164,65,.10);">
+            <svg width="46" height="46" viewBox="0 0 48 48" fill="none" stroke="#F2B929" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6h8v10l6 8v18H14V24l6-8V6z"/><path d="M18 6h12"/><path d="M14 30h20"/></svg>
+          </span>
+          <span style="color:#FFFFFF;font-size:14px;font-weight:600;letter-spacing:0.04em;text-align:center;max-width:180px;">Wine Shippers</span>
+        </a>
+        <a href="#" style="display:flex;flex-direction:column;align-items:center;gap:18px;text-decoration:none;">
+          <span style="width:clamp(88px,11vw,120px);height:clamp(88px,11vw,120px);border-radius:50%;border:1px dashed rgba(255,255,255,.28);display:flex;align-items:center;justify-content:center;transition:border-color .25s,background .25s;" style-hover="border-color:#D6A441;background:rgba(214,164,65,.10);">
+            <svg width="46" height="46" viewBox="0 0 48 48" fill="none" stroke="#F2B929" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="24" cy="24" r="14"/><circle cx="24" cy="24" r="5"/><path d="M34 34l8 8"/></svg>
+          </span>
+          <span style="color:#FFFFFF;font-size:14px;font-weight:600;letter-spacing:0.04em;text-align:center;max-width:180px;">Shipping Tape, Labels &amp; More</span>
+        </a>
+        <a href="#" style="display:flex;flex-direction:column;align-items:center;gap:18px;text-decoration:none;">
+          <span style="width:clamp(88px,11vw,120px);height:clamp(88px,11vw,120px);border-radius:50%;border:1px dashed rgba(255,255,255,.28);display:flex;align-items:center;justify-content:center;transition:border-color .25s,background .25s;" style-hover="border-color:#D6A441;background:rgba(214,164,65,.10);">
+            <svg width="46" height="46" viewBox="0 0 48 48" fill="none" stroke="#F2B929" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 8h4v22a5 5 0 11-4 0V8z"/><path d="M30 14h8M30 22h6M30 30h8"/></svg>
+          </span>
+          <span style="color:#FFFFFF;font-size:14px;font-weight:600;letter-spacing:0.04em;text-align:center;max-width:180px;">Insulated Shippers</span>
+        </a>
+        <a href="#" style="display:flex;flex-direction:column;align-items:center;gap:18px;text-decoration:none;">
+          <span style="width:clamp(88px,11vw,120px);height:clamp(88px,11vw,120px);border-radius:50%;border:1px dashed rgba(255,255,255,.28);display:flex;align-items:center;justify-content:center;transition:border-color .25s,background .25s;" style-hover="border-color:#D6A441;background:rgba(214,164,65,.10);">
+            <svg width="46" height="46" viewBox="0 0 48 48" fill="none" stroke="#F2B929" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="10" width="32" height="28" rx="2"/><path d="M8 20h32M20 10v28"/><path d="M14 15h1M28 15h1M14 29h1M28 29h1"/></svg>
+          </span>
+          <span style="color:#FFFFFF;font-size:14px;font-weight:600;letter-spacing:0.04em;text-align:center;max-width:180px;">Wood Crates, Custom Built</span>
+        </a>
+      </div>
+    </div>
+    <div style="position:relative;z-index:3;display:flex;flex-wrap:wrap;gap:16px;justify-content:center;margin:clamp(36px,5vw,52px) auto 0;">
+      <a href="#home" style="display:inline-flex;align-items:center;gap:8px;background:#D6A441;color:#0C0B09;font-weight:600;font-size:15px;padding:15px 26px;border-radius:2px;" style-hover="background:#e8b95a;text-decoration:none;">Get a Free Quote ↗</a>
+      <a href="tel:17025099630" style="display:inline-flex;align-items:center;gap:8px;border:1.5px solid #FFFFFF;color:#FFFFFF;font-weight:600;font-size:15px;padding:15px 26px;border-radius:2px;" style-hover="border-color:#D6A441;color:#D6A441;text-decoration:none;">1 (702) 509-9630</a>
+    </div>
+  </section>
+
+  <!-- STORE OFFERS -->
+  <section style="background:#FFFFFF;padding:clamp(48px,7vw,88px) 24px;">
+    <div style="max-width:1280px;margin:0 auto;">
+      <div style="text-align:center;max-width:600px;margin:0 auto 56px;">
+        <div style="color:#D6A441;font-size:14px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;margin-bottom:12px;">Including but not limited to</div>
+        <h2 style="font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:0.01em;font-size:clamp(26px,3.4vw,38px);margin:0;">Our store offers</h2>
+        <div style="width:48px;height:3px;background:#D6A441;margin:16px auto 0;"></div>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:40px 24px;">
+        <div style="display:flex;flex-direction:column;align-items:center;text-align:center;gap:6px;">
+          <div style="position:relative;width:160px;height:160px;margin-bottom:22px;">
+            <svg width="160" height="160" viewBox="0 0 160 160" style="display:block;transform:rotate(-90deg);">
+              <circle cx="80" cy="80" r="62" fill="none" stroke="#EDE8DC" stroke-width="6"></circle>
+              <circle cx="80" cy="80" r="62" fill="none" stroke="#6FA85C" stroke-width="6" stroke-linecap="round" stroke-dasharray="350.6 389.6"></circle>
+            </svg>
+            <div style="position:absolute;inset:34px;border-radius:50%;background:#FAF8F4;display:flex;align-items:center;justify-content:center;font-family:'Oswald',sans-serif;font-size:24px;color:#6FA85C;">90%</div>
+          </div>
+          <h4 style="font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:0.06em;font-size:18px;margin:0;color:#0C0B09;">Packing</h4>
+          <p style="font-size:14px;color:#5a5952;line-height:1.6;margin:0;max-width:220px;">We are your packing professionals.</p>
+        </div>
+        <div style="display:flex;flex-direction:column;align-items:center;text-align:center;gap:6px;">
+          <div style="position:relative;width:160px;height:160px;margin-bottom:22px;">
+            <svg width="160" height="160" viewBox="0 0 160 160" style="display:block;transform:rotate(-90deg);">
+              <circle cx="80" cy="80" r="62" fill="none" stroke="#EDE8DC" stroke-width="6"></circle>
+              <circle cx="80" cy="80" r="62" fill="none" stroke="#D6A441" stroke-width="6" stroke-linecap="round" stroke-dasharray="292.2 389.6"></circle>
+            </svg>
+            <div style="position:absolute;inset:34px;border-radius:50%;background:#FAF8F4;display:flex;align-items:center;justify-content:center;font-family:'Oswald',sans-serif;font-size:24px;color:#D6A441;">75%</div>
+          </div>
+          <h4 style="font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:0.06em;font-size:18px;margin:0;color:#0C0B09;">Shipping</h4>
+          <p style="font-size:14px;color:#5a5952;line-height:1.6;margin:0;max-width:220px;">Any item to any destination.</p>
+        </div>
+        <div style="display:flex;flex-direction:column;align-items:center;text-align:center;gap:6px;">
+          <div style="position:relative;width:160px;height:160px;margin-bottom:22px;">
+            <svg width="160" height="160" viewBox="0 0 160 160" style="display:block;transform:rotate(-90deg);">
+              <circle cx="80" cy="80" r="62" fill="none" stroke="#EDE8DC" stroke-width="6"></circle>
+              <circle cx="80" cy="80" r="62" fill="none" stroke="#C97B3C" stroke-width="6" stroke-linecap="round" stroke-dasharray="272.7 389.6"></circle>
+            </svg>
+            <div style="position:absolute;inset:34px;border-radius:50%;background:#FAF8F4;display:flex;align-items:center;justify-content:center;font-family:'Oswald',sans-serif;font-size:24px;color:#C97B3C;">70%</div>
+          </div>
+          <h4 style="font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:0.06em;font-size:18px;margin:0;color:#0C0B09;">Crating</h4>
+          <p style="font-size:14px;color:#5a5952;line-height:1.6;margin:0;max-width:220px;">Custom built crates for any event.</p>
+        </div>
+        <div style="display:flex;flex-direction:column;align-items:center;text-align:center;gap:6px;">
+          <div style="position:relative;width:160px;height:160px;margin-bottom:22px;">
+            <svg width="160" height="160" viewBox="0 0 160 160" style="display:block;transform:rotate(-90deg);">
+              <circle cx="80" cy="80" r="62" fill="none" stroke="#EDE8DC" stroke-width="6"></circle>
+              <circle cx="80" cy="80" r="62" fill="none" stroke="#6FA85C" stroke-width="6" stroke-linecap="round" stroke-dasharray="350.6 389.6"></circle>
+            </svg>
+            <div style="position:absolute;inset:34px;border-radius:50%;background:#FAF8F4;display:flex;align-items:center;justify-content:center;font-family:'Oswald',sans-serif;font-size:24px;color:#6FA85C;">90%</div>
+          </div>
+          <h4 style="font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:0.06em;font-size:18px;margin:0;color:#0C0B09;">Mailing</h4>
+          <p style="font-size:14px;color:#5a5952;line-height:1.6;margin:0;max-width:220px;">The fastest and cheapest rates.</p>
+        </div>
+      </div>
+    </div>
+    <div style="position:relative;z-index:3;display:flex;flex-wrap:wrap;gap:16px;justify-content:center;margin:clamp(36px,5vw,52px) auto 0;">
+      <a href="#home" style="display:inline-flex;align-items:center;gap:8px;background:#D6A441;color:#0C0B09;font-weight:600;font-size:15px;padding:15px 26px;border-radius:2px;" style-hover="background:#e8b95a;text-decoration:none;">Get a Free Quote ↗</a>
+      <a href="tel:17025099630" style="display:inline-flex;align-items:center;gap:8px;border:1.5px solid #0C0B09;color:#0C0B09;font-weight:600;font-size:15px;padding:15px 26px;border-radius:2px;" style-hover="border-color:#D6A441;color:#D6A441;text-decoration:none;">1 (702) 509-9630</a>
+    </div>
+  </section>
+
+  <!-- VALUE PROPOSITION BAND -->
+  <section id="projects" style="position:relative;overflow:hidden;padding:clamp(56px,8vw,100px) 24px;background:#0C0B09;">
+    <img src="assets/logo-bw.png" alt="" style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:min(900px,120%);opacity:0.09;filter:brightness(0) invert(1) blur(1px);pointer-events:none;z-index:0;" />
+    <div style="position:absolute;inset:0;background:radial-gradient(70% 60% at 50% 40%, rgba(214,164,65,.14), transparent 70%);z-index:0;pointer-events:none;"></div>
+    <div style="position:relative;z-index:1;max-width:1080px;margin:0 auto;text-align:center;">
+      <span style="display:inline-block;background:rgba(214,164,65,0.16);color:#D6A441;font-size:12px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;padding:8px 16px;border-radius:999px;margin-bottom:22px;">Since 1995</span>
+      <h2 style="font-family:'Oswald',sans-serif;color:#FFFFFF;text-transform:uppercase;letter-spacing:0.01em;font-size:clamp(26px,3.4vw,38px);margin:0 0 16px;">Family owned and operated for over twenty-five years</h2>
+      <div style="width:48px;height:3px;background:#D6A441;margin:0 auto 20px;"></div>
+      <p style="font-size:16px;color:#cfcdc4;line-height:1.7;max-width:680px;margin:0 auto 48px;">Do you have an item that needs to be packed and shipped? Come pick up your supplies, or let one of our service professionals take care of everything for you.</p>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:24px;margin-bottom:48px;">
+        <div style="position:relative;padding:34px 22px;text-align:center;border-radius:18px;background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.16);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);box-shadow:0 18px 44px rgba(0,0,0,.28);transition:background .25s,transform .25s;" style-hover="background:rgba(255,255,255,0.12);transform:translateY(-4px);">
+          <img src="assets/icon-affordable-shipping.svg" alt="" style="width:40px;height:40px;margin:0 auto 18px;display:block;" />
+          <div style="font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:0.06em;font-size:17px;color:#FFFFFF;margin-bottom:8px;">On Time</div>
+          <div style="font-size:14px;color:#cfcdc4;line-height:1.6;">Delivery you can count on</div>
+        </div>
+        <div style="position:relative;padding:34px 22px;text-align:center;border-radius:18px;background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.16);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);box-shadow:0 18px 44px rgba(0,0,0,.28);transition:background .25s,transform .25s;" style-hover="background:rgba(255,255,255,0.12);transform:translateY(-4px);">
+          <img src="assets/icon-safe-secure.svg" alt="" style="width:40px;height:40px;margin:0 auto 18px;display:block;" />
+          <div style="font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:0.06em;font-size:17px;color:#FFFFFF;margin-bottom:8px;">Safe &amp; Secure</div>
+          <div style="font-size:14px;color:#cfcdc4;line-height:1.6;">Transportation, always</div>
+        </div>
+        <div style="position:relative;padding:34px 22px;text-align:center;border-radius:18px;background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.16);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);box-shadow:0 18px 44px rgba(0,0,0,.28);transition:background .25s,transform .25s;" style-hover="background:rgba(255,255,255,0.12);transform:translateY(-4px);">
+          <img src="assets/icon-store-value.svg" alt="" style="width:40px;height:40px;margin:0 auto 18px;display:block;" />
+          <div style="font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:0.06em;font-size:17px;color:#FFFFFF;margin-bottom:8px;">Insured</div>
+          <div style="font-size:14px;color:#cfcdc4;line-height:1.6;">Covered and hassle-free</div>
+        </div>
+        <div style="position:relative;padding:34px 22px;text-align:center;border-radius:18px;background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.16);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);box-shadow:0 18px 44px rgba(0,0,0,.28);transition:background .25s,transform .25s;" style-hover="background:rgba(255,255,255,0.12);transform:translateY(-4px);">
+          <img src="assets/icon-we-sell-boxes.svg" alt="" style="width:40px;height:40px;margin:0 auto 18px;display:block;" />
+          <div style="font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:0.06em;font-size:17px;color:#FFFFFF;margin-bottom:8px;">Thousands</div>
+          <div style="font-size:14px;color:#cfcdc4;line-height:1.6;">Of boxes available</div>
+        </div>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;gap:16px;justify-content:center;">
+        <a href="#home" style="display:inline-flex;align-items:center;gap:8px;background:#D6A441;color:#0C0B09;font-weight:600;font-size:15px;padding:15px 26px;border-radius:2px;" style-hover="background:#e8b95a;text-decoration:none;">Get a Free Quote ↗</a>
+        <a href="tel:17025099630" style="display:inline-flex;align-items:center;gap:8px;border:1.5px solid #FFFFFF;color:#FFFFFF;font-weight:600;font-size:15px;padding:15px 26px;border-radius:2px;" style-hover="border-color:#D6A441;color:#D6A441;text-decoration:none;">1 (702) 509-9630</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section id="consultation" style="padding:clamp(48px,7vw,88px) 24px;background:#FFFFFF;">
+    <div style="max-width:1280px;margin:0 auto;">
+      <div style="text-align:center;max-width:600px;margin:0 auto 48px;">
+        <div style="color:#D6A441;font-size:14px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;margin-bottom:12px;">How It Works</div>
+        <h2 style="font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:0.01em;font-size:clamp(26px,3.4vw,38px);margin:0;">It really is that easy</h2>
+      <div style="width:48px;height:3px;background:#D6A441;margin:16px auto 0;"></div>
+      </div>
+      <div style="display:flex;align-items:flex-start;justify-content:center;gap:0;flex-wrap:wrap;">
+        <div style="display:flex;flex-direction:column;align-items:center;text-align:center;width:220px;">
+          <div style="position:relative;">
+            <div style="width:100px;height:100px;border-radius:50%;border:2px solid #D6A441;display:flex;align-items:center;justify-content:center;background:#FFFFFF;">
+              <span style="font-size:32px;">📦</span>
+            </div>
+            <div style="position:absolute;top:-8px;left:-8px;width:28px;height:28px;border-radius:50%;background:#0C0B09;color:#D6A441;font-weight:700;font-size:14px;display:flex;align-items:center;justify-content:center;">1</div>
+          </div>
+          <h4 style="font-size:15px;text-transform:uppercase;letter-spacing:0.06em;margin:20px 0 8px;color:#0C0B09;">Preparation &amp; Packing</h4>
+          <p style="font-size:13px;color:#5a5952;line-height:1.6;margin:0;">Professional preparation and packing for your item.</p>
+        </div>
+        <div style="width:64px;height:2px;background:#e0ddd3;margin-top:50px;"></div>
+        <div style="display:flex;flex-direction:column;align-items:center;text-align:center;width:220px;">
+          <div style="position:relative;">
+            <div style="width:100px;height:100px;border-radius:50%;border:2px solid #D6A441;display:flex;align-items:center;justify-content:center;background:#FFFFFF;">
+              <span style="font-size:32px;">📍</span>
+            </div>
+            <div style="position:absolute;top:-8px;left:-8px;width:28px;height:28px;border-radius:50%;background:#0C0B09;color:#D6A441;font-weight:700;font-size:14px;display:flex;align-items:center;justify-content:center;">2</div>
+          </div>
+          <h4 style="font-size:15px;text-transform:uppercase;letter-spacing:0.06em;margin:20px 0 8px;color:#0C0B09;">Tracking &amp; Monitoring</h4>
+          <p style="font-size:13px;color:#5a5952;line-height:1.6;margin:0;">Followed until it reaches its final destination.</p>
+        </div>
+        <div style="width:64px;height:2px;background:#e0ddd3;margin-top:50px;"></div>
+        <div style="display:flex;flex-direction:column;align-items:center;text-align:center;width:220px;">
+          <div style="position:relative;">
+            <div style="width:100px;height:100px;border-radius:50%;border:2px solid #D6A441;display:flex;align-items:center;justify-content:center;background:#FFFFFF;">
+              <span style="font-size:32px;">✔</span>
+            </div>
+            <div style="position:absolute;top:-8px;left:-8px;width:28px;height:28px;border-radius:50%;background:#0C0B09;color:#D6A441;font-weight:700;font-size:14px;display:flex;align-items:center;justify-content:center;">3</div>
+          </div>
+          <h4 style="font-size:15px;text-transform:uppercase;letter-spacing:0.06em;margin:20px 0 8px;color:#0C0B09;">Delivery Confirmation</h4>
+          <p style="font-size:13px;color:#5a5952;line-height:1.6;margin:0;">Sent back to you once delivery is complete.</p>
+        </div>
+      </div>
+      <p style="text-align:center;font-size:16px;color:#33322e;margin:44px 0 0;">Contact us today for any inquiries.</p>
+    </div>
+    <div style="position:relative;z-index:3;display:flex;flex-wrap:wrap;gap:16px;justify-content:center;margin:clamp(36px,5vw,52px) auto 0;">
+      <a href="#home" style="display:inline-flex;align-items:center;gap:8px;background:#D6A441;color:#0C0B09;font-weight:600;font-size:15px;padding:15px 26px;border-radius:2px;" style-hover="background:#e8b95a;text-decoration:none;">Get a Free Quote ↗</a>
+      <a href="tel:17025099630" style="display:inline-flex;align-items:center;gap:8px;border:1.5px solid #0C0B09;color:#0C0B09;font-weight:600;font-size:15px;padding:15px 26px;border-radius:2px;" style-hover="border-color:#D6A441;color:#D6A441;text-decoration:none;">1 (702) 509-9630</a>
+    </div>
+  </section>
+
+  <!-- CONTACT / CTA -->
+  <section id="contact" style="position:relative;overflow:hidden;background:#0C0B09;color:#FFFFFF;padding:clamp(64px,9vw,110px) 24px;">
+    <img src="assets/cta-boxes.webp" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;" />
+    <div style="position:absolute;inset:0;background:linear-gradient(180deg, rgba(12,11,9,0.78) 0%, rgba(12,11,9,0.86) 100%);z-index:1;"></div>
+    <div style="position:absolute;inset:0;background:linear-gradient(90deg, rgba(12,11,9,0.85) 0%, rgba(12,11,9,0.2) 35%, rgba(12,11,9,0.2) 65%, rgba(12,11,9,0.85) 100%);z-index:1;pointer-events:none;"></div>
+    <div style="position:relative;z-index:2;max-width:900px;margin:0 auto;text-align:center;">
+      <h2 style="font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:0.01em;font-size:clamp(26px,3.4vw,38px);margin:0 0 16px;">Ready to ship?</h2>
+      <div style="width:48px;height:3px;background:#D6A441;margin:0 auto 16px;"></div>
+      <p style="font-size:16px;color:#d6d4cb;line-height:1.7;max-width:620px;margin:0 auto 36px;">Call us or request a free quote — we'll follow up within one business day.</p>
+      <div style="display:flex;flex-wrap:wrap;gap:16px;justify-content:center;">
+        <a href="#home" style="display:inline-flex;align-items:center;gap:8px;background:#D6A441;color:#0C0B09;font-weight:600;font-size:15px;padding:15px 26px;border-radius:2px;" style-hover="background:#e8b95a;text-decoration:none;">Get a Free Quote ↗</a>
+        <a href="tel:17025099630" style="display:inline-flex;align-items:center;gap:8px;border:1.5px solid #FFFFFF;color:#FFFFFF;font-weight:600;font-size:15px;padding:15px 26px;border-radius:2px;" style-hover="border-color:#D6A441;color:#D6A441;text-decoration:none;">1 (702) 509-9630</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer style="background:#0C0B09;color:#cfcdc4;padding:56px 24px 28px;border-top:1px solid rgba(214,164,65,0.3);">
+    <div style="max-width:1280px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:40px;margin-bottom:40px;">
+      <div>
+        <img src="assets/logo-bw.png" alt="Las Vegas Pack and Ship logo" style="height:46px;width:auto;object-fit:contain;margin-bottom:14px;filter:brightness(0) invert(1);">
+        <p style="font-size:14px;line-height:1.7;margin:0;">Serving Las Vegas, Henderson, and all of Nevada — and shipping fine art worldwide.</p>
+      </div>
+      <div>
+        <div style="color:#FFFFFF;font-size:15px;font-weight:600;margin-bottom:14px;">Contact</div>
+        <p style="font-size:14px;line-height:1.9;margin:0;">
+          <a href="tel:17025099630" style="color:#cfcdc4;">1-702-509-9630</a><br>
+          Las Vegas, Henderson &amp; all of Nevada
+        </p>
+      </div>
+      <div>
+        <div style="color:#FFFFFF;font-size:15px;font-weight:600;margin-bottom:14px;">Las Vegas Professional Warehouse Storage</div>
+        <p style="font-size:14px;line-height:1.7;margin:0;">4640 Polaris Ave.<br>Las Vegas, NV 89103</p>
+      </div>
+      <div>
+        <div style="color:#FFFFFF;font-size:15px;font-weight:600;margin-bottom:14px;">Las Vegas Strip Crating &amp; Logistics</div>
+        <p style="font-size:14px;line-height:1.7;margin:0;">4610 S. Polaris Ave.<br>Las Vegas, NV 89103</p>
+      </div>
+    </div>
+    <div style="max-width:1280px;margin:0 auto;border-top:1px solid #2a2823;padding-top:24px;display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;font-size:13px;">
+      <div>© 2026 Las Vegas Pack and Ship. All rights reserved.</div>
+      <div style="display:flex;gap:20px;">
+        <a href="Privacy Policy.dc.html" style="color:#cfcdc4;">Privacy Policy</a>
+        <a href="#" style="color:#cfcdc4;">Sitemap</a>
+      </div>
+    </div>
+  </footer>
+
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { mobileNavOpen: false, activeTab: 0, testimonial: 0 };
+  _advance(dx) {
+    if (Math.abs(dx) < 30) return;
+    const n = 6;
+    this.setState(s => ({ testimonial: dx < 0 ? (s.testimonial + 1) % n : (s.testimonial - 1 + n) % n }));
+  }
+  componentDidMount() {
+    this._onScroll = () => {
+      const bar = document.getElementById('sticky-bar');
+      const hero = document.getElementById('home');
+      if (!bar || !hero) return;
+      const barActive = getComputedStyle(bar).display !== 'none';
+      const past = barActive && window.scrollY > hero.offsetTop + hero.offsetHeight - 120;
+      bar.style.transform = past ? 'translateY(0)' : 'translateY(-100%)';
+      const head = document.querySelector('header');
+      if (head) { head.style.visibility = past ? 'hidden' : 'visible'; head.style.position = past ? 'relative' : 'sticky'; }
+    };
+    window.addEventListener('scroll', this._onScroll, { passive: true });
+    window.addEventListener('resize', this._onScroll);
+    this._onScroll();
+    this._autoPaused = false;
+    this._autoTimer = setInterval(() => {
+      if (this._autoPaused) return;
+      this.setState(s => ({ testimonial: (s.testimonial + 1) % 6 }));
+    }, 5000);
+  }
+  componentWillUnmount() {
+    if (this._onScroll) { window.removeEventListener('scroll', this._onScroll); window.removeEventListener('resize', this._onScroll); }
+    if (this._autoTimer) clearInterval(this._autoTimer);
+  }
+  renderVals() {
+    const t = this.state.activeTab;
+    const activeBg = '#FFFFFF';
+    const inactiveBg = '#FAF8F4';
+    const activeBorder = '3px solid #D6A441';
+    const inactiveBorder = '3px solid transparent';
+    return {
+      mobileNavOpen: this.state.mobileNavOpen,
+      toggleNav: () => this.setState(s => ({ mobileNavOpen: !s.mobileNavOpen })),
+      closeNav: () => this.setState({ mobileNavOpen: false }),
+      isTab0: t === 0, isTab1: t === 1, isTab2: t === 2, isTab3: t === 3, isTab4: t === 4,
+      isTab5: t === 5, isTab6: t === 6, isTab7: t === 7, isTab8: t === 8,
+      tab0Bg: t === 0 ? activeBg : inactiveBg, tab1Bg: t === 1 ? activeBg : inactiveBg,
+      tab2Bg: t === 2 ? activeBg : inactiveBg, tab3Bg: t === 3 ? activeBg : inactiveBg,
+      tab4Bg: t === 4 ? activeBg : inactiveBg, tab5Bg: t === 5 ? activeBg : inactiveBg,
+      tab6Bg: t === 6 ? activeBg : inactiveBg, tab7Bg: t === 7 ? activeBg : inactiveBg,
+      tab8Bg: t === 8 ? activeBg : inactiveBg,
+      tab0Border: t === 0 ? activeBorder : inactiveBorder, tab1Border: t === 1 ? activeBorder : inactiveBorder,
+      tab2Border: t === 2 ? activeBorder : inactiveBorder, tab3Border: t === 3 ? activeBorder : inactiveBorder,
+      tab4Border: t === 4 ? activeBorder : inactiveBorder, tab5Border: t === 5 ? activeBorder : inactiveBorder,
+      tab6Border: t === 6 ? activeBorder : inactiveBorder, tab7Border: t === 7 ? activeBorder : inactiveBorder,
+      tab8Border: t === 8 ? activeBorder : inactiveBorder,
+      setTab0: () => this.setState({ activeTab: 0 }), setTab1: () => this.setState({ activeTab: 1 }),
+      setTab2: () => this.setState({ activeTab: 2 }), setTab3: () => this.setState({ activeTab: 3 }),
+      setTab4: () => this.setState({ activeTab: 4 }), setTab5: () => this.setState({ activeTab: 5 }),
+      setTab6: () => this.setState({ activeTab: 6 }), setTab7: () => this.setState({ activeTab: 7 }),
+      setTab8: () => this.setState({ activeTab: 8 }),
+      isT0: this.state.testimonial === 0, isT1: this.state.testimonial === 1,
+      isT2: this.state.testimonial === 2, isT3: this.state.testimonial === 3,
+      isT4: this.state.testimonial === 4, isT5: this.state.testimonial === 5,
+      dot0: this.state.testimonial === 0 ? '#D6A441' : '#e0ddd3',
+      dot1: this.state.testimonial === 1 ? '#D6A441' : '#e0ddd3',
+      dot2: this.state.testimonial === 2 ? '#D6A441' : '#e0ddd3',
+      dot3: this.state.testimonial === 3 ? '#D6A441' : '#e0ddd3',
+      dot4: this.state.testimonial === 4 ? '#D6A441' : '#e0ddd3',
+      dot5: this.state.testimonial === 5 ? '#D6A441' : '#e0ddd3',
+      setT0: () => this.setState({ testimonial: 0 }), setT1: () => this.setState({ testimonial: 1 }),
+      setT2: () => this.setState({ testimonial: 2 }), setT3: () => this.setState({ testimonial: 3 }),
+      setT4: () => this.setState({ testimonial: 4 }), setT5: () => this.setState({ testimonial: 5 }),
+      onSwipeStart: (e) => { this._swipeX = e.touches && e.touches[0] ? e.touches[0].clientX : null; },
+      onSwipeEnd: (e) => {
+        if (this._swipeX == null) return;
+        const t = e.changedTouches && e.changedTouches[0];
+        if (!t) return;
+        const dx = t.clientX - this._swipeX;
+        this._swipeX = null;
+        this._advance(dx);
+      },
+      onDragStart: (e) => { this._dragX = e.clientX; },
+      onDragEnd: (e) => {
+        if (this._dragX == null) return;
+        const dx = e.clientX - this._dragX;
+        this._dragX = null;
+        this._advance(dx);
+      },
+      pauseAuto: () => { this._autoPaused = true; },
+      resumeAuto: () => { this._autoPaused = false; },
+    };
+  }
+}
+
+</script>
+</body>
+</html>

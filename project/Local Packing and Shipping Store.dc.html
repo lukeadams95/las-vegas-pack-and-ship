@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&amp;family=Work+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<script src="./image-slot.js"></script>
+<style>
+  body { margin: 0; }
+  a { color: #D6A441; text-decoration: none; }
+  a:hover { color: #b8863a; text-decoration: underline; }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+  @keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+  .wwd-card img.wwd-photo { filter: blur(10px) saturate(0.6) brightness(0.4); transform: scale(1.12); transition: filter 0.45s ease, transform 0.45s ease; }
+  .wwd-card:hover img.wwd-photo { filter: none; transform: scale(1.02); }
+  .wwd-card .wwd-overlay, .wwd-card .wwd-text { transition: opacity 0.45s ease; }
+  .wwd-card .wwd-overlay { background: linear-gradient(180deg, rgba(12,11,9,0.28) 0%, rgba(12,11,9,0.74) 100%), rgba(255,255,255,0.10); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); box-shadow: inset 0 1px 0 rgba(255,255,255,0.22); }
+  .wwd-card:hover .wwd-overlay, .wwd-card:hover .wwd-text { opacity: 0; }
+  .svc-card { transition: transform .3s ease, box-shadow .3s ease, filter .3s ease; }
+  .svc-card:hover { transform: translateY(-6px); box-shadow: 0 22px 46px rgba(12,11,9,.28); filter: saturate(1.08); }
+  @media (max-width: 900px) { .svc-grid { grid-template-columns: repeat(2, 1fr) !important; } }
+  @media (max-width: 600px) { .svc-grid { grid-template-columns: 1fr !important; } }
+  @media (max-width: 1100px) { #sticky-bar { display: none; } }
+  .nav-item { position: relative; }
+  .nav-dropdown { display: none; position: absolute; top: 100%; left: 0; background: #FFFFFF; border: 1px solid #eee9dd; box-shadow: 0 12px 24px rgba(12,11,9,0.08); min-width: 240px; padding: 8px 0; z-index: 60; }
+  .nav-item:hover .nav-dropdown { display: block; }
+  .nav-dropdown a { display: block; padding: 10px 20px; color: #0C0B09; font-size: 14px; white-space: nowrap; }
+  .nav-dropdown a:hover { background: #FAF8F4; color: #D6A441; text-decoration: none; }
+  @media (max-width: 1100px) {
+    #main-nav { display: none !important; }
+    #nav-hamburger { display: flex !important; }
+  }
+  @media (min-width: 1101px) {
+    #mobile-nav-panel { display: none !important; }
+  }
+  @media (max-width: 960px) {
+    .stack-grid { grid-template-columns: 1fr !important; }
+  }
+  @media (max-width: 960px) { .svc-grid-3 { grid-template-columns: 1fr !important; } }
+  #lps-track::-webkit-scrollbar { display: none; }
+</style>
+</helmet>
+
+<div id="top" style="font-family:'Work Sans',sans-serif;color:#0C0B09;background:#FFFFFF;width:100%;overflow-x:clip;">
+
+  <!-- CONDENSED STICKY BAR -->
+  <div id="sticky-bar" style="position:fixed;top:0;left:0;right:0;z-index:60;background:#FFFFFF;box-shadow:0 4px 18px rgba(12,11,9,0.12);transform:translateY(-100%);transition:transform .32s ease;">
+    <div style="max-width:1460px;margin:0 auto;padding:10px 24px;display:flex;align-items:center;gap:24px;">
+      <a href="Las Vegas Pack and Ship.dc.html#home" style="display:flex;flex-shrink:0;"><img src="assets/logo-color.png" alt="Las Vegas Pack and Ship logo" style="height:56px;width:auto;object-fit:contain;flex-shrink:0;" /></a>
+      <nav style="display:flex;align-items:center;gap:22px;margin:0 auto;flex-wrap:wrap;">
+        <a href="Las Vegas Pack and Ship.dc.html#home" style="color:#0C0B09;font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:0.04em;font-size:13px;">Home</a>
+        <div class="nav-item">
+          <a href="Las Vegas Pack and Ship.dc.html#local-store" style="color:#0C0B09;font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:0.04em;font-size:13px;border-bottom:2px solid #D6A441;padding-bottom:3px;display:inline-flex;align-items:center;gap:6px;">Shipping &amp; Packing <span style="color:#D6A441;font-weight:700;">+</span></a>
+          <div class="nav-dropdown">
+            <a href="#top" style="color:#0C0B09;border-bottom:2px solid #D6A441;">Local Packing &amp; Shipping Store</a>
+            <a href="Electronic Packing and Shipping.dc.html">Electronic Packing &amp; Shipping</a>
+            <a href="Local Packing and Shipping Supplies.dc.html">Packing, Shipping &amp; Moving Supplies</a>
+            <a href="Corrugated Fiberboard Packaging.dc.html">Custom Crating &amp; Corrugated Fiberboard Packaging</a>
+          </div>
+        </div>
+        <div class="nav-item">
+          <a href="Fine Art Shipping.dc.html" style="color:#0C0B09;font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:0.04em;font-size:13px;display:inline-flex;align-items:center;gap:6px;">Fine Art Services <span style="color:#D6A441;font-weight:700;">+</span></a>
+          <div class="nav-dropdown">
+            <a href="Fine Art Shipping.dc.html">Fine Art Shipping</a>
+            <a href="Fine Art Moving and Packing.dc.html">Fine Art Moving and Packing</a>
+            <a href="Art Courier Service.dc.html">Art Courier Service</a>
+            <a href="Art Consultation.dc.html">Art Consultation</a>
+            <a href="Art Installation.dc.html">Art Installation</a>
+            <a href="Vapor Barrier Bag Shipping.dc.html">Vapor Barrier Bag Shipping</a>
+          </div>
+        </div>
+        <div class="nav-item">
+          <a href="javascript:void(0)" style="color:#0C0B09;font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:0.04em;font-size:13px;display:inline-flex;align-items:center;gap:6px;cursor:default;">Projects <span style="color:#D6A441;font-weight:700;">+</span></a>
+          <div class="nav-dropdown">
+            <a href="Rick's Restoration.dc.html">Rick's Restoration</a>
+          </div>
+        </div>
+        <a href="Contact Us.dc.html" style="color:#0C0B09;font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:0.04em;font-size:13px;">Contact</a>
+      </nav>
+      <div style="display:flex;align-items:center;gap:14px;flex-shrink:0;">
+        <div style="display:flex;align-items:center;gap:7px;">
+          <span style="font-family:'Work Sans',sans-serif;font-weight:700;font-size:17px;line-height:1;">
+            <span style="color:#4285F4;">G</span><span style="color:#EA4335;">o</span><span style="color:#FBBC05;">o</span><span style="color:#4285F4;">g</span><span style="color:#34A853;">l</span><span style="color:#EA4335;">e</span>
+          </span>
+          <span style="color:#D6A441;font-size:13px;letter-spacing:1px;">★★★★★</span>
+        </div>
+        <a href="Contact Us.dc.html" style="display:inline-block;background:#D6A441;color:#0C0B09;font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:0.06em;font-size:14px;padding:13px 20px;white-space:nowrap;" style-hover="background:#0C0B09;color:#D6A441;text-decoration:none;">Request Quote</a>
+        <a href="tel:17025099630" style="display:inline-block;background:#0C0B09;color:#FFFFFF;font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:0.06em;font-size:14px;padding:13px 20px;white-space:nowrap;" style-hover="background:#D6A441;color:#0C0B09;text-decoration:none;">1 (702) 509-9630</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- TOP BAR -->
+  <div style="background:#0C0B09;color:#FFFFFF;font-size:13px;padding:8px 24px;display:flex;justify-content:center;gap:24px;letter-spacing:0.03em;">
+    <span>Family owned &amp; operated since 1995</span>
+    <span style="color:#D6A441;">|</span>
+    <span style="font-size:13px;color:#FFFFFF;">4640 S. Polaris Ave, Las Vegas, NV 89103</span>
+  </div>
+
+  <!-- HEADER / NAV -->
+  <header style="position:sticky;top:0;z-index:50;background:#FFFFFF;border-bottom:1px solid #eee9dd;">
+    <div style="max-width:1280px;margin:0 auto;padding:16px 24px;display:flex;align-items:center;justify-content:space-between;gap:24px;">
+      <a href="Las Vegas Pack and Ship.dc.html#home" style="display:flex;flex-shrink:0;"><img src="assets/logo-color.png" alt="Las Vegas Pack and Ship logo" style="height: 96px; width: 183px; object-fit: contain; flex-shrink: 0; margin: -18px 0"></a>
+      <nav id="main-nav" style="display:flex;gap:30px;align-items:center;flex-wrap:wrap;">
+        <a href="Las Vegas Pack and Ship.dc.html#home" style="color:#0C0B09;font-size:14px;">Home</a>
+        <div class="nav-item">
+          <a href="javascript:void(0)" style="color:#D6A441;font-size:14px;font-weight:600;display:inline-flex;align-items:center;gap:4px;cursor:default;">Shipping &amp; Packing Services <span style="font-size:10px;color:#8a8880;">▾</span></a>
+          <div class="nav-dropdown">
+            <a href="#top" style="color:#0C0B09;border-bottom:2px solid #D6A441;">Local Packing &amp; Shipping Store</a>
+            <a href="Electronic Packing and Shipping.dc.html">Electronic Packing &amp; Shipping</a>
+            <a href="Local Packing and Shipping Supplies.dc.html">Packing, Shipping &amp; Moving Supplies</a>
+            <a href="Corrugated Fiberboard Packaging.dc.html">Custom Crating &amp; Corrugated Fiberboard Packaging</a>
+          </div>
+        </div>
+        <div class="nav-item">
+          <a href="Fine Art Shipping.dc.html" style="color:#0C0B09;font-size:14px;display:inline-flex;align-items:center;gap:4px;">Fine Art Services <span style="font-size:10px;color:#8a8880;">▾</span></a>
+          <div class="nav-dropdown">
+            <a href="Fine Art Shipping.dc.html">Fine Art Shipping</a>
+            <a href="Fine Art Moving and Packing.dc.html">Fine Art Moving and Packing</a>
+            <a href="Art Courier Service.dc.html">Art Courier Service</a>
+            <a href="Art Consultation.dc.html">Art Consultation</a>
+            <a href="Art Installation.dc.html">Art Installation</a>
+            <a href="Vapor Barrier Bag Shipping.dc.html">Vapor Barrier Bag Shipping</a>
+          </div>
+        </div>
+        <div class="nav-item">
+          <a href="javascript:void(0)" style="color:#0C0B09;font-size:14px;display:inline-flex;align-items:center;gap:4px;cursor:default;">Projects <span style="font-size:10px;color:#8a8880;">▾</span></a>
+          <div class="nav-dropdown">
+            <a href="Rick's Restoration.dc.html">Rick's Restoration</a>
+          </div>
+        </div>
+        <a href="Contact Us.dc.html" style="color:#0C0B09;font-size:14px;">Contact</a>
+      </nav>
+      <div style="display:flex;align-items:center;gap:16px;">
+        <a href="tel:17025099630" style="display:inline-flex;align-items:center;gap:8px;color:#0C0B09;font-weight:600;font-size:14px;white-space:nowrap;border:1.5px solid #0C0B09;padding:11px 18px;border-radius:4px;" style-hover="border-color:#D6A441;color:#D6A441;text-decoration:none;">1 (702) 509-9630</a>
+        <a href="Contact Us.dc.html" style="display:inline-block;position:relative;background:#D6A441;color:#0C0B09;font-weight:700;font-size:14px;padding:11px 22px;border:1.5px solid #0C0B09;border-radius:4px;white-space:nowrap;box-shadow:3px 3px 0 #0C0B09;" style-hover="transform:translate(1px,1px);box-shadow:2px 2px 0 #0C0B09;text-decoration:none;">Free Quote</a>
+        <button id="nav-hamburger" onClick="{{ toggleNav }}" style="display:none;background:none;border:1px solid #0C0B09;color:#0C0B09;font-size:20px;width:40px;height:40px;border-radius:2px;cursor:pointer;">☰</button>
+      </div>
+    </div>
+    <sc-if value="{{ mobileNavOpen }}">
+      <div id="mobile-nav-panel" style="display:flex;flex-direction:column;padding:8px 24px 20px;gap:14px;background:#FFFFFF;border-top:1px solid #eee9dd;">
+        <a href="Las Vegas Pack and Ship.dc.html#home" onClick="{{ closeNav }}" style="color:#0C0B09;font-size:15px;">Home</a>
+        <div style="font-size:12px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#D6A441;margin-top:6px;">Shipping &amp; Packing Services</div>
+        <a href="#top" onClick="{{ closeNav }}" style="color:#D6A441;font-size:15px;padding-left:8px;font-weight:600;">Local Packing &amp; Shipping Store</a>
+        <a href="Electronic Packing and Shipping.dc.html" onClick="{{ closeNav }}" style="color:#0C0B09;font-size:15px;padding-left:8px;">Electronic Packing &amp; Shipping</a>
+        <a href="Local Packing and Shipping Supplies.dc.html" onClick="{{ closeNav }}" style="color:#0C0B09;font-size:15px;padding-left:8px;">Packing, Shipping &amp; Moving Supplies</a>
+        <a href="Corrugated Fiberboard Packaging.dc.html" onClick="{{ closeNav }}" style="color:#0C0B09;font-size:15px;padding-left:8px;">Custom Crating &amp; Corrugated Fiberboard Packaging</a>
+        <div style="font-size:12px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#D6A441;margin-top:6px;">Fine Art Services</div>
+        <a href="Fine Art Shipping.dc.html" onClick="{{ closeNav }}" style="color:#0C0B09;font-size:15px;padding-left:8px;">Fine Art Shipping</a>
+        <a href="Fine Art Moving and Packing.dc.html" onClick="{{ closeNav }}" style="color:#0C0B09;font-size:15px;padding-left:8px;">Fine Art Moving and Packing</a>
+        <a href="Art Courier Service.dc.html" onClick="{{ closeNav }}" style="color:#0C0B09;font-size:15px;padding-left:8px;">Art Courier Service</a>
+        <a href="Art Consultation.dc.html" onClick="{{ closeNav }}" style="color:#0C0B09;font-size:15px;padding-left:8px;">Art Consultation</a>
+        <a href="Art Installation.dc.html" onClick="{{ closeNav }}" style="color:#0C0B09;font-size:15px;padding-left:8px;">Art Installation</a>
+        <a href="Vapor Barrier Bag Shipping.dc.html" onClick="{{ closeNav }}" style="color:#0C0B09;font-size:15px;padding-left:8px;">Vapor Barrier Bag Shipping</a>
+        <div style="font-size:12px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#D6A441;margin-top:6px;">Projects</div>
+        <a href="Rick's Restoration.dc.html" onClick="{{ closeNav }}" style="color:#0C0B09;font-size:15px;padding-left:8px;">Rick's Restoration</a>
+        <a href="Contact Us.dc.html" onClick="{{ closeNav }}" style="color:#0C0B09;font-size:15px;font-weight:600;margin-top:6px;">Contact</a>
+        <a href="tel:17025099630" onClick="{{ closeNav }}" style="color:#D6A441;font-size:15px;font-weight:600;margin-top:6px;">Call 1 (702) 509-9630</a>
+      </div>
+    </sc-if>
+  </header>
+
+
+  <!-- HERO -->
+  <section id="home" style="position:relative;height:420px;max-height:420px;display:flex;align-items:center;overflow:hidden;background:#0C0B09;">
+    <img src="uploads/PXL_20231223_001016626 (1).webp" alt="Warehouse floor stacked with wrapped furniture and crated items" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;">
+    <div style="position:absolute;inset:0;background:linear-gradient(90deg, rgba(12,11,9,0.94) 0%, rgba(12,11,9,0.78) 50%, rgba(12,11,9,0.4) 100%);z-index:1;"></div>
+    <div style="position:relative;z-index:2;width:100%;max-width:1280px;margin:0 auto;padding:clamp(56px,8vw,100px) clamp(24px,6vw,64px);">
+      <div style="display:flex;align-items:center;gap:20px;max-width:780px;">
+        <div style="width:4px;align-self:stretch;background:#D6A441;flex-shrink:0;"></div>
+        <div>
+          <div style="color:#D6A441;font-size:13px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;margin-bottom:18px;">Local Packing &amp; Shipping Store</div>
+          <h1 style="font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:0.01em;font-size:clamp(30px,4.4vw,52px);line-height:1.14;margin:0 0 18px;color:#FFFFFF;">How a local packing and shipping store works for you</h1>
+          <p style="font-size:17px;line-height:1.6;color:#d6d4cb;margin:0 0 32px;max-width:600px;">Custom boxes, hand-built crates, and international shipping — all under one roof in Las Vegas.</p>
+          <div style="display:flex;flex-wrap:wrap;gap:16px;">
+            <a href="#quote" style="display:inline-flex;align-items:center;gap:8px;background:#D6A441;color:#0C0B09;font-weight:600;font-size:15px;padding:15px 26px;border-radius:2px;" style-hover="background:#e8b95a;text-decoration:none;">Get a Free Quote ↗</a>
+            <a href="tel:17025099630" style="display:inline-flex;align-items:center;gap:8px;border:1.5px solid #FFFFFF;color:#FFFFFF;font-weight:600;font-size:15px;padding:15px 26px;border-radius:2px;" style-hover="border-color:#D6A441;color:#D6A441;text-decoration:none;">1 (702) 509-9630</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INTRO -->
+  <section id="intro" style="padding:clamp(40px,6vw,64px) 24px;background:#FFFFFF;">
+    <div style="max-width:800px;margin:0 auto;text-align:center;">
+      <div style="color:#D6A441;font-size:14px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;margin-bottom:12px;">Why Local Matters</div>
+      <h2 style="font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:0.01em;font-size:clamp(24px,3vw,32px);margin:0 0 16px;color:#0C0B09;">Your Neighborhood Shipping Expert</h2>
+      <div style="width:48px;height:3px;background:#D6A441;margin:0 auto 24px;"></div>
+      <p style="font-size:17px;line-height:1.85;color:#3a3934;margin:0;text-align:left;">In the bustling heart of Las Vegas, where the neon lights of the Strip meet the everyday needs of residents and businesses, a local packing and shipping store stands out as an unsung hero. These small, community-rooted operations offer a level of expertise and customization that big-box shipping chains often can't match. Whether you're sending a fragile piece of fine art, a high-value electronic gadget, or an oddly shaped heirloom across town or across the globe, a local store in Las Vegas can craft the perfect solution — literally. From custom boxes to hand-built wooden crates, they handle it all, including international shipping, with an efficiency that saves both time and money.</p>
+    </div>
+  </section>
+
+  <!-- SUPPLIES IN STOCK -->
+  <section id="supplies-stock" style="padding:clamp(48px,7vw,88px) 24px;background:#FAF8F4;">
+    <div style="max-width:1280px;margin:0 auto;">
+      <div style="text-align:center;max-width:720px;margin:0 auto 44px;">
+        <div style="color:#D6A441;font-size:14px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;margin-bottom:12px;">In Stock</div>
+        <h2 style="font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:0.01em;font-size:clamp(26px,3.4vw,38px);margin:0;color:#0C0B09;">Packaging and shipping supplies in stock</h2>
+        <div style="width:48px;height:3px;background:#D6A441;margin:16px auto 0;"></div>
+      </div>
+      <div class="stack-grid" style="display:grid;grid-template-columns:1.15fr 1fr;gap:48px;align-items:center;">
+        <div>
+          <p style="font-size:16px;line-height:1.8;color:#5a5952;margin:0 0 20px;">Las Vegas is a city of extremes — extreme heat, extreme tourism, and extreme creativity. A local packing and shipping store thrives here by adapting to the unique demands of its clientele. Unlike national chains with rigid protocols, these stores are nimble, offering bespoke solutions tailored to each item.</p>
+          <p style="font-size:16px;line-height:1.8;color:#5a5952;margin:0;">Their staff, often locals themselves, understand the quirks of the desert climate — think scorching summers that can warp packaging — and the city's shipping hubs, giving them an edge in ensuring your goods arrive safely.</p>
+        </div>
+        <blockquote style="margin:0;padding:34px 32px;background:#FAF8F4;border-left:4px solid #D6A441;">
+          <p style="font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:0.02em;font-size:clamp(19px,2.2vw,24px);line-height:1.35;color:#0C0B09;margin:0;">What sets them apart is customization. Whether it's a one-off shipment or a recurring need, they can design packaging that fits like a glove — reducing waste and risk.</p>
+        </blockquote>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;gap:16px;justify-content:center;margin:clamp(36px,5vw,52px) auto 0;">
+        <a href="#quote" style="display:inline-flex;align-items:center;gap:8px;background:#D6A441;color:#0C0B09;font-weight:600;font-size:15px;padding:15px 26px;border-radius:2px;" style-hover="background:#e8b95a;text-decoration:none;">Get a Free Quote ↗</a>
+        <a href="tel:17025099630" style="display:inline-flex;align-items:center;gap:8px;border:1.5px solid #0C0B09;color:#0C0B09;font-weight:600;font-size:15px;padding:15px 26px;border-radius:2px;" style-hover="border-color:#D6A441;color:#D6A441;text-decoration:none;">1 (702) 509-9630</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CUSTOM BOXES -->
+  <section id="custom-boxes" style="padding:clamp(48px,7vw,88px) 24px;background:#FFFFFF;">
+    <div style="max-width:1280px;margin:0 auto;">
+      <div style="text-align:center;max-width:720px;margin:0 auto 44px;">
+        <div style="color:#D6A441;font-size:14px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;margin-bottom:12px;">Custom Boxes</div>
+        <h2 style="font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:0.01em;font-size:clamp(26px,3.4vw,38px);margin:0;color:#0C0B09;">Precision packing for every item</h2>
+        <div style="width:48px;height:3px;background:#D6A441;margin:16px auto 0;"></div>
+      </div>
+      <div class="stack-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:28px;">
+        <div style="padding:32px;background:#FFFFFF;border:1px solid #e8e4da;">
+          <div style="width:44px;height:44px;border:2px solid #D6A441;color:#D6A441;font-family:'Oswald',sans-serif;font-size:16px;display:flex;align-items:center;justify-content:center;margin-bottom:20px;">01</div>
+          <h3 style="font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:0.03em;font-size:19px;line-height:1.3;margin:0 0 12px;color:#0C0B09;">A signed guitar pick from a Vegas memorabilia auction</h3>
+          <p style="font-size:15px;line-height:1.75;color:#5a5952;margin:0;">Small, delicate, worth a small fortune. Shipping it to a collector in New York calls for a custom box — a snug 6x6x2-inch corrugated cardboard container lined with foam inserts, cut to cradle the item perfectly. No oversized, overpriced generic boxes; just a tailored fit that keeps costs low and protection high.</p>
+        </div>
+        <div style="padding:32px;background:#FFFFFF;border:1px solid #e8e4da;">
+          <div style="width:44px;height:44px;border:2px solid #D6A441;color:#D6A441;font-family:'Oswald',sans-serif;font-size:16px;display:flex;align-items:center;justify-content:center;margin-bottom:20px;">02</div>
+          <h3 style="font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:0.03em;font-size:19px;line-height:1.3;margin:0 0 12px;color:#0C0B09;">A 24x36-inch canvas painting bound for a gallery</h3>
+          <p style="font-size:15px;line-height:1.75;color:#5a5952;margin:0;">A double-walled cardboard box with corner protectors and a polyethylene sleeve shields the artwork from moisture — a common concern in Vegas's dry air. This precision eliminates excess space, lowering shipping fees, and ensures the piece arrives pristine.</p>
+        </div>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;gap:16px;justify-content:center;margin:clamp(36px,5vw,52px) auto 0;">
+        <a href="#quote" style="display:inline-flex;align-items:center;gap:8px;background:#D6A441;color:#0C0B09;font-weight:600;font-size:15px;padding:15px 26px;border-radius:2px;" style-hover="background:#e8b95a;text-decoration:none;">Get a Free Quote ↗</a>
+        <a href="tel:17025099630" style="display:inline-flex;align-items:center;gap:8px;border:1.5px solid #0C0B09;color:#0C0B09;font-weight:600;font-size:15px;padding:15px 26px;border-radius:2px;" style-hover="border-color:#D6A441;color:#D6A441;text-decoration:none;">1 (702) 509-9630</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- WOODEN CRATES -->
+  <section id="crates" style="position:relative;overflow:hidden;padding:clamp(48px,7vw,88px) 24px;background:#0C0B09;">
+    <div style="position:absolute;inset:0;background:radial-gradient(80% 70% at 50% 0%, rgba(214,164,65,.12), transparent 70%);z-index:0;"></div>
+    <div style="position:relative;z-index:1;max-width:1280px;margin:0 auto;">
+      <div style="text-align:center;max-width:720px;margin:0 auto 44px;">
+        <div style="color:#D6A441;font-size:14px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;margin-bottom:12px;">Heavy Duty</div>
+        <h2 style="font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:0.01em;font-size:clamp(26px,3.4vw,38px);margin:0;color:#FFFFFF;">Custom-built wooden crates</h2>
+        <div style="width:48px;height:3px;background:#D6A441;margin:16px auto 0;"></div>
+      </div>
+      <div class="stack-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:28px;">
+        <div style="padding:32px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.16);">
+          <div style="width:44px;height:44px;border:2px solid #D6A441;color:#D6A441;font-family:'Oswald',sans-serif;font-size:16px;display:flex;align-items:center;justify-content:center;margin-bottom:20px;">01</div>
+          <h3 style="font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:0.03em;font-size:19px;line-height:1.3;margin:0 0 12px;color:#FFFFFF;">A vintage 1960s slot machine, over 200 pounds</h3>
+          <p style="font-size:15px;line-height:1.75;color:#cfcdc4;margin:0;">Fragile glass panels and intricate mechanics, headed to a buyer in California. The team builds a pine crate reinforced with steel brackets, lined with shock-absorbing foam, measured down to the inch (roughly 30x20x50 inches) for a glove-like fit that prevents shifting during transit.</p>
+        </div>
+        <div style="padding:32px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.16);">
+          <div style="width:44px;height:44px;border:2px solid #D6A441;color:#D6A441;font-family:'Oswald',sans-serif;font-size:16px;display:flex;align-items:center;justify-content:center;margin-bottom:20px;">02</div>
+          <h3 style="font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:0.03em;font-size:19px;line-height:1.3;margin:0 0 12px;color:#FFFFFF;">A 50-pound bronze sculpture for a local jeweler</h3>
+          <p style="font-size:15px;line-height:1.75;color:#cfcdc4;margin:0;">The crate gets a hinged lid for easy unpacking, plus silica gel packs to combat humidity changes en route. Bespoke crates built with local lumber and expertise outshine flimsy, mass-produced options from big retailers — durability without breaking the bank.</p>
+        </div>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;gap:16px;justify-content:center;margin:clamp(36px,5vw,52px) auto 0;">
+        <a href="#quote" style="display:inline-flex;align-items:center;gap:8px;background:#D6A441;color:#0C0B09;font-weight:600;font-size:15px;padding:15px 26px;border-radius:2px;" style-hover="background:#e8b95a;text-decoration:none;">Get a Free Quote ↗</a>
+        <a href="tel:17025099630" style="display:inline-flex;align-items:center;gap:8px;border:1.5px solid #FFFFFF;color:#FFFFFF;font-weight:600;font-size:15px;padding:15px 26px;border-radius:2px;" style-hover="border-color:#D6A441;color:#D6A441;text-decoration:none;">1 (702) 509-9630</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- LOCAL SERVICES -->
+  <section id="services" style="padding:clamp(48px,7vw,88px) 24px;background:#FAF8F4;">
+    <div style="max-width:1280px;margin:0 auto;">
+      <div style="text-align:center;max-width:720px;margin:0 auto 44px;">
+        <div style="color:#D6A441;font-size:14px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;margin-bottom:12px;">Las Vegas, NV</div>
+        <h2 style="font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:0.01em;font-size:clamp(26px,3.4vw,38px);margin:0;color:#0C0B09;">Local packing and shipping services</h2>
+        <div style="width:48px;height:3px;background:#D6A441;margin:16px auto 0;"></div>
+      </div>
+      <div class="svc-grid-3" style="display:grid;grid-template-columns:repeat(3,1fr);gap:28px;">
+        <div style="padding:32px;background:#FFFFFF;border:1px solid #e8e4da;">
+          <div style="font-size:26px;margin-bottom:18px;">💻</div>
+          <h3 style="font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:0.03em;font-size:19px;margin:0 0 12px;color:#0C0B09;">Packing &amp; shipping electronics</h3>
+          <p style="font-size:15px;line-height:1.75;color:#5a5952;margin:0 0 14px;">Las Vegas is a tech hub, from CES attendees shipping prototypes to gamers mailing high-end PCs. A DJ moving a $3,000 mixer to a gig in LA gets anti-static bubble wrap, a custom box with foam cutouts to secure knobs and sliders, double-boxing, and clear "Fragile" and "This Side Up" labeling.</p>
+          <p style="font-size:15px;line-height:1.75;color:#5a5952;margin:0;">For bigger setups like a gaming rig with dual monitors, components are disassembled, packed in tailored foam, and crated if needed. Proximity to Las Vegas shipping hubs means same-day processing for time-sensitive tech.</p>
+        </div>
+        <div style="padding:32px;background:#FFFFFF;border:1px solid #e8e4da;">
+          <div style="font-size:26px;margin-bottom:18px;">🖼</div>
+          <h3 style="font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:0.03em;font-size:19px;margin:0 0 12px;color:#0C0B09;">Fine art and valuables</h3>
+          <p style="font-size:15px;line-height:1.75;color:#5a5952;margin:0 0 14px;">A $10,000 abstract sculpture headed to a collector in Paris ships in a wooden crate with a foam-lined interior and a vapor barrier to protect against temperature swings — with the packing process photographed for insurance purposes.</p>
+          <p style="font-size:15px;line-height:1.75;color:#5a5952;margin:0;">Valuables like a gold-plated poker set from a Vegas casino auction get a custom box with velvet lining and tamper-evident tape, for security and presentation alike. A hands-on approach for irreplaceable items.</p>
+        </div>
+        <div style="padding:32px;background:#FFFFFF;border:1px solid #e8e4da;">
+          <div style="font-size:26px;margin-bottom:18px;">🎩</div>
+          <h3 style="font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:0.03em;font-size:19px;margin:0 0 12px;color:#0C0B09;">Beyond the basics</h3>
+          <p style="font-size:15px;line-height:1.75;color:#5a5952;margin:0 0 14px;">Local stores don't flinch at oddball requests: a trick guillotine crated with padded blade supports for a magician, a 50-pound cast-iron stove part reinforced with cross-bracing for a chef, even a neon sign from a defunct Vegas lounge in a crate with a removable top for easy loading.</p>
+          <p style="font-size:15px;line-height:1.75;color:#5a5952;margin:0;">That flexibility is what makes them indispensable for the city's eclectic residents.</p>
+        </div>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;gap:16px;justify-content:center;margin:clamp(36px,5vw,52px) auto 0;">
+        <a href="#quote" style="display:inline-flex;align-items:center;gap:8px;background:#D6A441;color:#0C0B09;font-weight:600;font-size:15px;padding:15px 26px;border-radius:2px;" style-hover="background:#e8b95a;text-decoration:none;">Get a Free Quote ↗</a>
+        <a href="tel:17025099630" style="display:inline-flex;align-items:center;gap:8px;border:1.5px solid #0C0B09;color:#0C0B09;font-weight:600;font-size:15px;padding:15px 26px;border-radius:2px;" style-hover="border-color:#D6A441;color:#D6A441;text-decoration:none;">1 (702) 509-9630</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- INTERNATIONAL -->
+  <section id="international" style="padding:clamp(48px,7vw,88px) 24px;background:#FFFFFF;">
+    <div style="max-width:1080px;margin:0 auto;">
+      <div style="text-align:center;max-width:720px;margin:0 auto 44px;">
+        <div style="color:#D6A441;font-size:14px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;margin-bottom:12px;">International Shipping</div>
+        <h2 style="font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:0.01em;font-size:clamp(26px,3.4vw,38px);margin:0;color:#0C0B09;">Saving time and money from Las Vegas</h2>
+        <div style="width:48px;height:3px;background:#D6A441;margin:16px auto 0;"></div>
+      </div>
+      <p style="font-size:16px;line-height:1.8;color:#5a5952;margin:0 auto 36px;max-width:760px;text-align:center;">Shipping overseas can be daunting, but handling everything in-house simplifies it — consolidating these steps shaves days off transit time and reduces cost.</p>
+      <div style="display:flex;flex-direction:column;gap:22px;">
+        <div style="display:flex;gap:22px;align-items:flex-start;padding:26px 28px;background:#FFFFFF;border:1px solid #e8e4da;">
+          <div style="width:44px;height:44px;border-radius:50%;background:#0C0B09;color:#D6A441;font-family:'Oswald',sans-serif;display:flex;align-items:center;justify-content:center;flex-shrink:0;">01</div>
+          <div>
+            <h3 style="font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:0.03em;font-size:18px;margin:0 0 8px;color:#0C0B09;">Small parcels, handled end to end</h3>
+            <p style="font-size:15px;line-height:1.75;color:#5a5952;margin:0;">Shipping that signed guitar pick to a fan in Australia means a custom box, customs paperwork completed — like the CN22 declaration — and the best carrier selected for cost efficiency.</p>
+          </div>
+        </div>
+        <div style="display:flex;gap:22px;align-items:flex-start;padding:26px 28px;background:#FFFFFF;border:1px solid #e8e4da;">
+          <div style="width:44px;height:44px;border-radius:50%;background:#0C0B09;color:#D6A441;font-family:'Oswald',sans-serif;display:flex;align-items:center;justify-content:center;flex-shrink:0;">02</div>
+          <div>
+            <h3 style="font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:0.03em;font-size:18px;margin:0 0 8px;color:#0C0B09;">Large, compliant crated freight</h3>
+            <p style="font-size:15px;line-height:1.75;color:#5a5952;margin:0;">For the slot machine headed to Japan, crates are built compliant with ISPM-15 wood treatment standards, Electronic Export Information (EEI) is filed if the value exceeds $2,500, and rates are negotiated directly with carriers — no third-party broker delays or markups.</p>
+          </div>
+        </div>
+        <div style="display:flex;gap:22px;align-items:flex-start;padding:26px 28px;background:#FFFFFF;border:1px solid #e8e4da;">
+          <div style="width:44px;height:44px;border-radius:50%;background:#0C0B09;color:#D6A441;font-family:'Oswald',sans-serif;display:flex;align-items:center;justify-content:center;flex-shrink:0;">03</div>
+          <div>
+            <h3 style="font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:0.03em;font-size:18px;margin:0 0 8px;color:#0C0B09;">Fine art across borders</h3>
+            <p style="font-size:15px;line-height:1.75;color:#5a5952;margin:0;">Fine art going abroad, like the sculpture to Paris, gets coordination with customs brokers, Certificates of Origin secured if needed, and packaging that meets destination regulations. Handling this internally can cut costs by 20–30% and beat chain-store timelines by days.</p>
+          </div>
+        </div>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;gap:16px;justify-content:center;margin:clamp(36px,5vw,52px) auto 0;">
+        <a href="#quote" style="display:inline-flex;align-items:center;gap:8px;background:#D6A441;color:#0C0B09;font-weight:600;font-size:15px;padding:15px 26px;border-radius:2px;" style-hover="background:#e8b95a;text-decoration:none;">Get a Free Quote ↗</a>
+        <a href="tel:17025099630" style="display:inline-flex;align-items:center;gap:8px;border:1.5px solid #0C0B09;color:#0C0B09;font-weight:600;font-size:15px;padding:15px 26px;border-radius:2px;" style-hover="border-color:#D6A441;color:#D6A441;text-decoration:none;">1 (702) 509-9630</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY LOCAL -->
+  <section id="why-local" style="position:relative;overflow:hidden;padding:clamp(48px,7vw,88px) 24px;background:#0C0B09;">
+    <img src="assets/logo-bw.png" alt="" style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:min(820px,120%);opacity:0.08;filter:brightness(0) invert(1) blur(1px);pointer-events:none;z-index:0;" />
+    <div style="position:relative;z-index:1;max-width:1280px;margin:0 auto;">
+      <div style="text-align:center;max-width:720px;margin:0 auto 44px;">
+        <div style="color:#D6A441;font-size:14px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;margin-bottom:12px;">The Difference</div>
+        <h2 style="font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:0.01em;font-size:clamp(26px,3.4vw,38px);margin:0;color:#FFFFFF;">Why choose a Las Vegas local store?</h2>
+        <div style="width:48px;height:3px;background:#D6A441;margin:16px auto 0;"></div>
+      </div>
+      <div class="svc-grid-3" style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-bottom:40px;">
+        <div style="padding:30px;background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.16);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);">
+          <div style="font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:0.05em;font-size:17px;color:#D6A441;margin-bottom:10px;">Cost savings</div>
+          <p style="font-size:15px;line-height:1.7;color:#cfcdc4;margin:0;">Custom packaging minimizes dimensional-weight charges, and in-house international processing skips the middlemen.</p>
+        </div>
+        <div style="padding:30px;background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.16);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);">
+          <div style="font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:0.05em;font-size:17px;color:#D6A441;margin-bottom:10px;">Time efficiency</div>
+          <p style="font-size:15px;line-height:1.7;color:#cfcdc4;margin:0;">Proximity to Vegas's shipping hubs plus same-day service options keep tight deadlines realistic.</p>
+        </div>
+        <div style="padding:30px;background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.16);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);">
+          <div style="font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:0.05em;font-size:17px;color:#D6A441;margin-bottom:10px;">Personalized care</div>
+          <p style="font-size:15px;line-height:1.7;color:#cfcdc4;margin:0;">Knowing your name and your item's story adds a layer of trust absent from corporate giants.</p>
+        </div>
+      </div>
+      <div style="border-top:1px solid rgba(255,255,255,0.16);">
+        <div style="display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:16px;padding:18px 4px;border-bottom:1px solid rgba(255,255,255,0.10);font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:0.06em;font-size:13px;color:#D6A441;">
+          <div>Scenario</div>
+          <div>Big retailer</div>
+          <div>Local store</div>
+        </div>
+        <div style="display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:16px;padding:18px 4px;border-bottom:1px solid rgba(255,255,255,0.10);font-size:15px;color:#cfcdc4;">
+          <div style="color:#FFFFFF;">Small, delicate item in a generic box</div>
+          <div>~$50 in overage charges</div>
+          <div>~$20 with a custom box</div>
+        </div>
+        <div style="display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:16px;padding:18px 4px;border-bottom:1px solid rgba(255,255,255,0.10);font-size:15px;color:#cfcdc4;">
+          <div style="color:#FFFFFF;">International processing</div>
+          <div>+$30 in processing fees</div>
+          <div>Flat rate closer to $15</div>
+        </div>
+        <div style="display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:16px;padding:18px 4px;font-size:15px;color:#cfcdc4;">
+          <div style="color:#FFFFFF;">A lost package</div>
+          <div>A corporate call center shrugs</div>
+          <div>The owner tracks it down personally</div>
+        </div>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;gap:16px;justify-content:center;margin:clamp(36px,5vw,52px) auto 0;">
+        <a href="#quote" style="display:inline-flex;align-items:center;gap:8px;background:#D6A441;color:#0C0B09;font-weight:600;font-size:15px;padding:15px 26px;border-radius:2px;" style-hover="background:#e8b95a;text-decoration:none;">Get a Free Quote ↗</a>
+        <a href="tel:17025099630" style="display:inline-flex;align-items:center;gap:8px;border:1.5px solid #FFFFFF;color:#FFFFFF;font-weight:600;font-size:15px;padding:15px 26px;border-radius:2px;" style-hover="border-color:#D6A441;color:#D6A441;text-decoration:none;">1 (702) 509-9630</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- TIPS -->
+  <section id="tips" style="padding:clamp(48px,7vw,88px) 24px;background:#FAF8F4;">
+    <div style="max-width:1080px;margin:0 auto;">
+      <div style="text-align:center;max-width:720px;margin:0 auto 44px;">
+        <div style="color:#D6A441;font-size:14px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;margin-bottom:12px;">Checklist</div>
+        <h2 style="font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:0.01em;font-size:clamp(26px,3.4vw,38px);margin:0;color:#0C0B09;">Tips for working with a local store</h2>
+        <div style="width:48px;height:3px;background:#D6A441;margin:16px auto 0;"></div>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:24px;">
+        <div style="padding:28px;background:#FAF8F4;border-top:3px solid #D6A441;">
+          <div style="font-family:'Oswald',sans-serif;font-size:15px;color:#D6A441;margin-bottom:10px;">01</div>
+          <h3 style="font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:0.03em;font-size:17px;margin:0 0 8px;color:#0C0B09;">Bring details</h3>
+          <p style="font-size:15px;line-height:1.7;color:#5a5952;margin:0;">Share dimensions, weight, and destination upfront — e.g. "18x12x6 inches, 5 pounds, to London."</p>
+        </div>
+        <div style="padding:28px;background:#FAF8F4;border-top:3px solid #D6A441;">
+          <div style="font-family:'Oswald',sans-serif;font-size:15px;color:#D6A441;margin-bottom:10px;">02</div>
+          <h3 style="font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:0.03em;font-size:17px;margin:0 0 8px;color:#0C0B09;">Ask for options</h3>
+          <p style="font-size:15px;line-height:1.7;color:#5a5952;margin:0;">Request custom box versus crate quotes so you can compare costs directly.</p>
+        </div>
+        <div style="padding:28px;background:#FAF8F4;border-top:3px solid #D6A441;">
+          <div style="font-family:'Oswald',sans-serif;font-size:15px;color:#D6A441;margin-bottom:10px;">03</div>
+          <h3 style="font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:0.03em;font-size:17px;margin:0 0 8px;color:#0C0B09;">Leverage their expertise</h3>
+          <p style="font-size:15px;line-height:1.7;color:#5a5952;margin:0;">For international shipments, let them guide carrier choice and paperwork.</p>
+        </div>
+        <div style="padding:28px;background:#FAF8F4;border-top:3px solid #D6A441;">
+          <div style="font-family:'Oswald',sans-serif;font-size:15px;color:#D6A441;margin-bottom:10px;">04</div>
+          <h3 style="font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:0.03em;font-size:17px;margin:0 0 8px;color:#0C0B09;">Plan ahead</h3>
+          <p style="font-size:15px;line-height:1.7;color:#5a5952;margin:0;">They're fast, but peak seasons — like post-CES — get busy. Book early.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section style="padding:clamp(48px,7vw,80px) 24px;background:#FFFFFF;overflow:hidden;">
+    <div style="max-width:700px;margin:0 auto 40px;text-align:center;">
+      <div style="color:#D6A441;font-size:14px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;margin-bottom:12px;">On the Job</div>
+      <h2 style="font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:0.01em;font-size:clamp(26px,3.4vw,38px);margin:0;color:#0C0B09;">From Our Store &amp; Warehouse Floor</h2>
+      <div style="width:48px;height:3px;background:#D6A441;margin:16px auto 0;"></div>
+    </div>
+    <div id="lps-wrap" style="position:relative;max-width:1280px;margin:0 auto;">
+      <div id="lps-track" style="display:flex;gap:24px;overflow-x:auto;scrollbar-width:none;padding-bottom:4px;">
+        <img src="uploads/20220929_120256 (1).webp" alt="Industrial equipment crated for shipping in the warehouse" style="flex-shrink:0;width:min(640px,86vw);height:440px;object-fit:cover;border-radius:14px;box-shadow:0 18px 40px rgba(12,11,9,.14);display:block;">
+        <img src="uploads/FB_IMG_1593239228374 (1).webp" alt="Staff member custom-crating a chandelier for shipment" style="flex-shrink:0;width:min(640px,86vw);height:440px;object-fit:cover;border-radius:14px;box-shadow:0 18px 40px rgba(12,11,9,.14);display:block;">
+        <img src="uploads/20230508_151801 (1).webp" alt="Silver decorative fixtures carefully padded and crated" style="flex-shrink:0;width:min(640px,86vw);height:440px;object-fit:cover;border-radius:14px;box-shadow:0 18px 40px rgba(12,11,9,.14);display:block;">
+        <img src="uploads/FB_IMG_1605421797840 (1).webp" alt="Vintage truck loaded with packed boxes for delivery" style="flex-shrink:0;width:min(640px,86vw);height:440px;object-fit:cover;border-radius:14px;box-shadow:0 18px 40px rgba(12,11,9,.14);display:block;">
+        <img src="uploads/PXL_20240306_003701787 (1).webp" alt="Personal belongings carefully wrapped and labeled for a move" style="flex-shrink:0;width:min(640px,86vw);height:440px;object-fit:cover;border-radius:14px;box-shadow:0 18px 40px rgba(12,11,9,.14);display:block;">
+      </div>
+      <button onClick="{{ lpsPrev }}" aria-label="Previous photo" style="position:absolute;left:8px;top:50%;transform:translateY(-50%);width:48px;height:48px;border-radius:50%;background:#FFFFFF;border:1px solid #EDE8DC;color:#0C0B09;font-size:20px;cursor:pointer;box-shadow:0 8px 20px rgba(12,11,9,.16);">&larr;</button>
+      <button onClick="{{ lpsNext }}" aria-label="Next photo" style="position:absolute;right:8px;top:50%;transform:translateY(-50%);width:48px;height:48px;border-radius:50%;background:#FFFFFF;border:1px solid #EDE8DC;color:#0C0B09;font-size:20px;cursor:pointer;box-shadow:0 8px 20px rgba(12,11,9,.16);">&rarr;</button>
+    </div>
+  </section>
+
+  <!-- CLOSING CTA -->
+  <section id="quote" style="position:relative;overflow:hidden;background:#0C0B09;color:#FFFFFF;padding:clamp(64px,9vw,110px) 24px;">
+    <img src="assets/cta-boxes.webp" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;" />
+    <div style="position:absolute;inset:0;background:linear-gradient(180deg, rgba(12,11,9,0.78) 0%, rgba(12,11,9,0.86) 100%);z-index:1;"></div>
+    <div style="position:absolute;inset:0;background:linear-gradient(90deg, rgba(12,11,9,0.85) 0%, rgba(12,11,9,0.2) 35%, rgba(12,11,9,0.2) 65%, rgba(12,11,9,0.85) 100%);z-index:1;pointer-events:none;"></div>
+    <div style="position:relative;z-index:2;max-width:900px;margin:0 auto;text-align:center;">
+      <h2 style="font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:0.01em;font-size:clamp(26px,3.4vw,38px);margin:0 0 16px;">Your Vegas shipping ally</h2>
+      <div style="width:48px;height:3px;background:#D6A441;margin:0 auto 20px;"></div>
+      <p style="font-size:16px;line-height:1.75;color:#d6d4cb;max-width:700px;margin:0 auto 36px;">A local packing and shipping store in Las Vegas is more than a convenience — it's a partner. From custom boxes for a signed collectible to wooden crates for a slot machine, we handle electronics, fine art, valuables, and beyond with skill and care. In-house international shipping saves time and money, turning a complex process into a breeze. Next time you need to ship something special, skip the chain and head to your neighborhood store.</p>
+      <div style="display:flex;flex-wrap:wrap;gap:16px;justify-content:center;margin:clamp(36px,5vw,52px) auto 0;">
+        <a href="#quote" style="display:inline-flex;align-items:center;gap:8px;background:#D6A441;color:#0C0B09;font-weight:600;font-size:15px;padding:15px 26px;border-radius:2px;" style-hover="background:#e8b95a;text-decoration:none;">Get a Free Quote ↗</a>
+        <a href="tel:17025099630" style="display:inline-flex;align-items:center;gap:8px;border:1.5px solid #FFFFFF;color:#FFFFFF;font-weight:600;font-size:15px;padding:15px 26px;border-radius:2px;" style-hover="border-color:#D6A441;color:#D6A441;text-decoration:none;">1 (702) 509-9630</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer style="background:#0C0B09;color:#cfcdc4;padding:56px 24px 28px;border-top:1px solid rgba(214,164,65,0.3);">
+    <div style="max-width:1280px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:40px;margin-bottom:40px;">
+      <div>
+        <img src="assets/logo-bw.png" alt="Las Vegas Pack and Ship logo" style="height:46px;width:auto;object-fit:contain;margin-bottom:14px;filter:brightness(0) invert(1);">
+        <p style="font-size:14px;line-height:1.7;margin:0;">Serving Las Vegas, Henderson, and all of Nevada — and shipping fine art worldwide.</p>
+      </div>
+      <div>
+        <div style="color:#FFFFFF;font-size:15px;font-weight:600;margin-bottom:14px;">Contact</div>
+        <p style="font-size:14px;line-height:1.9;margin:0;">
+          <a href="tel:17025099630" style="color:#cfcdc4;">1-702-509-9630</a><br>
+          Las Vegas, Henderson &amp; all of Nevada
+        </p>
+      </div>
+      <div>
+        <div style="color:#FFFFFF;font-size:15px;font-weight:600;margin-bottom:14px;">Las Vegas Professional Warehouse Storage</div>
+        <p style="font-size:14px;line-height:1.7;margin:0;">4640 Polaris Ave.<br>Las Vegas, NV 89103</p>
+      </div>
+      <div>
+        <div style="color:#FFFFFF;font-size:15px;font-weight:600;margin-bottom:14px;">Las Vegas Strip Crating &amp; Logistics</div>
+        <p style="font-size:14px;line-height:1.7;margin:0;">4610 S. Polaris Ave.<br>Las Vegas, NV 89103</p>
+      </div>
+    </div>
+    <div style="max-width:1280px;margin:0 auto;border-top:1px solid #2a2823;padding-top:24px;display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;font-size:13px;">
+      <div>© 2026 Las Vegas Pack and Ship. All rights reserved.</div>
+      <div style="display:flex;gap:20px;">
+        <a href="Privacy Policy.dc.html" style="color:#cfcdc4;">Privacy Policy</a>
+        <a href="Las Vegas Pack and Ship.dc.html#" style="color:#cfcdc4;">Sitemap</a>
+      </div>
+    </div>
+  </footer>
+
+
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { mobileNavOpen: false };
+  _lpsStep(dir) {
+    const t = document.getElementById('lps-track');
+    if (!t) return;
+    clearTimeout(this._lpsResumeT);
+    this._lpsPaused = true;
+    const card = t.firstElementChild;
+    const w = card ? card.getBoundingClientRect().width + 24 : 400;
+    let target = t.scrollLeft + dir * w;
+    if (target >= t.scrollWidth - t.clientWidth - 4) target = 0;
+    if (target < 0) target = t.scrollWidth - t.clientWidth;
+    t.scrollTo({ left: target, behavior: 'smooth' });
+    this._lpsResumeT = setTimeout(() => { this._lpsPaused = false; }, 900);
+  }
+  componentDidMount() {
+    const track = document.getElementById('lps-track');
+    const wrap = document.getElementById('lps-wrap');
+    if (track && wrap) {
+      this._lpsHover = false;
+      this._lpsPaused = false;
+      wrap.addEventListener('mouseenter', () => { this._lpsHover = true; });
+      wrap.addEventListener('mouseleave', () => { this._lpsHover = false; });
+      this._lpsTimer = setInterval(() => {
+        if (this._lpsHover || this._lpsPaused) return;
+        if (track.scrollLeft + track.clientWidth >= track.scrollWidth - 1) track.scrollLeft = 0;
+        else track.scrollLeft += 1;
+      }, 30);
+    }
+    this._onScroll = () => {
+      const bar = document.getElementById('sticky-bar');
+      const hero = document.getElementById('home');
+      if (!bar || !hero) return;
+      const barActive = getComputedStyle(bar).display !== 'none';
+      const past = barActive && window.scrollY > hero.offsetTop + hero.offsetHeight - 120;
+      bar.style.transform = past ? 'translateY(0)' : 'translateY(-100%)';
+      const head = document.querySelector('header');
+      if (head) { head.style.visibility = past ? 'hidden' : 'visible'; head.style.position = past ? 'relative' : 'sticky'; }
+    };
+    window.addEventListener('scroll', this._onScroll, { passive: true });
+    window.addEventListener('resize', this._onScroll);
+    this._onScroll();
+  }
+  componentWillUnmount() {
+    if (this._onScroll) { window.removeEventListener('scroll', this._onScroll); window.removeEventListener('resize', this._onScroll); }
+    if (this._lpsTimer) clearInterval(this._lpsTimer);
+  }
+  renderVals() {
+    return {
+      mobileNavOpen: this.state.mobileNavOpen,
+      toggleNav: () => this.setState(s => ({ mobileNavOpen: !s.mobileNavOpen })),
+      closeNav: () => this.setState({ mobileNavOpen: false }),
+      lpsPrev: () => this._lpsStep(-1),
+      lpsNext: () => this._lpsStep(1),
+    };
+  }
+}
+</script>
+</body>
+</html>

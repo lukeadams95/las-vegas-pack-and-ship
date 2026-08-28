@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&amp;family=Work+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<script src="./image-slot.js"></script>
+<style>
+  body { margin: 0; }
+  a { color: #D6A441; text-decoration: none; }
+  a:hover { color: #b8863a; text-decoration: underline; }
+  .nav-item { position: relative; }
+  .nav-dropdown { display: none; position: absolute; top: 100%; left: 0; background: #FFFFFF; border: 1px solid #eee9dd; box-shadow: 0 12px 24px rgba(12,11,9,0.08); min-width: 240px; padding: 8px 0; z-index: 60; }
+  .nav-item:hover .nav-dropdown { display: block; }
+  .nav-dropdown a { display: block; padding: 10px 20px; color: #0C0B09; font-size: 14px; white-space: nowrap; }
+  .nav-dropdown a:hover { background: #FAF8F4; color: #D6A441; text-decoration: none; }
+  @media (max-width: 1100px) { #sticky-bar { display: none; } }
+  @media (max-width: 1100px) {
+    #main-nav { display: none !important; }
+    #nav-hamburger { display: flex !important; }
+  }
+  @media (min-width: 1101px) {
+    #mobile-nav-panel { display: none !important; }
+  }
+  .card-hover { transition: transform .3s ease, box-shadow .3s ease; }
+  .card-hover:hover { transform: translateY(-4px); box-shadow: 0 18px 40px rgba(12,11,9,.12); }
+  @media (max-width: 860px) { .addr-2col { grid-template-columns: 1fr !important; } .cite-4col { grid-template-columns: 1fr 1fr !important; } }
+  @media (max-width: 560px) { .cite-4col { grid-template-columns: 1fr !important; } }
+</style>
+</helmet>
+
+<div id="top" style="font-family:'Work Sans',sans-serif;color:#0C0B09;background:#FFFFFF;width:100%;overflow-x:clip;">
+
+  <!-- CONDENSED STICKY BAR -->
+  <div id="sticky-bar" style="position:fixed;top:0;left:0;right:0;z-index:60;background:#FFFFFF;box-shadow:0 4px 18px rgba(12,11,9,0.12);transform:translateY(-100%);transition:transform .32s ease;">
+    <div style="max-width:1460px;margin:0 auto;padding:10px 24px;display:flex;align-items:center;gap:24px;">
+      <a href="Las Vegas Pack and Ship.dc.html#home" style="display:flex;flex-shrink:0;"><img src="assets/logo-color.png" alt="Las Vegas Pack and Ship logo" style="height:56px;width:auto;object-fit:contain;flex-shrink:0;" /></a>
+      <nav style="display:flex;align-items:center;gap:22px;margin:0 auto;flex-wrap:wrap;">
+        <a href="Las Vegas Pack and Ship.dc.html#home" style="color:#0C0B09;font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:0.04em;font-size:13px;">Home</a>
+        <div class="nav-item">
+          <a href="javascript:void(0)" style="color:#0C0B09;font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:0.04em;font-size:13px;display:inline-flex;align-items:center;gap:6px;cursor:default;">Shipping &amp; Packing <span style="color:#D6A441;font-weight:700;">+</span></a>
+          <div class="nav-dropdown">
+            <a href="Local Packing and Shipping Store.dc.html">Local Packing &amp; Shipping Store</a>
+            <a href="Electronic Packing and Shipping.dc.html">Electronic Packing &amp; Shipping</a>
+            <a href="Local Packing and Shipping Supplies.dc.html">Packing, Shipping &amp; Moving Supplies</a>
+            <a href="Corrugated Fiberboard Packaging.dc.html">Custom Crating &amp; Corrugated Fiberboard Packaging</a>
+          </div>
+        </div>
+        <div class="nav-item">
+          <a href="Fine Art Shipping.dc.html" style="color:#0C0B09;font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:0.04em;font-size:13px;display:inline-flex;align-items:center;gap:6px;">Fine Art Services <span style="color:#D6A441;font-weight:700;">+</span></a>
+          <div class="nav-dropdown">
+            <a href="Fine Art Shipping.dc.html">Fine Art Shipping</a>
+            <a href="Fine Art Moving and Packing.dc.html">Fine Art Moving and Packing</a>
+            <a href="Art Courier Service.dc.html">Art Courier Service</a>
+            <a href="Art Consultation.dc.html">Art Consultation</a>
+            <a href="Art Installation.dc.html">Art Installation</a>
+            <a href="Vapor Barrier Bag Shipping.dc.html">Vapor Barrier Bag Shipping</a>
+          </div>
+        </div>
+        <div class="nav-item">
+          <a href="javascript:void(0)" style="color:#0C0B09;font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:0.04em;font-size:13px;display:inline-flex;align-items:center;gap:6px;cursor:default;">Projects <span style="color:#D6A441;font-weight:700;">+</span></a>
+          <div class="nav-dropdown">
+            <a href="Rick's Restoration.dc.html">Rick's Restoration</a>
+          </div>
+        </div>
+        <a href="#top" style="color:#0C0B09;font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:0.04em;font-size:13px;border-bottom:2px solid #D6A441;padding-bottom:3px;">Contact</a>
+      </nav>
+      <div style="display:flex;align-items:center;gap:14px;flex-shrink:0;">
+        <div style="display:flex;align-items:center;gap:7px;">
+          <span style="font-family:'Work Sans',sans-serif;font-weight:700;font-size:17px;line-height:1;">
+            <span style="color:#4285F4;">G</span><span style="color:#EA4335;">o</span><span style="color:#FBBC05;">o</span><span style="color:#4285F4;">g</span><span style="color:#34A853;">l</span><span style="color:#EA4335;">e</span>
+          </span>
+          <span style="color:#D6A441;font-size:13px;letter-spacing:1px;">★★★★★</span>
+        </div>
+        <a href="#top" style="display:inline-block;background:#D6A441;color:#0C0B09;font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:0.06em;font-size:14px;padding:13px 20px;white-space:nowrap;" style-hover="background:#0C0B09;color:#D6A441;text-decoration:none;">Request Quote</a>
+        <a href="tel:17025099630" style="display:inline-block;background:#0C0B09;color:#FFFFFF;font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:0.06em;font-size:14px;padding:13px 20px;white-space:nowrap;" style-hover="background:#D6A441;color:#0C0B09;text-decoration:none;">1 (702) 509-9630</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- TOP BAR -->
+  <div style="background:#0C0B09;color:#FFFFFF;font-size:13px;padding:8px 24px;display:flex;justify-content:center;gap:24px;letter-spacing:0.03em;">
+    <span>Family owned &amp; operated since 1995</span>
+    <span style="color:#D6A441;">|</span>
+    <span style="font-size:13px;color:#FFFFFF;">4640 S. Polaris Ave, Las Vegas, NV 89103</span>
+  </div>
+
+  <!-- HEADER / NAV -->
+  <header style="position:sticky;top:0;z-index:50;background:#FFFFFF;border-bottom:1px solid #eee9dd;">
+    <div style="max-width:1280px;margin:0 auto;padding:16px 24px;display:flex;align-items:center;justify-content:space-between;gap:24px;">
+      <a href="Las Vegas Pack and Ship.dc.html#home" style="display:flex;flex-shrink:0;"><img src="assets/logo-color.png" alt="Las Vegas Pack and Ship logo" style="height: 96px; width: 183px; object-fit: contain; flex-shrink: 0; margin: -18px 0"></a>
+      <nav id="main-nav" style="display:flex;gap:30px;align-items:center;flex-wrap:wrap;">
+        <a href="Las Vegas Pack and Ship.dc.html#home" style="color:#0C0B09;font-size:14px;">Home</a>
+        <div class="nav-item">
+          <a href="javascript:void(0)" style="color:#0C0B09;font-size:14px;display:inline-flex;align-items:center;gap:4px;cursor:default;">Shipping &amp; Packing Services <span style="font-size:10px;color:#8a8880;">▾</span></a>
+          <div class="nav-dropdown">
+            <a href="Local Packing and Shipping Store.dc.html">Local Packing &amp; Shipping Store</a>
+            <a href="Electronic Packing and Shipping.dc.html">Electronic Packing &amp; Shipping</a>
+            <a href="Local Packing and Shipping Supplies.dc.html">Packing, Shipping &amp; Moving Supplies</a>
+            <a href="Corrugated Fiberboard Packaging.dc.html">Custom Crating &amp; Corrugated Fiberboard Packaging</a>
+          </div>
+        </div>
+        <div class="nav-item">
+          <a href="Fine Art Shipping.dc.html" style="color:#0C0B09;font-size:14px;display:inline-flex;align-items:center;gap:4px;">Fine Art Services <span style="font-size:10px;color:#8a8880;">▾</span></a>
+          <div class="nav-dropdown">
+            <a href="Fine Art Shipping.dc.html">Fine Art Shipping</a>
+            <a href="Fine Art Moving and Packing.dc.html">Fine Art Moving and Packing</a>
+            <a href="Art Courier Service.dc.html">Art Courier Service</a>
+            <a href="Art Consultation.dc.html">Art Consultation</a>
+            <a href="Art Installation.dc.html">Art Installation</a>
+            <a href="Vapor Barrier Bag Shipping.dc.html">Vapor Barrier Bag Shipping</a>
+          </div>
+        </div>
+        <div class="nav-item">
+          <a href="javascript:void(0)" style="color:#0C0B09;font-size:14px;display:inline-flex;align-items:center;gap:4px;cursor:default;">Projects <span style="font-size:10px;color:#8a8880;">▾</span></a>
+          <div class="nav-dropdown">
+            <a href="Rick's Restoration.dc.html">Rick's Restoration</a>
+          </div>
+        </div>
+        <a href="#top" style="color:#D6A441;font-size:14px;font-weight:600;">Contact</a>
+      </nav>
+      <div style="display:flex;align-items:center;gap:16px;">
+        <a href="tel:17025099630" style="display:inline-flex;align-items:center;gap:8px;color:#0C0B09;font-weight:600;font-size:14px;white-space:nowrap;border:1.5px solid #0C0B09;padding:11px 18px;border-radius:4px;" style-hover="border-color:#D6A441;color:#D6A441;text-decoration:none;">1 (702) 509-9630</a>
+        <a href="#top" style="display:inline-block;position:relative;background:#D6A441;color:#0C0B09;font-weight:700;font-size:14px;padding:11px 22px;border:1.5px solid #0C0B09;border-radius:4px;white-space:nowrap;box-shadow:3px 3px 0 #0C0B09;" style-hover="transform:translate(1px,1px);box-shadow:2px 2px 0 #0C0B09;text-decoration:none;">Free Quote</a>
+        <button id="nav-hamburger" onClick="{{ toggleNav }}" style="display:none;background:none;border:1px solid #0C0B09;color:#0C0B09;font-size:20px;width:40px;height:40px;border-radius:2px;cursor:pointer;">☰</button>
+      </div>
+    </div>
+    <sc-if value="{{ mobileNavOpen }}">
+      <div id="mobile-nav-panel" style="display:flex;flex-direction:column;padding:8px 24px 20px;gap:14px;background:#FFFFFF;border-top:1px solid #eee9dd;">
+        <a href="Las Vegas Pack and Ship.dc.html#home" onClick="{{ closeNav }}" style="color:#0C0B09;font-size:15px;font-weight:600;">Home</a>
+        <div style="font-size:12px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#D6A441;margin-top:6px;">Shipping &amp; Packing Services</div>
+        <a href="Local Packing and Shipping Store.dc.html" onClick="{{ closeNav }}" style="color:#0C0B09;font-size:15px;padding-left:8px;">Local Packing &amp; Shipping Store</a>
+        <a href="Electronic Packing and Shipping.dc.html" onClick="{{ closeNav }}" style="color:#0C0B09;font-size:15px;padding-left:8px;">Electronic Packing &amp; Shipping</a>
+        <a href="Local Packing and Shipping Supplies.dc.html" onClick="{{ closeNav }}" style="color:#0C0B09;font-size:15px;padding-left:8px;">Packing, Shipping &amp; Moving Supplies</a>
+        <a href="Corrugated Fiberboard Packaging.dc.html" onClick="{{ closeNav }}" style="color:#0C0B09;font-size:15px;padding-left:8px;">Custom Crating &amp; Corrugated Fiberboard Packaging</a>
+        <div style="font-size:12px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#D6A441;margin-top:6px;">Fine Art Services</div>
+        <a href="Fine Art Shipping.dc.html" onClick="{{ closeNav }}" style="color:#0C0B09;font-size:15px;padding-left:8px;">Fine Art Shipping</a>
+        <a href="Fine Art Moving and Packing.dc.html" onClick="{{ closeNav }}" style="color:#0C0B09;font-size:15px;padding-left:8px;">Fine Art Moving and Packing</a>
+        <a href="Art Courier Service.dc.html" onClick="{{ closeNav }}" style="color:#0C0B09;font-size:15px;padding-left:8px;">Art Courier Service</a>
+        <a href="Art Consultation.dc.html" onClick="{{ closeNav }}" style="color:#0C0B09;font-size:15px;padding-left:8px;">Art Consultation</a>
+        <a href="Art Installation.dc.html" onClick="{{ closeNav }}" style="color:#0C0B09;font-size:15px;padding-left:8px;">Art Installation</a>
+        <a href="Vapor Barrier Bag Shipping.dc.html" onClick="{{ closeNav }}" style="color:#0C0B09;font-size:15px;padding-left:8px;">Vapor Barrier Bag Shipping</a>
+        <div style="font-size:12px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#D6A441;margin-top:6px;">Projects</div>
+        <a href="Rick's Restoration.dc.html" onClick="{{ closeNav }}" style="color:#0C0B09;font-size:15px;padding-left:8px;">Rick's Restoration</a>
+        <a href="#top" onClick="{{ closeNav }}" style="color:#D6A441;font-size:15px;font-weight:600;margin-top:6px;">Contact</a>
+        <a href="tel:17025099630" onClick="{{ closeNav }}" style="color:#D6A441;font-size:15px;font-weight:600;margin-top:6px;">Call 1 (702) 509-9630</a>
+      </div>
+    </sc-if>
+  </header>
+
+  <!-- HERO -->
+  <section id="home" style="position:relative;height:420px;max-height:420px;display:flex;align-items:center;overflow:hidden;background:#0C0B09;">
+    <img src="uploads/20260430_101325 (1).webp" alt="Las Vegas Pack and Ship truck on a residential delivery" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;">
+    <div style="position:absolute;inset:0;background:radial-gradient(70% 90% at 20% 30%, rgba(214,164,65,.14), transparent 60%), linear-gradient(175deg,#1A1815 0%,#141310 45%,#0C0B09 100%);opacity:0.72;z-index:1;"></div>
+    <div style="position:relative;z-index:2;width:100%;max-width:1280px;margin:0 auto;padding:clamp(56px,8vw,96px) clamp(24px,6vw,64px);">
+      <div style="display:flex;align-items:center;gap:20px;max-width:780px;">
+        <div style="width:4px;align-self:stretch;background:#D6A441;flex-shrink:0;"></div>
+        <div>
+          <div style="color:#D6A441;font-size:13px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;margin-bottom:18px;">Get in Touch</div>
+          <h1 style="font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:0.01em;font-size:clamp(30px,4.4vw,50px);line-height:1.14;margin:0 0 18px;color:#FFFFFF;">Contact Us</h1>
+          <p style="font-size:17px;line-height:1.6;color:#d6d4cb;margin:0 0 32px;max-width:600px;">Your packing and shipping experts in Las Vegas — stop by, call, or send us a message.</p>
+          <div style="display:flex;flex-wrap:wrap;gap:16px;">
+            <a href="#visit" style="display:inline-flex;align-items:center;gap:8px;background:#D6A441;color:#0C0B09;font-weight:600;font-size:15px;padding:15px 26px;border-radius:2px;" style-hover="background:#e8b95a;text-decoration:none;">Get a Free Quote ↗</a>
+            <a href="tel:17025099630" style="display:inline-flex;align-items:center;gap:8px;border:1.5px solid #FFFFFF;color:#FFFFFF;font-weight:600;font-size:15px;padding:15px 26px;border-radius:2px;" style-hover="border-color:#D6A441;color:#D6A441;text-decoration:none;">1 (702) 509-9630</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INTRO -->
+  <section style="padding:clamp(48px,7vw,80px) 24px;background:#FFFFFF;">
+    <div style="max-width:760px;margin:0 auto;text-align:center;">
+      <div style="color:#D6A441;font-size:14px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;margin-bottom:12px;">We Mean It</div>
+      <h2 style="font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:0.01em;font-size:clamp(26px,3.4vw,38px);margin:0 0 16px;color:#0C0B09;">Your Packing and Shipping Experts in Las Vegas</h2>
+      <div style="width:48px;height:3px;background:#D6A441;margin:0 auto 28px;"></div>
+      <p style="font-size:17px;line-height:1.85;color:#3a3934;margin:0;">We take boxes very seriously, as you can see. Don't believe us — just stop by. If we don't have it, we'll make it.</p>
+    </div>
+  </section>
+
+  <!-- VISIT / REACH US -->
+  <section id="visit" style="padding:clamp(48px,7vw,88px) 24px;background:#FAF8F4;">
+    <div style="max-width:1160px;margin:0 auto;">
+      <div style="text-align:center;max-width:640px;margin:0 auto 48px;">
+        <div style="color:#D6A441;font-size:14px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;margin-bottom:12px;">Stop By</div>
+        <h2 style="font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:0.01em;font-size:clamp(26px,3.4vw,38px);margin:0;color:#0C0B09;">Stop By One of Our Las Vegas Locations</h2>
+        <div style="width:48px;height:3px;background:#D6A441;margin:16px auto 0;"></div>
+      </div>
+      <div class="addr-2col" style="display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:32px;">
+        <div style="background:#FFFFFF;border:1px solid #EDE8DC;border-top:4px solid #D6A441;border-radius:10px;padding:30px 28px;">
+          <h3 style="font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:0.03em;font-size:18px;margin:0 0 10px;color:#0C0B09;">Las Vegas Professional Warehouse Storage</h3>
+          <p style="font-size:15px;color:#5a5952;line-height:1.7;margin:0;">4640 S. Polaris Ave.<br>Las Vegas, Nevada 89103</p>
+        </div>
+        <div style="background:#FFFFFF;border:1px solid #EDE8DC;border-top:4px solid #D6A441;border-radius:10px;padding:30px 28px;">
+          <h3 style="font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:0.03em;font-size:18px;margin:0 0 10px;color:#0C0B09;">Las Vegas Strip Crating &amp; Logistics</h3>
+          <p style="font-size:15px;color:#5a5952;line-height:1.7;margin:0;">4610 S. Polaris Ave.<br>Las Vegas, Nevada 89103</p>
+        </div>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;gap:24px;justify-content:center;margin-bottom:32px;">
+        <div style="display:flex;align-items:center;gap:12px;">
+          <span style="width:44px;height:44px;border-radius:50%;background:#0C0B09;color:#D6A441;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;">☏</span>
+          <div>
+            <div style="font-size:13px;color:#8a8880;text-transform:uppercase;letter-spacing:0.06em;">Contact Us</div>
+            <a href="tel:17025099630" style="color:#0C0B09;font-weight:600;font-size:16px;">(702) 509-9630</a>
+          </div>
+        </div>
+        <div style="display:flex;align-items:center;gap:12px;">
+          <span style="width:44px;height:44px;border-radius:50%;background:#0C0B09;color:#D6A441;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;">✉</span>
+          <div>
+            <div style="font-size:13px;color:#8a8880;text-transform:uppercase;letter-spacing:0.06em;">Mail Us</div>
+            <a href="mailto:contact@lasvegaspackandship.com" style="color:#0C0B09;font-weight:600;font-size:16px;">contact@lasvegaspackandship.com</a>
+          </div>
+        </div>
+      </div>
+      <div style="border-radius:10px;overflow:hidden;border:1px solid #EDE8DC;box-shadow:0 12px 30px rgba(12,11,9,0.08);">
+        <iframe src="https://www.google.com/maps?q=4640+S.+Polaris+Ave,+Las+Vegas,+NV+89103&amp;output=embed" width="100%" height="380" style="border:0;display:block;" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Map to Las Vegas Pack and Ship"></iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- FIND US ON THE WEB -->
+  <section style="padding:clamp(48px,7vw,80px) 24px;background:#FFFFFF;">
+    <div style="max-width:760px;margin:0 auto;text-align:center;">
+      <div style="color:#D6A441;font-size:14px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;margin-bottom:12px;">See for Yourself</div>
+      <h2 style="font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:0.01em;font-size:clamp(26px,3.4vw,38px);margin:0 0 16px;color:#0C0B09;">Don't Just Take Our Word for It</h2>
+      <div style="width:48px;height:3px;background:#D6A441;margin:0 auto 28px;"></div>
+      <p style="font-size:16px;line-height:1.85;color:#3a3934;margin:0 0 18px;text-align:left;">The internet is such a huge place that it's often difficult to find legitimate reviews from real people. Since we've been in business for over twenty-five years, we like to point to reputable sources we know real customers are behind. With the emergence of AI and so many bots on forums, sifting through what seems like endless reworded replies or &ldquo;GREAT!&rdquo; over and over gets a little tiring.</p>
+      <p style="font-size:16px;line-height:1.85;color:#3a3934;margin:0;text-align:left;">We pulled together some of our reviews from sites we trust and use, so you can see for yourself the quality of packing, boxes, and service we provide. As a family owned, run, and operated business, we favor trusted sources without ads that children might not want to see, and places we know are trustworthy with our information.</p>
+    </div>
+  </section>
+
+  <!-- CITATIONS -->
+  <section style="padding:clamp(48px,7vw,88px) 24px;background:#FAF8F4;">
+    <div style="max-width:1280px;margin:0 auto;">
+      <div style="text-align:center;max-width:640px;margin:0 auto 48px;">
+        <div style="color:#D6A441;font-size:14px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;margin-bottom:12px;">Trusted Sources</div>
+        <h2 style="font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:0.01em;font-size:clamp(26px,3.4vw,38px);margin:0;color:#0C0B09;">Las Vegas Packing and Shipping Citations</h2>
+        <div style="width:48px;height:3px;background:#D6A441;margin:16px auto 0;"></div>
+      </div>
+      <div class="cite-4col" style="display:grid;grid-template-columns:repeat(4,1fr);gap:20px;">
+        <a href="https://neustarlocaleze.biz/directory/us/nv/las-vegas/89103/las-vegas-crating-and-logistics/926551939/" target="_blank" rel="noopener" class="card-hover" style="display:flex;flex-direction:column;gap:12px;background:#FFFFFF;border:1px solid #EDE8DC;border-radius:14px;padding:26px 22px;text-decoration:none;">
+          <h3 style="font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:0.03em;font-size:16px;margin:0;color:#0C0B09;">Neustar / Localeze</h3>
+          <p style="font-size:14px;color:#5a5952;line-height:1.65;margin:0;">They've been around the web forever, and when our company first started with them we didn't have many leads to go on. After a little advertising we found our site popping up in multiple local business directories, and phone calls started coming in. Easy-to-use interface, a great place to find reviews.</p>
+          <span style="font-size:13px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:#D6A441;">View Listing ↗</span>
+        </a>
+        <a href="https://www.hotfrog.com/company/2bfd40d1ac55b77b569eff406b0aee1e/las-vegas-crating-and-logistics/las-vegas/warehouses" target="_blank" rel="noopener" class="card-hover" style="display:flex;flex-direction:column;gap:12px;background:#FFFFFF;border:1px solid #EDE8DC;border-radius:14px;padding:26px 22px;text-decoration:none;">
+          <h3 style="font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:0.03em;font-size:16px;margin:0;color:#0C0B09;">HotFrog</h3>
+          <p style="font-size:14px;color:#5a5952;line-height:1.65;margin:0;">These guys have been a place to list your business for going on two decades. Their network is huge and one of the first stops for promoting a local business — the examples from other listings are inspiring for better photos and connecting with like-minded businesses. Their platform was recently updated and is easy to use.</p>
+          <span style="font-size:13px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:#D6A441;">View Listing ↗</span>
+        </a>
+        <a href="https://www.judysbook.com/Las-Vegas-Crating-and-Logistics-Transportation-Libraries-lasvegas-nv-r40897287.htm" target="_blank" rel="noopener" class="card-hover" style="display:flex;flex-direction:column;gap:12px;background:#FFFFFF;border:1px solid #EDE8DC;border-radius:14px;padding:26px 22px;text-decoration:none;">
+          <h3 style="font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:0.03em;font-size:16px;margin:0;color:#0C0B09;">Judy's Book</h3>
+          <p style="font-size:14px;color:#5a5952;line-height:1.65;margin:0;">Around since nearly the dawn of the modern web — local reviews, recommendations, and deals from real people. Find and discover great places and avoid the not-so-great ones. A classic.</p>
+          <span style="font-size:13px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:#D6A441;">View Listing ↗</span>
+        </a>
+        <a href="https://ezlocal.com/nv/las-vegas/shipping-company/0918236396" target="_blank" rel="noopener" class="card-hover" style="display:flex;flex-direction:column;gap:12px;background:#FFFFFF;border:1px solid #EDE8DC;border-radius:14px;padding:26px 22px;text-decoration:none;">
+          <h3 style="font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:0.03em;font-size:16px;margin:0;color:#0C0B09;">EZlocal</h3>
+          <p style="font-size:14px;color:#5a5952;line-height:1.65;margin:0;">A great network of networks, tightly interconnected with many others. We had direct leads and some wonderful reviews come in from advertising there — it was one of the first places we went for our local packing and shipping listing, and it worked.</p>
+          <span style="font-size:13px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:#D6A441;">View Listing ↗</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- BLOG -->
+  <section style="background:#FFFFFF;padding:clamp(48px,7vw,88px) 24px;">
+    <div style="max-width:1280px;margin:0 auto;">
+      <div style="text-align:center;max-width:600px;margin:0 auto 48px;">
+        <div style="color:#D6A441;font-size:14px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;margin-bottom:12px;">From the Blog</div>
+        <h2 style="font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:0.01em;font-size:clamp(26px,3.4vw,38px);margin:0;">Recent News in Packing and Shipping</h2>
+        <div style="width:48px;height:3px;background:#D6A441;margin:16px auto 0;"></div>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:28px;">
+        <a href="Blog - Reused Cardboard Boxes.dc.html" class="card-hover" style="display:flex;flex-direction:column;background:#FFFFFF;border:1px solid #EDE8DC;border-radius:18px;padding:16px;text-decoration:none;">
+          <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;padding:6px 6px 14px;">
+            <span style="background:#F6F1E4;color:#0C0B09;font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;padding:6px 12px;border-radius:999px;">Packing and Shipping Help</span>
+            <span style="color:#8C8677;font-size:11px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;">9 Jul, 2026</span>
+          </div>
+          <image-slot id="blog-post-photo" style="width:100%;height:180px;border-radius:12px;overflow:hidden;" shape="rounded" radius="12" placeholder="Blog photo"></image-slot>
+          <div style="padding:20px 6px 6px;display:flex;flex-direction:column;gap:16px;">
+            <h3 style="font-family:'Oswald',sans-serif;text-transform:uppercase;font-size:17px;color:#0C0B09;margin:0;line-height:1.3;">Can You Re-Use Recycled Cardboard Boxes for Packing and Shipping?</h3>
+            <span style="display:inline-flex;align-items:center;gap:8px;color:#D6A441;font-size:13px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;">Read More <span style="font-size:15px;">&rarr;</span></span>
+          </div>
+        </a>
+        <a href="Blog - On-Site Crating.dc.html" class="card-hover" style="display:flex;flex-direction:column;background:#FFFFFF;border:1px solid #EDE8DC;border-radius:18px;padding:16px;text-decoration:none;">
+          <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;padding:6px 6px 14px;">
+            <span style="background:#F6F1E4;color:#0C0B09;font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;padding:6px 12px;border-radius:999px;">Packing and Shipping Help</span>
+            <span style="color:#8C8677;font-size:11px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;">12 Feb, 2026</span>
+          </div>
+          <image-slot id="blog-crating-photo" style="width:100%;height:180px;border-radius:12px;overflow:hidden;" shape="rounded" radius="12" placeholder="Blog photo"></image-slot>
+          <div style="padding:20px 6px 6px;display:flex;flex-direction:column;gap:16px;">
+            <h3 style="font-family:'Oswald',sans-serif;text-transform:uppercase;font-size:17px;color:#0C0B09;margin:0;line-height:1.3;">How On-Site Crating Works</h3>
+            <span style="display:inline-flex;align-items:center;gap:8px;color:#D6A441;font-size:13px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;">Read More <span style="font-size:15px;">&rarr;</span></span>
+          </div>
+        </a>
+        <a href="Blog - Pallet and Crate Shipping.dc.html" class="card-hover" style="display:flex;flex-direction:column;background:#FFFFFF;border:1px solid #EDE8DC;border-radius:18px;padding:16px;text-decoration:none;">
+          <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;padding:6px 6px 14px;">
+            <span style="background:#F6F1E4;color:#0C0B09;font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;padding:6px 12px;border-radius:999px;">Packing and Shipping Help</span>
+            <span style="color:#8C8677;font-size:11px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;">9 Feb, 2026</span>
+          </div>
+          <image-slot id="blog-pallet-photo" style="width:100%;height:180px;border-radius:12px;overflow:hidden;" shape="rounded" radius="12" placeholder="Blog photo"></image-slot>
+          <div style="padding:20px 6px 6px;display:flex;flex-direction:column;gap:16px;">
+            <h3 style="font-family:'Oswald',sans-serif;text-transform:uppercase;font-size:17px;color:#0C0B09;margin:0;line-height:1.3;">Pallet and Crate Shipping: What's the Difference?</h3>
+            <span style="display:inline-flex;align-items:center;gap:8px;color:#D6A441;font-size:13px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;">Read More <span style="font-size:15px;">&rarr;</span></span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CLOSING CTA -->
+  <section style="position:relative;overflow:hidden;background:#0C0B09;color:#FFFFFF;padding:clamp(64px,9vw,110px) 24px;">
+    <div style="position:absolute;inset:0;background:radial-gradient(70% 60% at 50% 40%, rgba(214,164,65,.14), transparent 70%);z-index:0;pointer-events:none;"></div>
+    <div style="position:relative;z-index:2;max-width:900px;margin:0 auto;text-align:center;">
+      <div style="color:#D6A441;font-size:13px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;margin-bottom:16px;">Ready When You Are</div>
+      <h2 style="font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:0.01em;font-size:clamp(26px,3.4vw,38px);margin:0 0 16px;">Let's Get Your Shipment Moving</h2>
+      <div style="width:48px;height:3px;background:#D6A441;margin:0 auto 24px;"></div>
+      <p style="font-size:16px;color:#d6d4cb;line-height:1.7;max-width:620px;margin:0 auto 36px;">Stop by either location, give us a call, or send us a message — we're ready to help with anything from a single box to a full crate.</p>
+      <div style="display:flex;flex-wrap:wrap;gap:16px;justify-content:center;">
+        <a href="#visit" style="display:inline-flex;align-items:center;gap:8px;background:#D6A441;color:#0C0B09;font-weight:600;font-size:15px;padding:15px 26px;border-radius:2px;" style-hover="background:#e8b95a;text-decoration:none;">Get a Free Quote ↗</a>
+        <a href="tel:17025099630" style="display:inline-flex;align-items:center;gap:8px;border:1.5px solid #FFFFFF;color:#FFFFFF;font-weight:600;font-size:15px;padding:15px 26px;border-radius:2px;" style-hover="border-color:#D6A441;color:#D6A441;text-decoration:none;">1 (702) 509-9630</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer style="background:#0C0B09;color:#cfcdc4;padding:56px 24px 28px;border-top:1px solid rgba(214,164,65,0.3);">
+    <div style="max-width:1280px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:40px;margin-bottom:40px;">
+      <div>
+        <img src="assets/logo-bw.png" alt="Las Vegas Pack and Ship logo" style="height:46px;width:auto;object-fit:contain;margin-bottom:14px;filter:brightness(0) invert(1);">
+        <p style="font-size:14px;line-height:1.7;margin:0;">Serving Las Vegas, Henderson, and all of Nevada &mdash; and shipping fine art worldwide.</p>
+      </div>
+      <div>
+        <div style="color:#FFFFFF;font-size:15px;font-weight:600;margin-bottom:14px;">Contact</div>
+        <p style="font-size:14px;line-height:1.9;margin:0;">
+          <a href="tel:17025099630" style="color:#cfcdc4;">1-702-509-9630</a><br>
+          Las Vegas, Henderson &amp; all of Nevada
+        </p>
+      </div>
+      <div>
+        <div style="color:#FFFFFF;font-size:15px;font-weight:600;margin-bottom:14px;">Las Vegas Professional Warehouse Storage</div>
+        <p style="font-size:14px;line-height:1.7;margin:0;">4640 Polaris Ave.<br>Las Vegas, NV 89103</p>
+      </div>
+      <div>
+        <div style="color:#FFFFFF;font-size:15px;font-weight:600;margin-bottom:14px;">Las Vegas Strip Crating &amp; Logistics</div>
+        <p style="font-size:14px;line-height:1.7;margin:0;">4610 S. Polaris Ave.<br>Las Vegas, NV 89103</p>
+      </div>
+    </div>
+    <div style="max-width:1280px;margin:0 auto;border-top:1px solid #2a2823;padding-top:24px;display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;font-size:13px;">
+      <div>© 2026 Las Vegas Pack and Ship. All rights reserved.</div>
+      <div style="display:flex;gap:20px;">
+        <a href="Privacy Policy.dc.html" style="color:#cfcdc4;">Privacy Policy</a>
+        <a href="Las Vegas Pack and Ship.dc.html#" style="color:#cfcdc4;">Sitemap</a>
+      </div>
+    </div>
+  </footer>
+
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { mobileNavOpen: false };
+  componentDidMount() {
+    this._onScroll = () => {
+      const bar = document.getElementById('sticky-bar');
+      const hero = document.getElementById('home');
+      if (!bar || !hero) return;
+      const barActive = getComputedStyle(bar).display !== 'none';
+      const past = barActive && window.scrollY > hero.offsetTop + hero.offsetHeight - 120;
+      bar.style.transform = past ? 'translateY(0)' : 'translateY(-100%)';
+      const head = document.querySelector('header');
+      if (head) { head.style.visibility = past ? 'hidden' : 'visible'; head.style.position = past ? 'relative' : 'sticky'; }
+    };
+    window.addEventListener('scroll', this._onScroll, { passive: true });
+    window.addEventListener('resize', this._onScroll);
+    this._onScroll();
+  }
+  componentWillUnmount() {
+    if (this._onScroll) { window.removeEventListener('scroll', this._onScroll); window.removeEventListener('resize', this._onScroll); }
+  }
+  renderVals() {
+    return {
+      mobileNavOpen: this.state.mobileNavOpen,
+      toggleNav: () => this.setState(s => ({ mobileNavOpen: !s.mobileNavOpen })),
+      closeNav: () => this.setState({ mobileNavOpen: false }),
+    };
+  }
+}
+
+</script>
+</body>
+</html>

@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&amp;family=Work+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<script src="./image-slot.js"></script>
+<style>
+  body { margin: 0; }
+  a { color: #D6A441; text-decoration: none; }
+  a:hover { color: #b8863a; text-decoration: underline; }
+  .nav-item { position: relative; }
+  .nav-dropdown { display: none; position: absolute; top: 100%; left: 0; background: #FFFFFF; border: 1px solid #eee9dd; box-shadow: 0 12px 24px rgba(12,11,9,0.08); min-width: 240px; padding: 8px 0; z-index: 60; }
+  .nav-item:hover .nav-dropdown { display: block; }
+  .nav-dropdown a { display: block; padding: 10px 20px; color: #0C0B09; font-size: 14px; white-space: nowrap; }
+  .nav-dropdown a:hover { background: #FAF8F4; color: #D6A441; text-decoration: none; }
+  @media (max-width: 1100px) { #sticky-bar { display: none; } }
+  @media (max-width: 1100px) {
+    #main-nav { display: none !important; }
+    #nav-hamburger { display: flex !important; }
+  }
+  @media (min-width: 1101px) {
+    #mobile-nav-panel { display: none !important; }
+  }
+  @media (max-width: 900px) { .cfp-table { font-size: 13px !important; } .cfp-table th, .cfp-table td { padding: 10px 8px !important; } }
+  @media (max-width: 860px) { .cfp-2col { grid-template-columns: 1fr !important; } .cfp-4col { grid-template-columns: 1fr 1fr !important; } }
+  @media (max-width: 560px) { .cfp-4col { grid-template-columns: 1fr !important; } }
+  @keyframes cfp-scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+  .cfp-marquee { animation: cfp-scroll 26s linear infinite; }
+  .cfp-marquee-wrap:hover .cfp-marquee { animation-play-state: paused; }
+  #cfp2-track::-webkit-scrollbar { display: none; }
+</style>
+</helmet>
+
+<div id="top" style="font-family:'Work Sans',sans-serif;color:#0C0B09;background:#FFFFFF;width:100%;overflow-x:clip;">
+
+  <!-- CONDENSED STICKY BAR -->
+  <div id="sticky-bar" style="position:fixed;top:0;left:0;right:0;z-index:60;background:#FFFFFF;box-shadow:0 4px 18px rgba(12,11,9,0.12);transform:translateY(-100%);transition:transform .32s ease;">
+    <div style="max-width:1460px;margin:0 auto;padding:10px 24px;display:flex;align-items:center;gap:24px;">
+      <a href="Las Vegas Pack and Ship.dc.html#home" style="display:flex;flex-shrink:0;"><img src="assets/logo-color.png" alt="Las Vegas Pack and Ship logo" style="height:56px;width:auto;object-fit:contain;flex-shrink:0;" /></a>
+      <nav style="display:flex;align-items:center;gap:22px;margin:0 auto;flex-wrap:wrap;">
+        <a href="Las Vegas Pack and Ship.dc.html#home" style="color:#0C0B09;font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:0.04em;font-size:13px;">Home</a>
+        <div class="nav-item">
+          <a href="javascript:void(0)" style="color:#0C0B09;font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:0.04em;font-size:13px;display:inline-flex;align-items:center;gap:6px;cursor:default;">Shipping &amp; Packing <span style="color:#D6A441;font-weight:700;">+</span></a>
+          <div class="nav-dropdown">
+            <a href="Local Packing and Shipping Store.dc.html">Local Packing &amp; Shipping Store</a>
+            <a href="Electronic Packing and Shipping.dc.html">Electronic Packing &amp; Shipping</a>
+            <a href="Local Packing and Shipping Supplies.dc.html">Packing, Shipping &amp; Moving Supplies</a>
+            <a href="#top" style="color:#0C0B09;border-bottom:2px solid #D6A441;">Custom Crating &amp; Corrugated Fiberboard Packaging</a>
+          </div>
+        </div>
+        <div class="nav-item">
+          <a href="Fine Art Shipping.dc.html" style="color:#0C0B09;font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:0.04em;font-size:13px;display:inline-flex;align-items:center;gap:6px;">Fine Art Services <span style="color:#D6A441;font-weight:700;">+</span></a>
+          <div class="nav-dropdown">
+            <a href="Fine Art Shipping.dc.html">Fine Art Shipping</a>
+            <a href="Fine Art Moving and Packing.dc.html">Fine Art Moving and Packing</a>
+            <a href="Art Courier Service.dc.html">Art Courier Service</a>
+            <a href="Art Consultation.dc.html">Art Consultation</a>
+            <a href="Art Installation.dc.html">Art Installation</a>
+            <a href="Vapor Barrier Bag Shipping.dc.html">Vapor Barrier Bag Shipping</a>
+          </div>
+        </div>
+        <div class="nav-item">
+          <a href="javascript:void(0)" style="color:#0C0B09;font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:0.04em;font-size:13px;display:inline-flex;align-items:center;gap:6px;cursor:default;">Projects <span style="color:#D6A441;font-weight:700;">+</span></a>
+          <div class="nav-dropdown">
+            <a href="Rick's Restoration.dc.html">Rick's Restoration</a>
+          </div>
+        </div>
+        <a href="Contact Us.dc.html" style="color:#0C0B09;font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:0.04em;font-size:13px;">Contact</a>
+      </nav>
+      <div style="display:flex;align-items:center;gap:14px;flex-shrink:0;">
+        <div style="display:flex;align-items:center;gap:7px;">
+          <span style="font-family:'Work Sans',sans-serif;font-weight:700;font-size:17px;line-height:1;">
+            <span style="color:#4285F4;">G</span><span style="color:#EA4335;">o</span><span style="color:#FBBC05;">o</span><span style="color:#4285F4;">g</span><span style="color:#34A853;">l</span><span style="color:#EA4335;">e</span>
+          </span>
+          <span style="color:#D6A441;font-size:13px;letter-spacing:1px;">★★★★★</span>
+        </div>
+        <a href="Contact Us.dc.html" style="display:inline-block;background:#D6A441;color:#0C0B09;font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:0.06em;font-size:14px;padding:13px 20px;white-space:nowrap;" style-hover="background:#0C0B09;color:#D6A441;text-decoration:none;">Request Quote</a>
+        <a href="tel:17025099630" style="display:inline-block;background:#0C0B09;color:#FFFFFF;font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:0.06em;font-size:14px;padding:13px 20px;white-space:nowrap;" style-hover="background:#D6A441;color:#0C0B09;text-decoration:none;">1 (702) 509-9630</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- TOP BAR -->
+  <div style="background:#0C0B09;color:#FFFFFF;font-size:13px;padding:8px 24px;display:flex;justify-content:center;gap:24px;letter-spacing:0.03em;">
+    <span>Family owned &amp; operated since 1995</span>
+    <span style="color:#D6A441;">|</span>
+    <span style="font-size:13px;color:#FFFFFF;">4640 S. Polaris Ave, Las Vegas, NV 89103</span>
+  </div>
+
+  <!-- HEADER / NAV -->
+  <header style="position:sticky;top:0;z-index:50;background:#FFFFFF;border-bottom:1px solid #eee9dd;">
+    <div style="max-width:1280px;margin:0 auto;padding:16px 24px;display:flex;align-items:center;justify-content:space-between;gap:24px;">
+      <a href="Las Vegas Pack and Ship.dc.html#home" style="display:flex;flex-shrink:0;"><img src="assets/logo-color.png" alt="Las Vegas Pack and Ship logo" style="height: 96px; width: 183px; object-fit: contain; flex-shrink: 0; margin: -18px 0"></a>
+      <nav id="main-nav" style="display:flex;gap:30px;align-items:center;flex-wrap:wrap;">
+        <a href="Las Vegas Pack and Ship.dc.html#home" style="color:#0C0B09;font-size:14px;">Home</a>
+        <div class="nav-item">
+          <a href="javascript:void(0)" style="color:#0C0B09;font-size:14px;display:inline-flex;align-items:center;gap:4px;cursor:default;">Shipping &amp; Packing Services <span style="font-size:10px;color:#8a8880;">▾</span></a>
+          <div class="nav-dropdown">
+            <a href="Local Packing and Shipping Store.dc.html">Local Packing &amp; Shipping Store</a>
+            <a href="Electronic Packing and Shipping.dc.html">Electronic Packing &amp; Shipping</a>
+            <a href="Local Packing and Shipping Supplies.dc.html">Packing, Shipping &amp; Moving Supplies</a>
+            <a href="#top" style="color:#D6A441;font-weight:600;">Custom Crating &amp; Corrugated Fiberboard Packaging</a>
+          </div>
+        </div>
+        <div class="nav-item">
+          <a href="Fine Art Shipping.dc.html" style="color:#0C0B09;font-size:14px;display:inline-flex;align-items:center;gap:4px;">Fine Art Services <span style="font-size:10px;color:#8a8880;">▾</span></a>
+          <div class="nav-dropdown">
+            <a href="Fine Art Shipping.dc.html">Fine Art Shipping</a>
+            <a href="Fine Art Moving and Packing.dc.html">Fine Art Moving and Packing</a>
+            <a href="Art Courier Service.dc.html">Art Courier Service</a>
+            <a href="Art Consultation.dc.html">Art Consultation</a>
+            <a href="Art Installation.dc.html">Art Installation</a>
+            <a href="Vapor Barrier Bag Shipping.dc.html">Vapor Barrier Bag Shipping</a>
+          </div>
+        </div>
+        <div class="nav-item">
+          <a href="javascript:void(0)" style="color:#0C0B09;font-size:14px;display:inline-flex;align-items:center;gap:4px;cursor:default;">Projects <span style="font-size:10px;color:#8a8880;">▾</span></a>
+          <div class="nav-dropdown">
+            <a href="Rick's Restoration.dc.html">Rick's Restoration</a>
+          </div>
+        </div>
+        <a href="Contact Us.dc.html" style="color:#0C0B09;font-size:14px;">Contact</a>
+      </nav>
+      <div style="display:flex;align-items:center;gap:16px;">
+        <a href="tel:17025099630" style="display:inline-flex;align-items:center;gap:8px;color:#0C0B09;font-weight:600;font-size:14px;white-space:nowrap;border:1.5px solid #0C0B09;padding:11px 18px;border-radius:4px;" style-hover="border-color:#D6A441;color:#D6A441;text-decoration:none;">1 (702) 509-9630</a>
+        <a href="Contact Us.dc.html" style="display:inline-block;position:relative;background:#D6A441;color:#0C0B09;font-weight:700;font-size:14px;padding:11px 22px;border:1.5px solid #0C0B09;border-radius:4px;white-space:nowrap;box-shadow:3px 3px 0 #0C0B09;" style-hover="transform:translate(1px,1px);box-shadow:2px 2px 0 #0C0B09;text-decoration:none;">Free Quote</a>
+        <button id="nav-hamburger" onClick="{{ toggleNav }}" style="display:none;background:none;border:1px solid #0C0B09;color:#0C0B09;font-size:20px;width:40px;height:40px;border-radius:2px;cursor:pointer;">☰</button>
+      </div>
+    </div>
+    <sc-if value="{{ mobileNavOpen }}">
+      <div id="mobile-nav-panel" style="display:flex;flex-direction:column;padding:8px 24px 20px;gap:14px;background:#FFFFFF;border-top:1px solid #eee9dd;">
+        <a href="Las Vegas Pack and Ship.dc.html#home" onClick="{{ closeNav }}" style="color:#0C0B09;font-size:15px;font-weight:600;">Home</a>
+        <div style="font-size:12px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#D6A441;margin-top:6px;">Shipping &amp; Packing Services</div>
+        <a href="Local Packing and Shipping Store.dc.html" onClick="{{ closeNav }}" style="color:#0C0B09;font-size:15px;padding-left:8px;">Local Packing &amp; Shipping Store</a>
+        <a href="Electronic Packing and Shipping.dc.html" onClick="{{ closeNav }}" style="color:#0C0B09;font-size:15px;padding-left:8px;">Electronic Packing &amp; Shipping</a>
+        <a href="Local Packing and Shipping Supplies.dc.html" onClick="{{ closeNav }}" style="color:#0C0B09;font-size:15px;padding-left:8px;">Packing, Shipping &amp; Moving Supplies</a>
+        <a href="#top" onClick="{{ closeNav }}" style="color:#D6A441;font-size:15px;padding-left:8px;font-weight:600;">Custom Crating &amp; Corrugated Fiberboard Packaging</a>
+        <div style="font-size:12px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#D6A441;margin-top:6px;">Fine Art Services</div>
+        <a href="Fine Art Shipping.dc.html" onClick="{{ closeNav }}" style="color:#0C0B09;font-size:15px;padding-left:8px;">Fine Art Shipping</a>
+        <a href="Fine Art Moving and Packing.dc.html" onClick="{{ closeNav }}" style="color:#0C0B09;font-size:15px;padding-left:8px;">Fine Art Moving and Packing</a>
+        <a href="Art Courier Service.dc.html" onClick="{{ closeNav }}" style="color:#0C0B09;font-size:15px;padding-left:8px;">Art Courier Service</a>
+        <a href="Art Consultation.dc.html" onClick="{{ closeNav }}" style="color:#0C0B09;font-size:15px;padding-left:8px;">Art Consultation</a>
+        <a href="Art Installation.dc.html" onClick="{{ closeNav }}" style="color:#0C0B09;font-size:15px;padding-left:8px;">Art Installation</a>
+        <a href="Vapor Barrier Bag Shipping.dc.html" onClick="{{ closeNav }}" style="color:#0C0B09;font-size:15px;padding-left:8px;">Vapor Barrier Bag Shipping</a>
+        <div style="font-size:12px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#D6A441;margin-top:6px;">Projects</div>
+        <a href="Rick's Restoration.dc.html" onClick="{{ closeNav }}" style="color:#0C0B09;font-size:15px;padding-left:8px;">Rick's Restoration</a>
+        <a href="Contact Us.dc.html" onClick="{{ closeNav }}" style="color:#0C0B09;font-size:15px;font-weight:600;margin-top:6px;">Contact</a>
+        <a href="tel:17025099630" onClick="{{ closeNav }}" style="color:#D6A441;font-size:15px;font-weight:600;margin-top:6px;">Call 1 (702) 509-9630</a>
+      </div>
+    </sc-if>
+  </header>
+
+  <!-- HERO -->
+  <section id="home" style="position:relative;height:420px;max-height:420px;display:flex;align-items:center;overflow:hidden;background:#0C0B09;">
+    <img src="uploads/PXL_20231223_001016626 (1).webp" alt="Warehouse floor stacked with wrapped furniture and crated items" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;">
+    <div style="position:absolute;inset:0;background:radial-gradient(70% 90% at 20% 30%, rgba(214,164,65,.14), transparent 60%), linear-gradient(175deg,#1A1815 0%,#141310 45%,#0C0B09 100%);opacity:0.72;z-index:1;"></div>
+    <div style="position:relative;z-index:2;width:100%;max-width:1280px;margin:0 auto;padding:clamp(56px,8vw,96px) clamp(24px,6vw,64px);">
+      <div style="display:flex;align-items:center;gap:20px;max-width:780px;">
+        <div style="width:4px;align-self:stretch;background:#D6A441;flex-shrink:0;"></div>
+        <div>
+          <div style="color:#D6A441;font-size:13px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;margin-bottom:18px;">Custom Crating &amp; Corrugated Fiberboard</div>
+          <h1 style="font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:0.01em;font-size:clamp(30px,4.4vw,50px);line-height:1.14;margin:0 0 18px;color:#FFFFFF;">Corrugated Fiberboard Packaging</h1>
+          <p style="font-size:17px;line-height:1.6;color:#d6d4cb;margin:0 0 32px;max-width:600px;">The material behind nearly every safe shipment — what it's made of, how it's built, and why it works.</p>
+          <div style="display:flex;flex-wrap:wrap;gap:16px;">
+            <a href="Contact Us.dc.html" style="display:inline-flex;align-items:center;gap:8px;background:#D6A441;color:#0C0B09;font-weight:600;font-size:15px;padding:15px 26px;border-radius:2px;" style-hover="background:#e8b95a;text-decoration:none;">Get a Free Quote ↗</a>
+            <a href="tel:17025099630" style="display:inline-flex;align-items:center;gap:8px;border:1.5px solid #FFFFFF;color:#FFFFFF;font-weight:600;font-size:15px;padding:15px 26px;border-radius:2px;" style-hover="border-color:#D6A441;color:#D6A441;text-decoration:none;">1 (702) 509-9630</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INTRO -->
+  <section style="padding:clamp(48px,7vw,80px) 24px;background:#FFFFFF;">
+    <div style="max-width:760px;margin:0 auto;text-align:center;">
+      <div style="color:#D6A441;font-size:14px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;margin-bottom:12px;">Packaging Science 101</div>
+      <h2 style="font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:0.01em;font-size:clamp(26px,3.4vw,38px);margin:0 0 16px;color:#0C0B09;">What Is Corrugated Fiberboard?</h2>
+      <div style="width:48px;height:3px;background:#D6A441;margin:0 auto 28px;"></div>
+      <p style="font-size:17px;line-height:1.85;color:#3a3934;margin:0;text-align:left;">In the world of packaging and shipping, few materials are as ubiquitous and versatile as corrugated fiberboard. Often called simply &ldquo;corrugated cardboard,&rdquo; this humble yet ingenious material powers much of global commerce, protecting everything from delicate electronics to priceless artworks during transit and storage. Whether you're a business owner optimizing your supply chain, a consumer unpacking an online order, or just curious about the boxes that surround us, here's a closer look at what corrugated fiberboard is, how it's made, its various sizes and uses, and why it's a staple for packaging and shipping companies worldwide.</p>
+    </div>
+  </section>
+
+  <!-- WHAT IS IT -->
+  <section style="padding:clamp(48px,7vw,80px) 24px;background:#FAF8F4;">
+    <div style="max-width:800px;margin:0 auto;">
+      <div style="text-align:center;color:#D6A441;font-size:13px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;margin-bottom:12px;">How It's Made</div>
+      <h3 style="text-align:center;font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:0.01em;font-size:clamp(22px,2.6vw,28px);margin:0 0 16px;color:#0C0B09;">The Structure Behind the Box</h3>
+      <div style="width:48px;height:3px;background:#D6A441;margin:0 auto 28px;"></div>
+      <p style="font-size:16px;line-height:1.85;color:#3a3934;margin:0 0 18px;">Corrugated fiberboard is a type of paper-based packaging material consisting of a fluted (wavy) corrugated sheet, known as the &ldquo;medium,&rdquo; sandwiched between one or two flat sheets called &ldquo;linerboards.&rdquo; This structure creates a lightweight yet strong composite that provides excellent cushioning, rigidity, and protection against impacts, compression, and environmental factors.</p>
+      <p style="font-size:16px;line-height:1.85;color:#3a3934;margin:0 0 18px;">Unlike plain cardboard &mdash; a thinner, single-layer paperboard used for things like cereal boxes or playing cards &mdash; corrugated fiberboard's signature wavy layer adds structural integrity, making it ideal for boxes and containers that need to withstand the rigors of shipping.</p>
+      <p style="font-size:16px;line-height:1.85;color:#3a3934;margin:0;">Invented in the 19th century &mdash; with the first patent for corrugated paper in 1856 and full corrugated board in 1871 &mdash; it revolutionized packaging by enabling safer transport of goods like glassware and produce without breakage. Today, an estimated 95% of all products shipped domestically in North America use corrugated boxes. Its recyclability, cost-effectiveness, and customizability make it a go-to choice for sustainable packaging solutions.</p>
+    </div>
+  </section>
+
+  <!-- MATERIALS -->
+  <section style="padding:clamp(48px,7vw,80px) 24px;background:#FFFFFF;">
+    <div style="max-width:800px;margin:0 auto;">
+      <div style="text-align:center;color:#D6A441;font-size:13px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;margin-bottom:12px;">What It's Made Of</div>
+      <h3 style="text-align:center;font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:0.01em;font-size:clamp(22px,2.6vw,28px);margin:0 0 16px;color:#0C0B09;">Materials</h3>
+      <div style="width:48px;height:3px;background:#D6A441;margin:0 auto 28px;"></div>
+      <p style="font-size:16px;line-height:1.85;color:#3a3934;margin:0 0 24px;">Corrugated fiberboard is primarily made from kraft containerboard, a durable paperboard derived from wood pulp. The linerboards are flat sheets, often virgin or recycled kraft paper, providing a smooth surface for printing and structural support. The medium, or fluting, is also paper-based but formed into arches or waves for added strength.</p>
+      <div style="font-size:13px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#8a8880;margin-bottom:14px;">Key Components</div>
+      <dl style="margin:0 0 24px;display:flex;flex-direction:column;gap:16px;">
+        <div style="border-left:3px solid #D6A441;padding-left:18px;">
+          <dt style="font-weight:700;font-size:16px;color:#0C0B09;">Linerboard</dt>
+          <dd style="margin:4px 0 0;font-size:15px;color:#5a5952;line-height:1.7;">Typically over 0.25 mm thick, made from long-fiber pulp for tear resistance.</dd>
+        </div>
+        <div style="border-left:3px solid #D6A441;padding-left:18px;">
+          <dt style="font-weight:700;font-size:16px;color:#0C0B09;">Medium (fluting)</dt>
+          <dd style="margin:4px 0 0;font-size:15px;color:#5a5952;line-height:1.7;">Shorter-fiber paper that's corrugated to create air pockets, enhancing cushioning and insulation.</dd>
+        </div>
+        <div style="border-left:3px solid #D6A441;padding-left:18px;">
+          <dt style="font-weight:700;font-size:16px;color:#0C0B09;">Adhesives</dt>
+          <dd style="margin:4px 0 0;font-size:15px;color:#5a5952;line-height:1.7;">Starch-based glues bond the layers, keeping the material eco-friendly and recyclable.</dd>
+        </div>
+      </dl>
+      <p style="font-size:16px;line-height:1.85;color:#3a3934;margin:0;">Many modern variants incorporate recycled content &mdash; old corrugated containers (OCC) are a prime source for new fiberboard, supporting a circular economy.</p>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section style="padding:clamp(48px,7vw,80px) 24px;background:#FAF8F4;overflow:hidden;">
+    <div style="max-width:700px;margin:0 auto 40px;text-align:center;">
+      <div style="color:#D6A441;font-size:14px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;margin-bottom:12px;">In the Warehouse</div>
+      <h3 style="font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:0.01em;font-size:clamp(26px,3.4vw,38px);margin:0;color:#0C0B09;">Corrugated Packaging in Action</h3>
+      <div style="width:48px;height:3px;background:#D6A441;margin:16px auto 0;"></div>
+      <p style="font-size:16px;line-height:1.8;color:#5a5952;margin:24px 0 0;">From raw fluted sheets to finished cartons, corrugated fiberboard does its best work where you never see it &mdash; wrapped around a motherboard, cushioning a fragile lamp, or sealed tight for a cross-country move.</p>
+    </div>
+    <div class="cfp-marquee-wrap" style="position:relative;">
+      <div class="cfp-marquee" style="display:flex;gap:20px;width:max-content;">
+        <img src="assets/cfp-gallery-1.webp" alt="Stacked sheets of corrugated fiberboard showing the fluted medium" style="width:220px;height:300px;object-fit:cover;border-radius:12px;box-shadow:0 14px 30px rgba(12,11,9,.10);display:block;">
+        <img src="assets/cfp-gallery-2.webp" alt="Close-up of corrugated fiber lining used in packing" style="width:220px;height:300px;object-fit:cover;border-radius:12px;box-shadow:0 14px 30px rgba(12,11,9,.10);display:block;">
+        <img src="assets/cfp-gallery-3.webp" alt="A simple sealed corrugated shipping box" style="width:220px;height:300px;object-fit:cover;border-radius:12px;box-shadow:0 14px 30px rgba(12,11,9,.10);display:block;">
+        <img src="assets/cfp-gallery-4.webp" alt="An open corrugated box with electronics packed for shipping" style="width:220px;height:300px;object-fit:cover;border-radius:12px;box-shadow:0 14px 30px rgba(12,11,9,.10);display:block;">
+        <img src="assets/cfp-gallery-1.webp" alt="" style="width:220px;height:300px;object-fit:cover;border-radius:12px;box-shadow:0 14px 30px rgba(12,11,9,.10);display:block;">
+        <img src="assets/cfp-gallery-2.webp" alt="" style="width:220px;height:300px;object-fit:cover;border-radius:12px;box-shadow:0 14px 30px rgba(12,11,9,.10);display:block;">
+        <img src="assets/cfp-gallery-3.webp" alt="" style="width:220px;height:300px;object-fit:cover;border-radius:12px;box-shadow:0 14px 30px rgba(12,11,9,.10);display:block;">
+        <img src="assets/cfp-gallery-4.webp" alt="" style="width:220px;height:300px;object-fit:cover;border-radius:12px;box-shadow:0 14px 30px rgba(12,11,9,.10);display:block;">
+      </div>
+    </div>
+  </section>
+
+  <!-- CONSTRUCTION & DIMENSIONS -->
+  <section style="padding:clamp(48px,7vw,80px) 24px;background:#FAF8F4;">
+    <div style="max-width:1000px;margin:0 auto;">
+      <div style="text-align:center;color:#D6A441;font-size:13px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;margin-bottom:12px;">Engineering the Board</div>
+      <h3 style="text-align:center;font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:0.01em;font-size:clamp(22px,2.6vw,28px);margin:0 0 16px;color:#0C0B09;">Construction and Dimensions</h3>
+      <div style="width:48px;height:3px;background:#D6A441;margin:0 auto 28px;"></div>
+      <p style="font-size:16px;line-height:1.85;color:#3a3934;margin:0 0 24px;max-width:800px;">The construction process happens on specialized machines called corrugators. Paper rolls are fed through, where the medium is heated, moistened, and pressed into flutes before being glued to the linerboards.</p>
+      <div style="font-size:13px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#8a8880;margin-bottom:14px;">Common Wall Configurations</div>
+      <ul style="margin:0 0 32px;padding:0;list-style:none;display:flex;flex-direction:column;gap:10px;max-width:800px;">
+        <li style="display:flex;gap:12px;font-size:16px;color:#3a3934;line-height:1.6;"><span style="color:#D6A441;font-weight:700;">&#10003;</span><span><strong style="color:#0C0B09;">Single-Face</strong> &mdash; one linerboard + medium (used for wrapping or inner padding)</span></li>
+        <li style="display:flex;gap:12px;font-size:16px;color:#3a3934;line-height:1.6;"><span style="color:#D6A441;font-weight:700;">&#10003;</span><span><strong style="color:#0C0B09;">Single-Wall</strong> &mdash; two linerboards + one medium (standard for most shipping boxes)</span></li>
+        <li style="display:flex;gap:12px;font-size:16px;color:#3a3934;line-height:1.6;"><span style="color:#D6A441;font-weight:700;">&#10003;</span><span><strong style="color:#0C0B09;">Double-Wall</strong> &mdash; three linerboards + two mediums (for heavier items)</span></li>
+        <li style="display:flex;gap:12px;font-size:16px;color:#3a3934;line-height:1.6;"><span style="color:#D6A441;font-weight:700;">&#10003;</span><span><strong style="color:#0C0B09;">Triple-Wall</strong> &mdash; four linerboards + three mediums (for industrial strength)</span></li>
+      </ul>
+      <p style="font-size:16px;line-height:1.85;color:#3a3934;margin:0 0 24px;max-width:800px;">Flute size and shape also affect the board's properties:</p>
+      <div style="overflow-x:auto;border-radius:14px;box-shadow:0 12px 30px rgba(12,11,9,0.10);border:1px solid #EDE8DC;">
+        <table class="cfp-table" style="width:100%;border-collapse:collapse;background:#FFFFFF;font-size:15px;">
+          <thead>
+            <tr style="background:#D6A441;">
+              <th style="text-align:left;padding:14px 16px;color:#0C0B09;font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:0.04em;font-size:13px;">Flute Type</th>
+              <th style="text-align:left;padding:14px 16px;color:#0C0B09;font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:0.04em;font-size:13px;">Height (approx.)</th>
+              <th style="text-align:left;padding:14px 16px;color:#0C0B09;font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:0.04em;font-size:13px;">Flutes per Foot</th>
+              <th style="text-align:left;padding:14px 16px;color:#0C0B09;font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:0.04em;font-size:13px;">Key Characteristics</th>
+              <th style="text-align:left;padding:14px 16px;color:#0C0B09;font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:0.04em;font-size:13px;">Best For</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style="border-top:1px solid #EDE8DC;">
+              <td style="padding:14px 16px;font-weight:700;color:#0C0B09;">A</td>
+              <td style="padding:14px 16px;color:#3a3934;">4.8 mm</td>
+              <td style="padding:14px 16px;color:#3a3934;">33&ndash;36</td>
+              <td style="padding:14px 16px;color:#3a3934;">High cushioning, compression strength</td>
+              <td style="padding:14px 16px;color:#3a3934;">Stacking, fragile items</td>
+            </tr>
+            <tr style="border-top:1px solid #EDE8DC;background:#FAF8F4;">
+              <td style="padding:14px 16px;font-weight:700;color:#0C0B09;">B</td>
+              <td style="padding:14px 16px;color:#3a3934;">2.4 mm</td>
+              <td style="padding:14px 16px;color:#3a3934;">47&ndash;50</td>
+              <td style="padding:14px 16px;color:#3a3934;">Good puncture resistance, flat surface</td>
+              <td style="padding:14px 16px;color:#3a3934;">Die-cutting, printing</td>
+            </tr>
+            <tr style="border-top:1px solid #EDE8DC;">
+              <td style="padding:14px 16px;font-weight:700;color:#0C0B09;">C</td>
+              <td style="padding:14px 16px;color:#3a3934;">3.6 mm</td>
+              <td style="padding:14px 16px;color:#3a3934;">39&ndash;42</td>
+              <td style="padding:14px 16px;color:#3a3934;">Balanced strength and cushioning</td>
+              <td style="padding:14px 16px;color:#3a3934;">General shipping</td>
+            </tr>
+            <tr style="border-top:1px solid #EDE8DC;background:#FAF8F4;">
+              <td style="padding:14px 16px;font-weight:700;color:#0C0B09;">E</td>
+              <td style="padding:14px 16px;color:#3a3934;">1.6 mm</td>
+              <td style="padding:14px 16px;color:#3a3934;">90&ndash;95</td>
+              <td style="padding:14px 16px;color:#3a3934;">Thin, excellent printability</td>
+              <td style="padding:14px 16px;color:#3a3934;">Retail displays, small boxes</td>
+            </tr>
+            <tr style="border-top:1px solid #EDE8DC;">
+              <td style="padding:14px 16px;font-weight:700;color:#0C0B09;">F</td>
+              <td style="padding:14px 16px;color:#3a3934;">0.8 mm</td>
+              <td style="padding:14px 16px;color:#3a3934;">125&ndash;130</td>
+              <td style="padding:14px 16px;color:#3a3934;">Micro-flute, high graphics quality</td>
+              <td style="padding:14px 16px;color:#3a3934;">Luxury packaging, electronics</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="font-size:16px;line-height:1.85;color:#3a3934;margin:24px 0 0;max-width:800px;">This layered design provides durability while minimizing weight, reducing shipping costs &mdash; especially useful when exact dimensions matter for third-party logistics.</p>
+    </div>
+  </section>
+
+  <!-- SIZES AND TYPES -->
+  <section style="padding:clamp(48px,7vw,80px) 24px;background:#FFFFFF;">
+    <div style="max-width:800px;margin:0 auto;">
+      <div style="text-align:center;color:#D6A441;font-size:13px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;margin-bottom:12px;">Specs &amp; Standards</div>
+      <h3 style="text-align:center;font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:0.01em;font-size:clamp(22px,2.6vw,28px);margin:0 0 16px;color:#0C0B09;">Sizes and Types</h3>
+      <div style="width:48px;height:3px;background:#D6A441;margin:0 auto 28px;"></div>
+      <p style="font-size:16px;line-height:1.85;color:#3a3934;margin:0 0 18px;">Corrugated fiberboard comes in standard sheet sizes, but boxes are custom-cut to fit specific needs &mdash; from small (e.g. 4x4x4 inches for e-commerce) to large (e.g. 48x40x36 inches for bulk shipping). Strength is measured by metrics like Edge Crush Test (ECT) or Burst Strength (Mullen Test), with ratings from 23 ECT (light-duty) to 55 ECT (heavy-duty).</p>
+      <p style="font-size:16px;line-height:1.85;color:#3a3934;margin:0;">Types include regular slotted containers (RSC) for standard shipping, telescoping boxes for adjustable height, and die-cut designs for unique shapes. Customizations like coatings (water-resistant wax) or reinforcements (for international use) enhance performance.</p>
+    </div>
+  </section>
+
+  <!-- USAGE -->
+  <section style="padding:clamp(48px,7vw,80px) 24px;background:#FAF8F4;">
+    <div style="max-width:800px;margin:0 auto;">
+      <div style="text-align:center;color:#D6A441;font-size:13px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;margin-bottom:12px;">In the Field</div>
+      <h3 style="text-align:center;font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:0.01em;font-size:clamp(22px,2.6vw,28px);margin:0 0 16px;color:#0C0B09;">Usage in Packaging and Shipping</h3>
+      <div style="width:48px;height:3px;background:#D6A441;margin:0 auto 28px;"></div>
+      <p style="font-size:16px;line-height:1.85;color:#3a3934;margin:0 0 18px;">Corrugated fiberboard is the backbone of modern logistics &mdash; used for boxes, trays, dividers, and displays. Its air columns act as shock absorbers, protecting contents from drops, vibrations, and stacking pressure. Packaging engineers design boxes to optimize space, weight, and protection, often incorporating inserts like foam or paper padding.</p>
+      <p style="font-size:16px;line-height:1.85;color:#3a3934;margin:0;">Major carriers rely on it for parcel delivery since it's lightweight (lowering fuel costs) and stackable (maximizing truck/plane space). In warehouses, automated systems fold, fill, and seal corrugated boxes efficiently; for bulk shipments, pallets of boxed goods are wrapped in stretch film for stability during transit.</p>
+    </div>
+  </section>
+
+  <!-- SPECIFIC USES -->
+  <section style="position:relative;overflow:hidden;padding:clamp(48px,7vw,88px) 24px;background:#0C0B09;background-image:radial-gradient(120% 90% at 80% 0%, rgba(214,164,65,.10), transparent 60%), linear-gradient(175deg,#1A1815 0%,#141310 45%,#0C0B09 100%);">
+    <div style="position:relative;max-width:1280px;margin:0 auto;">
+      <div style="text-align:center;max-width:640px;margin:0 auto 48px;">
+        <div style="color:#D6A441;font-size:14px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;margin-bottom:12px;">Specific Uses</div>
+        <h2 style="font-family:'Oswald',sans-serif;color:#FFFFFF;text-transform:uppercase;letter-spacing:0.01em;font-size:clamp(26px,3.4vw,38px);margin:0;">Built for What You're Shipping</h2>
+        <div style="width:48px;height:3px;background:#D6A441;margin:16px auto 0;"></div>
+      </div>
+      <div class="cfp-4col" style="display:grid;grid-template-columns:repeat(4,1fr);gap:24px;">
+        <div style="padding:28px 24px;border-radius:14px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.14);">
+          <h4 style="font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:0.04em;font-size:17px;color:#FFFFFF;margin:0 0 12px;">Electronics</h4>
+          <p style="font-size:14px;color:#cfcdc4;line-height:1.7;margin:0;">Delicate electronics like circuit boards, laptops, and appliances require protection from static, impacts, and moisture. Boxes with anti-static liners or vapor barriers prevent electrostatic discharge and corrosion; double-wall E-flute construction cushions components while keeping a smooth surface for branding.</p>
+        </div>
+        <div style="padding:28px 24px;border-radius:14px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.14);">
+          <h4 style="font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:0.04em;font-size:17px;color:#FFFFFF;margin:0 0 12px;">Fine Art Handling</h4>
+          <p style="font-size:14px;color:#cfcdc4;line-height:1.7;margin:0;">Shipping artwork demands precision to avoid bends, tears, or environmental damage. Custom crates or telescoping boxes, often buffered (acid-free), prevent discoloration; museums and galleries favor triple-wall options for high-value pieces on loan or sale.</p>
+        </div>
+        <div style="padding:28px 24px;border-radius:14px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.14);">
+          <h4 style="font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:0.04em;font-size:17px;color:#FFFFFF;margin:0 0 12px;">Storage</h4>
+          <p style="font-size:14px;color:#cfcdc4;line-height:1.7;margin:0;">For residential or archival storage, corrugated boxes are ideal due to their durability and stackability. Single-wall C-flute moving boxes handle books and household items, while acid-free variants preserve documents and photos long-term.</p>
+        </div>
+        <div style="padding:28px 24px;border-radius:14px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.14);">
+          <h4 style="font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:0.04em;font-size:17px;color:#FFFFFF;margin:0 0 12px;">International Shipping</h4>
+          <p style="font-size:14px;color:#cfcdc4;line-height:1.7;margin:0;">Corrugated fiberboard withstands long journeys by sea, air, or land, enduring humidity, temperature swings, and rough handling. Reinforced double- or triple-wall boxes with water-resistant coatings comply with standards like ISPM-15 for cross-border shipments.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW COMPANIES SHIP WITH IT -->
+  <section style="padding:clamp(48px,7vw,80px) 24px;background:#FFFFFF;">
+    <div style="max-width:800px;margin:0 auto;">
+      <div style="text-align:center;color:#D6A441;font-size:13px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;margin-bottom:12px;">At Scale</div>
+      <h3 style="text-align:center;font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:0.01em;font-size:clamp(22px,2.6vw,28px);margin:0 0 16px;color:#0C0B09;">How Packaging and Shipping Companies Ship With It</h3>
+      <div style="width:48px;height:3px;background:#D6A441;margin:0 auto 28px;"></div>
+      <p style="font-size:16px;line-height:1.85;color:#3a3934;margin:0;">Packaging firms customize corrugated solutions using CAD software for precise fits, reducing waste and costs. Shipping networks integrate it at scale: boxes are tested for drop and vibration resistance, labeled with barcodes for tracking, and optimized for dimensional-weight pricing. The e-commerce boom has driven &ldquo;right-sizing&rdquo; of boxes to minimize void fill and emissions, and sustainability is driving innovations like reusable corrugated designs.</p>
+    </div>
+  </section>
+
+  <!-- BENEFITS & SUSTAINABILITY -->
+  <section style="padding:clamp(48px,7vw,80px) 24px;background:#FAF8F4;">
+    <div style="max-width:800px;margin:0 auto;">
+      <div style="text-align:center;color:#D6A441;font-size:13px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;margin-bottom:12px;">Why It Matters</div>
+      <h3 style="text-align:center;font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:0.01em;font-size:clamp(22px,2.6vw,28px);margin:0 0 16px;color:#0C0B09;">Benefits and Sustainability</h3>
+      <div style="width:48px;height:3px;background:#D6A441;margin:0 auto 28px;"></div>
+      <p style="font-size:16px;line-height:1.85;color:#3a3934;margin:0 0 18px;">Beyond utility, corrugated fiberboard is eco-friendly: roughly 90% recyclable, biodegradable, and sourced from renewable forests. It reduces shipping emissions through lightweight design and supports branding with high-quality printing.</p>
+      <p style="font-size:16px;line-height:1.85;color:#3a3934;margin:0;">Fiberboard isn't just a box &mdash; it's an engineered material that keeps commerce moving. From safeguarding electronics to enabling global art trade, its adaptability ensures safe, efficient delivery, and sustainability demands keep driving new innovations in this timeless material.</p>
+    </div>
+  </section>
+
+  <!-- CUSTOM CRATE GALLERY -->
+  <section style="padding:clamp(48px,7vw,80px) 24px;background:#FFFFFF;overflow:hidden;">
+    <div style="max-width:700px;margin:0 auto 40px;text-align:center;">
+      <div style="color:#D6A441;font-size:14px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;margin-bottom:12px;">On the Job</div>
+      <h2 style="font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:0.01em;font-size:clamp(26px,3.4vw,38px);margin:0;color:#0C0B09;">Custom Crates We've Built</h2>
+      <div style="width:48px;height:3px;background:#D6A441;margin:16px auto 0;"></div>
+    </div>
+    <div id="cfp2-wrap" style="position:relative;max-width:1280px;margin:0 auto;">
+      <div id="cfp2-track" style="display:flex;gap:24px;overflow-x:auto;scrollbar-width:none;padding-bottom:4px;">
+        <img src="uploads/20210317_135803 (1).webp" alt="Large custom wooden crate ready for shipment in the warehouse" style="flex-shrink:0;width:min(640px,86vw);height:440px;object-fit:cover;border-radius:14px;box-shadow:0 18px 40px rgba(12,11,9,.14);display:block;">
+        <img src="uploads/20250725_124244 (1).webp" alt="Racing simulator crated on a custom-built wooden pallet" style="flex-shrink:0;width:min(640px,86vw);height:440px;object-fit:cover;border-radius:14px;box-shadow:0 18px 40px rgba(12,11,9,.14);display:block;">
+        <img src="uploads/FB_IMG_1627077924844.jpg" alt="Finished custom wooden crate viewed from the top" style="flex-shrink:0;width:min(640px,86vw);height:440px;object-fit:cover;border-radius:14px;box-shadow:0 18px 40px rgba(12,11,9,.14);display:block;">
+        <img src="uploads/20251010_145409 (1).webp" alt="Cardboard boxes nested and secured inside a custom crate" style="flex-shrink:0;width:min(640px,86vw);height:440px;object-fit:cover;border-radius:14px;box-shadow:0 18px 40px rgba(12,11,9,.14);display:block;">
+        <img src="uploads/20210514_141140 (1).webp" alt="Custom crate labeled Fragile and Do Not Stack outside the warehouse" style="flex-shrink:0;width:min(640px,86vw);height:440px;object-fit:cover;border-radius:14px;box-shadow:0 18px 40px rgba(12,11,9,.14);display:block;">
+      </div>
+      <button onClick="{{ cfp2Prev }}" aria-label="Previous photo" style="position:absolute;left:8px;top:50%;transform:translateY(-50%);width:48px;height:48px;border-radius:50%;background:#FFFFFF;border:1px solid #EDE8DC;color:#0C0B09;font-size:20px;cursor:pointer;box-shadow:0 8px 20px rgba(12,11,9,.16);">&larr;</button>
+      <button onClick="{{ cfp2Next }}" aria-label="Next photo" style="position:absolute;right:8px;top:50%;transform:translateY(-50%);width:48px;height:48px;border-radius:50%;background:#FFFFFF;border:1px solid #EDE8DC;color:#0C0B09;font-size:20px;cursor:pointer;box-shadow:0 8px 20px rgba(12,11,9,.16);">&rarr;</button>
+    </div>
+  </section>
+
+  <!-- CLOSING CTA -->
+  <section style="position:relative;overflow:hidden;background:#0C0B09;color:#FFFFFF;padding:clamp(64px,9vw,110px) 24px;">
+    <div style="position:absolute;inset:0;background:radial-gradient(70% 60% at 50% 40%, rgba(214,164,65,.14), transparent 70%);z-index:0;pointer-events:none;"></div>
+    <div style="position:relative;z-index:2;max-width:900px;margin:0 auto;text-align:center;">
+      <h2 style="font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:0.01em;font-size:clamp(26px,3.4vw,38px);margin:0 0 16px;">Come Visit Our Store for Corrugated Shipping Boxes</h2>
+      <div style="width:48px;height:3px;background:#D6A441;margin:0 auto 24px;"></div>
+      <p style="font-size:16px;color:#d6d4cb;line-height:1.7;max-width:620px;margin:0 auto 36px;">Las Vegas Pack and Ship is open and ready to supply you with anything related to shipping &mdash; boxes, crates, full-service packaging, and the best international shipping rates. Come by anytime and let us fulfill any request you may have.</p>
+      <div style="display:flex;flex-wrap:wrap;gap:16px;justify-content:center;">
+        <a href="Contact Us.dc.html" style="display:inline-flex;align-items:center;gap:8px;background:#D6A441;color:#0C0B09;font-weight:600;font-size:15px;padding:15px 26px;border-radius:2px;" style-hover="background:#e8b95a;text-decoration:none;">Get a Free Quote ↗</a>
+        <a href="tel:17025099630" style="display:inline-flex;align-items:center;gap:8px;border:1.5px solid #FFFFFF;color:#FFFFFF;font-weight:600;font-size:15px;padding:15px 26px;border-radius:2px;" style-hover="border-color:#D6A441;color:#D6A441;text-decoration:none;">1 (702) 509-9630</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer style="background:#0C0B09;color:#cfcdc4;padding:56px 24px 28px;border-top:1px solid rgba(214,164,65,0.3);">
+    <div style="max-width:1280px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:40px;margin-bottom:40px;">
+      <div>
+        <img src="assets/logo-bw.png" alt="Las Vegas Pack and Ship logo" style="height:46px;width:auto;object-fit:contain;margin-bottom:14px;filter:brightness(0) invert(1);">
+        <p style="font-size:14px;line-height:1.7;margin:0;">Serving Las Vegas, Henderson, and all of Nevada &mdash; and shipping fine art worldwide.</p>
+      </div>
+      <div>
+        <div style="color:#FFFFFF;font-size:15px;font-weight:600;margin-bottom:14px;">Contact</div>
+        <p style="font-size:14px;line-height:1.9;margin:0;">
+          <a href="tel:17025099630" style="color:#cfcdc4;">1-702-509-9630</a><br>
+          Las Vegas, Henderson &amp; all of Nevada
+        </p>
+      </div>
+      <div>
+        <div style="color:#FFFFFF;font-size:15px;font-weight:600;margin-bottom:14px;">Las Vegas Professional Warehouse Storage</div>
+        <p style="font-size:14px;line-height:1.7;margin:0;">4640 Polaris Ave.<br>Las Vegas, NV 89103</p>
+      </div>
+      <div>
+        <div style="color:#FFFFFF;font-size:15px;font-weight:600;margin-bottom:14px;">Las Vegas Strip Crating &amp; Logistics</div>
+        <p style="font-size:14px;line-height:1.7;margin:0;">4610 S. Polaris Ave.<br>Las Vegas, NV 89103</p>
+      </div>
+    </div>
+    <div style="max-width:1280px;margin:0 auto;border-top:1px solid #2a2823;padding-top:24px;display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;font-size:13px;">
+      <div>© 2026 Las Vegas Pack and Ship. All rights reserved.</div>
+      <div style="display:flex;gap:20px;">
+        <a href="Privacy Policy.dc.html" style="color:#cfcdc4;">Privacy Policy</a>
+        <a href="Las Vegas Pack and Ship.dc.html#" style="color:#cfcdc4;">Sitemap</a>
+      </div>
+    </div>
+  </footer>
+
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { mobileNavOpen: false };
+  _cfp2Step(dir) {
+    const t = document.getElementById('cfp2-track');
+    if (!t) return;
+    clearTimeout(this._cfp2ResumeT);
+    this._cfp2Paused = true;
+    const card = t.firstElementChild;
+    const w = card ? card.getBoundingClientRect().width + 24 : 400;
+    let target = t.scrollLeft + dir * w;
+    if (target >= t.scrollWidth - t.clientWidth - 4) target = 0;
+    if (target < 0) target = t.scrollWidth - t.clientWidth;
+    t.scrollTo({ left: target, behavior: 'smooth' });
+    this._cfp2ResumeT = setTimeout(() => { this._cfp2Paused = false; }, 900);
+  }
+  componentDidMount() {
+    const cfp2Track = document.getElementById('cfp2-track');
+    const cfp2Wrap = document.getElementById('cfp2-wrap');
+    if (cfp2Track && cfp2Wrap) {
+      this._cfp2Hover = false;
+      this._cfp2Paused = false;
+      cfp2Wrap.addEventListener('mouseenter', () => { this._cfp2Hover = true; });
+      cfp2Wrap.addEventListener('mouseleave', () => { this._cfp2Hover = false; });
+      this._cfp2Timer = setInterval(() => {
+        if (this._cfp2Hover || this._cfp2Paused) return;
+        if (cfp2Track.scrollLeft + cfp2Track.clientWidth >= cfp2Track.scrollWidth - 1) cfp2Track.scrollLeft = 0;
+        else cfp2Track.scrollLeft += 1;
+      }, 30);
+    }
+    this._onScroll = () => {
+      const bar = document.getElementById('sticky-bar');
+      const hero = document.getElementById('home');
+      if (!bar || !hero) return;
+      const barActive = getComputedStyle(bar).display !== 'none';
+      const past = barActive && window.scrollY > hero.offsetTop + hero.offsetHeight - 120;
+      bar.style.transform = past ? 'translateY(0)' : 'translateY(-100%)';
+      const head = document.querySelector('header');
+      if (head) { head.style.visibility = past ? 'hidden' : 'visible'; head.style.position = past ? 'relative' : 'sticky'; }
+    };
+    window.addEventListener('scroll', this._onScroll, { passive: true });
+    window.addEventListener('resize', this._onScroll);
+    this._onScroll();
+  }
+  componentWillUnmount() {
+    if (this._onScroll) { window.removeEventListener('scroll', this._onScroll); window.removeEventListener('resize', this._onScroll); }
+    if (this._cfp2Timer) clearInterval(this._cfp2Timer);
+  }
+  renderVals() {
+    return {
+      cfp2Prev: () => this._cfp2Step(-1),
+      cfp2Next: () => this._cfp2Step(1),
+      mobileNavOpen: this.state.mobileNavOpen,
+      toggleNav: () => this.setState(s => ({ mobileNavOpen: !s.mobileNavOpen })),
+      closeNav: () => this.setState({ mobileNavOpen: false }),
+    };
+  }
+}
+
+</script>
+</body>
+</html>

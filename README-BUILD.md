@@ -62,6 +62,23 @@ To swap the icons, replace those files in `build/static/` and rebuild — not in
 the root never reaches the site. The build prints a `MISSING ICONS` list if any
 of them go absent.
 
+### Feedbucket (staging only)
+
+Every page carries the Feedbucket review widget, wrapped in a hostname check so
+it loads **only** on `las-vegas-pack-and-ship.pages.dev`. Visitors on the
+production domain never download it. The snippet lives in `FEEDBUCKET` in
+`convert.py` and in the head of `build/overrides/free-quote.html` — change both
+if the project key changes.
+
+`node build/check_feedbucket.js` proves the gating: it loads the built pages
+under five hostnames and asserts the CDN is contacted on the staging host and
+on no other. Add a hostname to `CASES` there if the widget should appear
+somewhere else — the per-deployment `<hash>.pages.dev` preview URLs are
+deliberately excluded.
+
+Remove the widget by deleting `{FEEDBUCKET}` from the page template and the
+matching block in the override.
+
 ## Hosting
 
 The folder is called `docs/` because that is one of the two locations GitHub

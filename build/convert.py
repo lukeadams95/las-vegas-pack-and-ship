@@ -30,6 +30,18 @@ HEAD_ICONS = """<link rel="icon" href="favicon.ico" sizes="any">
 <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
 <link rel="manifest" href="site.webmanifest">"""
 
+# Feedbucket review widget. Loaded only on the pages.dev staging host, so it
+# never reaches visitors on the production domain.
+FEEDBUCKET = """<script type="text/javascript">
+  if (location.hostname === 'las-vegas-pack-and-ship.pages.dev') {
+    (function (k) {
+      let s = document.createElement('script'); s.defer = true;
+      s.src = "https://cdn.feedbucket.app/assets/feedbucket.js";
+      s.dataset.feedbucket = k; document.head.appendChild(s);
+    })('oRXQ0pgsOaiCCU9AiqeY')
+  }
+</script>"""
+
 # design file (without .dc.html)  ->  published filename
 PAGES = {
     "Las Vegas Pack and Ship": "index.html",
@@ -325,6 +337,7 @@ def main():
 <style>
 {hover_css}
 </style>
+{FEEDBUCKET}
 </head>
 <body>
 {body}

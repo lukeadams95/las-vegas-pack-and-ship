@@ -24,3 +24,9 @@
 /* The testimonial stage is drag-to-advance; don't let the browser start a
    native image drag mid-swipe. */
 .dc-dot, [data-dc-mousedown] img { -webkit-user-drag: none; user-drag: none; }
+
+/* Homepage hero Google badge: the vertical rule reads as a dangling tick once
+   the badge wraps to a second line on narrow screens. */
+@media (max-width: 720px) {
+  .hero-badge-sep { display: none; }
+}

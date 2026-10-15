@@ -67,7 +67,7 @@ PAGES = {
 
 # <title> per page (the .dc.html files carry no title of their own)
 TITLES = {
-    "index.html": "Las Vegas Pack and Ship | Packing, Shipping & Fine Art Crating",
+    "index.html": "Las Vegas Pack and Ship | Packing, Shipping, Crating & Fine Art Logistics",
     "local-packing-and-shipping-store.html": "Local Packing and Shipping Store | Las Vegas Pack and Ship",
     "electronic-packing-and-shipping.html": "Electronic Packing and Shipping | Las Vegas Pack and Ship",
     "local-packing-and-shipping-supplies.html": "Local Packing and Shipping Supplies in Las Vegas | Las Vegas Pack and Ship",
@@ -328,21 +328,50 @@ def main():
         page = f"""<!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-XWKXL9ZN6F"></script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Deferred Google tag (GA4). Run build/scripts/apply_seo_speed.py after rebuild for full SEO. -->
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){{dataLayer.push(arguments);}}
-  gtag('js', new Date());
-
-  gtag('config', 'G-XWKXL9ZN6F');
+  (function () {{
+    function loadGtag() {{
+      if (window.__gtagLoading) return;
+      window.__gtagLoading = true;
+      var s = document.createElement('script');
+      s.async = true;
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=G-XWKXL9ZN6F';
+      s.onload = function () {{
+        gtag('js', new Date());
+        gtag('config', 'G-XWKXL9ZN6F');
+        window.__gtagReady = true;
+      }};
+      document.head.appendChild(s);
+    }}
+    function schedule() {{
+      var done = false;
+      function go() {{
+        if (done) return;
+        done = true;
+        ['pointerdown','keydown','scroll','touchstart'].forEach(function (ev) {{
+          window.removeEventListener(ev, go, {{ capture: true }});
+        }});
+        loadGtag();
+      }}
+      ['pointerdown','keydown','scroll','touchstart'].forEach(function (ev) {{
+        window.addEventListener(ev, go, {{ capture: true, passive: true, once: true }});
+      }});
+      setTimeout(go, 8000);
+    }}
+    if (document.readyState === 'complete') schedule();
+    else window.addEventListener('load', schedule);
+  }})();
 </script>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{title}</title>
 {HEAD_ICONS}
+<link rel="stylesheet" href="/fonts.css">
 {helmet}
-<link rel="stylesheet" href="site.css">
+<link rel="stylesheet" href="/site.css">
 <style>
 {hover_css}
 </style>

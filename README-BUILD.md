@@ -91,6 +91,12 @@ subdirectory, from a domain root, or opened straight off disk. Any other static
 host (Netlify, Vercel, S3, the existing web host) just needs `docs/` as its
 publish directory.
 
+Cloudflare Pages should keep the project root at the repository root and the
+build output / publish directory at `docs/`. Lead email is a Pages Function at
+`functions/send-lead-notification.js` (not inside `docs/`). It reads the
+`RESEND_API_KEY` secret already set on the project. Do not commit that key;
+`.dev.vars` is gitignored for local `wrangler pages dev`.
+
 ## Pages
 
 | Page | File |
@@ -175,8 +181,10 @@ decide:
   before this goes live.
 - The four directory citations on the Contact page list the business as
   "Las Vegas Crating and Logistics".
-- Forms are front-end only: submitting shows a confirmation state and sends
-  nothing. Wire them to a mail handler before launch.
+- Submitting a form still shows the confirmation immediately. It also POSTs
+  the fields to `/send-lead-notification`, which emails the lead. There is no
+  webhook on these forms. An email failure is logged in the console and does
+  not change the confirmation.
 
 ### SEO & speed pass
 

@@ -189,6 +189,75 @@
     window.addEventListener('resize', layoutSlots);
   }
 
+  /* --------------------------------------------------------------- leads */
+
+  // Fire-and-forget POST. A failure is logged and never thrown, so the
+  // success state is not blocked by the email or by a webhook on the form.
+  function postLead(url, payload, label) {
+    var body;
+    try {
+      body = JSON.stringify(payload);
+    } catch (err) {
+      console.error('[lead] ' + label + ' failed:', err);
+      return;
+    }
+    fetch(url, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: body,
+      keepalive: true
+    }).then(function (res) {
+      if (res.ok) return;
+      return res.text().then(function (text) {
+        console.error('[lead] ' + label + ' failed:', res.status, text);
+      });
+    }).catch(function (err) {
+      console.error('[lead] ' + label + ' failed:', err);
+    });
+  }
+
+  function inferFieldKey(el) {
+    var parent = el.parentNode;
+    var label = parent && parent.querySelector ? parent.querySelector('label') : null;
+    var text = label ? label.textContent.replace(/\*/g, ' ').replace(/\s+/g, ' ').trim().toLowerCase() : '';
+    if (text.indexOf('email') !== -1) return 'email';
+    if (text.indexOf('phone') !== -1 || text.indexOf('mobile') !== -1) return 'phone';
+    if (text.indexOf('message') !== -1 || text.indexOf('comment') !== -1) return 'message';
+    if (text.indexOf('subject') !== -1) return 'subject';
+    if (text.indexOf('ship') !== -1 || text.indexOf('item') !== -1) return 'item';
+    if (text.indexOf('name') !== -1) return 'name';
+    return text.replace(/[^a-z0-9]+/g, ' ').trim().replace(/\s+/g, '_');
+  }
+
+  function leadPayload(form) {
+    var data = {};
+    var fields = form.querySelectorAll('input, textarea, select');
+    for (var i = 0; i < fields.length; i++) {
+      var el = fields[i];
+      var type = (el.type || '').toLowerCase();
+      if (type === 'submit' || type === 'button' || type === 'reset' || type === 'file' || type === 'image') continue;
+      if ((type === 'checkbox' || type === 'radio') && !el.checked) continue;
+      var key = (el.getAttribute('name') || inferFieldKey(el) || '').trim();
+      if (!key) continue;
+      var value = (el.value || '').replace(/^\s+|\s+$/g, '');
+      if (!value) continue;
+      data[key.slice(0, 60)] = value.slice(0, 2000);
+    }
+    if (location && location.pathname) data.page = location.pathname;
+    var title = (document.title || '').split('|')[0].replace(/^\s+|\s+$/g, '');
+    if (title) data.form = title;
+    return data;
+  }
+
+  function deliverLead(form) {
+    var payload = leadPayload(form);
+    // Started together and not awaited, so neither call blocks the other
+    // or the success UI. Email failure is console-only.
+    postLead('/send-lead-notification', payload, 'Email notification');
+    var webhook = form.getAttribute('data-webhook');
+    if (webhook) postLead(webhook, payload, 'Webhook');
+  }
+
   /* ---------------------------------------------------------- event wiring */
 
   var handlers = {
@@ -226,6 +295,12 @@
 
     onSubmit: function (e) {
       e.preventDefault();
+      var form = e.target;
+      try {
+        if (form && String(form.tagName).toUpperCase() === 'FORM') deliverLead(form);
+      } catch (err) {
+        console.error('[lead] Email notification failed:', err);
+      }
       setState({ submitted: true });
       var target = document.querySelector('.dc-if[data-cond="submitted"]');
       if (target) target.scrollIntoView({ behavior: 'smooth', block: 'center' });

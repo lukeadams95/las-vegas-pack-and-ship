@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Deferred Google tag (GA4): stub + idle/interaction load so LCP is not blocked. -->
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  (function () {
+    function loadGtag() {
+      if (window.__gtagLoading) return;
+      window.__gtagLoading = true;
+      var s = document.createElement('script');
+      s.async = true;
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=G-XWKXL9ZN6F';
+      s.onload = function () {
+        gtag('js', new Date());
+        gtag('config', 'G-XWKXL9ZN6F');
+        window.__gtagReady = true;
+        window.dispatchEvent(new Event('gtag-ready'));
+      };
+      document.head.appendChild(s);
+    }
+    function schedule() {
+      var done = false;
+      function go() {
+        if (done) return;
+        done = true;
+        ['pointerdown','keydown','scroll','touchstart'].forEach(function (ev) {
+          window.removeEventListener(ev, go, { capture: true });
+        });
+        loadGtag();
+      }
+      ['pointerdown','keydown','scroll','touchstart'].forEach(function (ev) {
+        window.addEventListener(ev, go, { capture: true, passive: true, once: true });
+      });
+      setTimeout(go, 8000);
+    }
+    if (document.readyState === 'complete') schedule();
+    else window.addEventListener('load', schedule);
+  })();
+</script>
+<meta name="robots" content="noindex">
+<meta name="description" content="That page could not be found. Return to Las Vegas Pack and Ship for packing, shipping, and fine art logistics.">
+<link rel="canonical" href="https://lasvegaspackandship.com/404">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Las Vegas Pack and Ship">
+<meta property="og:title" content="Page Not Found | Las Vegas Pack and Ship">
+<meta property="og:description" content="That page could not be found. Return to Las Vegas Pack and Ship for packing, shipping, and fine art logistics.">
+<meta property="og:url" content="https://lasvegaspackandship.com/404">
+<meta property="og:image" content="https://lasvegaspackandship.com/assets/logo-color.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Page Not Found | Las Vegas Pack and Ship">
+<meta name="twitter:description" content="That page could not be found. Return to Las Vegas Pack and Ship for packing, shipping, and fine art logistics.">
+<meta name="twitter:image" content="https://lasvegaspackandship.com/assets/logo-color.png">
+<link rel="stylesheet" href="/fonts.css">
+<link rel="preload" as="font" type="font/woff2" href="/fonts/TK3IWkUHHAIjg75cFRf3bXL8LICs1_Fv40pKlN4NNSeSASz7FmlWHYg.woff2" crossorigin>
+
+
+<meta name="robots" content="noindex">
+<title>Page Not Found | Las Vegas Pack and Ship</title>
+<link rel="icon" href="/favicon.ico" sizes="any">
+<style>
+body{margin:0;font-family:"Work Sans",system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:#FAF8F4;color:#0C0B09;display:flex;min-height:100vh;align-items:center;justify-content:center;text-align:center;padding:24px;box-sizing:border-box}
+h1{font-family:Oswald,Impact,sans-serif;font-size:56px;margin:0 0 8px;color:#D6A441}
+p{font-size:18px;margin:0 0 24px}
+a.btn{display:inline-block;margin:6px;padding:14px 24px;background:#0C0B09;color:#D6A441;text-decoration:none;font-weight:600}
+a.btn.alt{background:#D6A441;color:#0C0B09}
+</style>
+</head>
+<body>
+<main>
+<h1>404</h1>
+<p>Sorry, we couldn't find that page. It may have moved.</p>
+<a class="btn" href="/">Home</a>
+<a class="btn alt" href="/free-quote">Get a Free Quote</a>
+<a class="btn" href="/contact">Contact Us</a>
+</main>
+</body>
+</html>

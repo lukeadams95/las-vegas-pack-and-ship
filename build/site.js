@@ -329,7 +329,13 @@
   }
 
   function bindEvents() {
-    document.querySelectorAll('*').forEach(function (el) {
+    // Only walk nodes that actually carry a data-dc-* hook (was querySelectorAll('*')).
+    var nodes = document.querySelectorAll(
+      '[data-dc-click],[data-dc-mousedown],[data-dc-mouseup],[data-dc-mousemove],' +
+      '[data-dc-mouseenter],[data-dc-mouseleave],[data-dc-touchstart],[data-dc-touchend],' +
+      '[data-dc-submit],[data-dc-input],[data-dc-change],[data-dc-keydown]'
+    );
+    nodes.forEach(function (el) {
       Array.prototype.slice.call(el.attributes).forEach(function (attr) {
         if (attr.name.indexOf('data-dc-') !== 0) return;
         var event = attr.name.slice('data-dc-'.length);
@@ -351,9 +357,18 @@
     });
   }
 
+  function scheduleInit() {
+    var run = function () { init(); };
+    if ('requestIdleCallback' in window) {
+      requestIdleCallback(run, { timeout: 1200 });
+    } else {
+      setTimeout(run, 1);
+    }
+  }
+
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', init);
+    document.addEventListener('DOMContentLoaded', scheduleInit);
   } else {
-    init();
+    scheduleInit();
   }
 })();

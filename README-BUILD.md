@@ -185,3 +185,17 @@ decide:
   the fields to `/send-lead-notification`, which emails the lead. There is no
   webhook on these forms. An email failure is logged in the console and does
   not change the confirmation.
+
+### SEO & speed pass
+
+After regenerating pages with `convert.py`, run:
+
+```
+python3 build/scripts/apply_seo_speed.py
+```
+
+That restores canonicals, meta descriptions, Open Graph, schema, clean `/path`
+internal links, footer links to the extra service pages (not in the main nav),
+self-hosted fonts, deferred GA4, and homepage-inlined CSS. Font files live in
+`docs/fonts/` (and `build/static/fonts/` for rebuilds).
+

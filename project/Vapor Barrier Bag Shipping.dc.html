@@ -243,19 +243,19 @@
         <form onSubmit="{{ onSubmit }}" style="background:#FFFFFF;border:1px solid #e8e4da;border-radius:6px;padding:32px;display:flex;flex-direction:column;gap:16px;">
           <div>
             <label style="display:block;font-size:13px;font-weight:600;color:#0C0B09;margin-bottom:6px;">Your Name <span style="color:#D6A441;">*</span></label>
-            <input type="text" required="true" class="qform-input" placeholder="Jane Smith" style="background:#FAF8F4;border:1px solid #e8e4da;color:#0C0B09;padding:12px 14px;border-radius:2px;font-size:14px;font-family:'Work Sans',sans-serif;width:100%;box-sizing:border-box;">
+            <input type="text" required="true" class="qform-input" name="name" placeholder="Jane Smith" style="background:#FAF8F4;border:1px solid #e8e4da;color:#0C0B09;padding:12px 14px;border-radius:2px;font-size:14px;font-family:'Work Sans',sans-serif;width:100%;box-sizing:border-box;">
           </div>
           <div>
             <label style="display:block;font-size:13px;font-weight:600;color:#0C0B09;margin-bottom:6px;">Your Email <span style="color:#D6A441;">*</span></label>
-            <input type="email" required="true" class="qform-input" placeholder="jane@email.com" style="background:#FAF8F4;border:1px solid #e8e4da;color:#0C0B09;padding:12px 14px;border-radius:2px;font-size:14px;font-family:'Work Sans',sans-serif;width:100%;box-sizing:border-box;">
+            <input type="email" required="true" class="qform-input" name="email" placeholder="jane@email.com" style="background:#FAF8F4;border:1px solid #e8e4da;color:#0C0B09;padding:12px 14px;border-radius:2px;font-size:14px;font-family:'Work Sans',sans-serif;width:100%;box-sizing:border-box;">
           </div>
           <div>
             <label style="display:block;font-size:13px;font-weight:600;color:#0C0B09;margin-bottom:6px;">Subject</label>
-            <input type="text" class="qform-input" placeholder="Vapor barrier bag shipping quote" style="background:#FAF8F4;border:1px solid #e8e4da;color:#0C0B09;padding:12px 14px;border-radius:2px;font-size:14px;font-family:'Work Sans',sans-serif;width:100%;box-sizing:border-box;">
+            <input type="text" class="qform-input" name="subject" placeholder="Vapor barrier bag shipping quote" style="background:#FAF8F4;border:1px solid #e8e4da;color:#0C0B09;padding:12px 14px;border-radius:2px;font-size:14px;font-family:'Work Sans',sans-serif;width:100%;box-sizing:border-box;">
           </div>
           <div>
             <label style="display:block;font-size:13px;font-weight:600;color:#0C0B09;margin-bottom:6px;">Your Message</label>
-            <textarea rows="4" class="qform-input" placeholder="Tell us about what needs to ship..." style="background:#FAF8F4;border:1px solid #e8e4da;color:#0C0B09;padding:12px 14px;border-radius:2px;font-size:14px;font-family:'Work Sans',sans-serif;width:100%;box-sizing:border-box;resize:vertical;"></textarea>
+            <textarea rows="4" class="qform-input" name="message" placeholder="Tell us about what needs to ship..." style="background:#FAF8F4;border:1px solid #e8e4da;color:#0C0B09;padding:12px 14px;border-radius:2px;font-size:14px;font-family:'Work Sans',sans-serif;width:100%;box-sizing:border-box;resize:vertical;"></textarea>
           </div>
           <button type="submit" style="display:inline-block;text-align:center;background:#D6A441;color:#0C0B09;font-weight:600;font-size:15px;padding:14px;border-radius:2px;margin-top:6px;border:none;cursor:pointer;font-family:'Work Sans',sans-serif;" style-hover="background:#e8b95a;">Send Request</button>
         </form>

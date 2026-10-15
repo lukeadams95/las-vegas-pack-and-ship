@@ -4,6 +4,13 @@ const { chromium } = require('playwright-core');
 const fs = require('fs');
 const path = require('path');
 
+const executablePath = [
+  process.env.CHROME_PATH,
+  '/opt/pw-browsers/chromium-1194/chrome-linux/chrome',
+  '/opt/google/chrome/chrome',
+  '/usr/local/bin/chrome'
+].find((p) => p && fs.existsSync(p));
+
 const SITE = path.join(__dirname, '..', 'docs');
 const url = (f) => 'file://' + path.join(SITE, f);
 
@@ -11,9 +18,8 @@ const fail = [];
 const note = (page, msg) => fail.push(`${page}: ${msg}`);
 
 (async () => {
-  const browser = await chromium.launch({
-    executablePath: '/opt/pw-browsers/chromium-1194/chrome-linux/chrome'
-  });
+  if (!executablePath) throw new Error('No Chrome binary found for the smoke test');
+  const browser = await chromium.launch({ executablePath });
   const pages = fs.readdirSync(SITE).filter((f) => f.endsWith('.html')).sort();
 
   for (const file of pages) {
@@ -23,17 +29,32 @@ const note = (page, msg) => fail.push(`${page}: ${msg}`);
     const errors = [];
     p.on('pageerror', (e) => errors.push('JS error: ' + e.message));
     p.on('console', (m) => {
-      // ERR_FAILED is this test aborting the external font/map requests
-      if (m.type() === 'error' && !/ERR_FAILED/.test(m.text())) errors.push('console: ' + m.text());
+      // ERR_FAILED is this test aborting the external font/map requests.
+      // The lead email is fire-and-forget; a logged failure must not fail the page.
+      if (m.type() === 'error' && !/ERR_FAILED|Email notification failed/.test(m.text())) {
+        errors.push('console: ' + m.text());
+      }
     });
     p.on('requestfailed', (r) => {
       const u = r.url();
-      if (u.startsWith('file://')) errors.push('missing file: ' + u.replace('file://' + SITE, ''));
+      if (u.startsWith('file://') && u.indexOf('send-lead-notification') === -1) {
+        errors.push('missing file: ' + u.replace('file://' + SITE, ''));
+      }
     });
+    const leads = [];
     // keep the run hermetic: no Google Fonts / maps fetches from the sandbox
     await p.route('**/*', (route) =>
       route.request().url().startsWith('file://') ? route.continue() : route.abort()
     );
+    // Registered last so it wins over the catch-all. Fulfills the Pages Function URL.
+    await p.route('**/send-lead-notification', async (route) => {
+      leads.push({ method: route.request().method(), body: route.request().postData() || '' });
+      await route.fulfill({
+        status: 200,
+        contentType: 'application/json',
+        body: '{"ok":true}'
+      });
+    });
 
     await p.goto(url(file), { waitUntil: 'domcontentloaded' });
     await p.waitForLoadState('networkidle').catch(() => {});
@@ -157,7 +178,7 @@ const note = (page, msg) => fail.push(`${page}: ${msg}`);
 
     // quote form submitted state
     if (await p.$('form[data-dc-submit]')) {
-      await p.fill('form[data-dc-submit] input[type="text"]', 'Test');
+      await p.fill('form[data-dc-submit] input[name="name"]', 'Test');
       const email = await p.$('form[data-dc-submit] input[type="email"]');
       if (email) await email.fill('test@example.com');
       await p.evaluate(() => document.querySelector('form[data-dc-submit]').requestSubmit());
@@ -165,6 +186,20 @@ const note = (page, msg) => fail.push(`${page}: ${msg}`);
       if (await p.$eval('.dc-if[data-cond="submitted"]', (e) => e.hidden)) {
         note(file, 'form did not show submitted state');
       }
+    }
+
+    const expectsLead = !!(await p.$('#quote-form, form[data-dc-submit]'));
+    const posts = leads.filter((l) => l.method === 'POST');
+    if (expectsLead) {
+      if (posts.length !== 1) note(file, 'expected one lead notification POST, got ' + posts.length);
+      else {
+        let parsed = null;
+        try { parsed = JSON.parse(posts[0].body); } catch (e) { note(file, 'lead notification body is not JSON'); }
+        if (parsed && !parsed.name) note(file, 'lead notification missing name');
+        if (parsed && !parsed.email) note(file, 'lead notification missing email');
+      }
+    } else if (posts.length) {
+      note(file, 'unexpected lead notification POST');
     }
 
     // image-slot geometry applied

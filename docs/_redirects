@@ -1,0 +1,72 @@
+# Legacy WordPress URLs -> new Pages site (301). First match wins: specific rules first.
+
+# Clear topic redirects
+/partners/ricks-restoration/*            /ricks-restoration                    301
+/where-to-find-us/*                      /contact                              301
+/packing-shipping-and-moving-supplies/*  /local-packing-and-shipping-supplies  301
+/pricetable/*                            /local-packing-and-shipping-supplies  301
+/air-sea-fine-art-shipping/*             /fine-art-shipping                    301
+/modern-art-logistics/*                  /fine-art-shipping                    301
+/gallery-collection-shipping/*           /fine-art-shipping                    301
+/antique-packing-and-moving/*            /fine-art-moving-and-packing          301
+/custom-crating-packing/*                /on-site-crating                      301
+/hand-manufactured-wooden-crates/*       /on-site-crating                      301
+/pallets-skids-crates/*                  /on-site-crating                      301
+/one-stop-pack-and-ship-spot/*           /local-packing-and-shipping-store     301
+/packing-and-shipping-in-las-vegas-nv/*  /local-packing-and-shipping-store     301
+/lv-nevada-convention-event-ship-store/* /local-packing-and-shipping-store     301
+
+# WordPress attachment/tag archives
+/business-02/*                           /                                     301
+/tag/*                                   /                                     301
+
+# Image/attachment subpages under pages that exist on the new site -> parent page
+/fine-art-shipping/*                     /fine-art-shipping                    301
+/fine-art-moving-and-packing/*           /fine-art-moving-and-packing          301
+/art-installation/*                      /art-installation                     301
+/art-courier-service/*                   /art-courier-service                  301
+/art-consultation/*                      /art-consultation                     301
+/on-site-crating/*                       /on-site-crating                      301
+/local-packing-and-shipping-store/*      /local-packing-and-shipping-store     301
+/contact/*                               /contact                              301
+/electronic-packing-and-shipping/*       /electronic-packing-and-shipping      301
+/corrugated-fiberboard-packaging/*       /corrugated-fiberboard-packaging      301
+/vapor-barrier-bag-shipping/*            /vapor-barrier-bag-shipping           301
+/can-you-re-use-recycled-cardboard-boxes-for-packing-and-shipping/* /can-you-re-use-recycled-cardboard-boxes-for-packing-and-shipping 301
+
+# No clear target on the new site -> homepage
+/freight-shipping/*                      /   301
+/furniture-moving/*                      /   301
+/las-vegas-nv-international-shipping/*   /   301
+/what-parcels-can-not-be-mailed-internationally/* / 301
+/laws-regarding-alcohol-and-wine-shipping/* /   301
+/wine-shipping-made-easy/*               /   301
+/holiday-pack-ship-guide-2025/*          /   301
+/mil-d-3464e/*                           /   301
+/projects/*                              /   301
+/partners/*                              /   301
+/partners-group/*                        /   301
+/sitemap/*                               /   301
+/user/*                                  /   301
+/feature6/*                              /   301
+/galaxy-2-jpg/*                          /   301
+/galaxy-3-2-jpg/*                        /   301
+/galaxy-4-jpg/*                          /   301
+/galaxy-6-jpg/*                          /   301
+/i_01/*                                  /   301
+/lasv-pack-ship-logo-very-trans-banner/* /   301
+/logo1/*                                 /   301
+/lv-favicion/*                           /   301
+/lv-pack-ship-logo-gold-banner/*         /   301
+/lv-pack-ship-logo-trans/*               /   301
+/lv-pack-ship-store-logo-2/*             /   301
+/lv-pack-ship-store-logo/*               /   301
+/paper-background/*                      /   301
+/png-logo-1-png/*                        /   301
+/profile1_logo/*                         /   301
+/sponsor1/*                              /   301
+/sponsor_06-2/*                          /   301
+/sponsor_06/*                            /   301
+/three-way-logo-1720/*                   /   301
+/three-way-logo-1920/*                   /   301
+/top_bar/*                               /   301

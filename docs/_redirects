@@ -35,12 +35,12 @@
 /can-you-re-use-recycled-cardboard-boxes-for-packing-and-shipping/* /can-you-re-use-recycled-cardboard-boxes-for-packing-and-shipping 301
 
 # No clear target on the new site -> homepage
-/freight-shipping/*                      /   301
-/furniture-moving/*                      /   301
-/las-vegas-nv-international-shipping/*   /   301
+/freight-shipping/*                      /freight-shipping                     301
+/furniture-moving/*                      /furniture-moving                     301
+/las-vegas-nv-international-shipping/*   /las-vegas-nv-international-shipping  301
 /what-parcels-can-not-be-mailed-internationally/* / 301
-/laws-regarding-alcohol-and-wine-shipping/* /   301
-/wine-shipping-made-easy/*               /   301
+/laws-regarding-alcohol-and-wine-shipping/* /wine-and-alcohol-shipping     301
+/wine-shipping-made-easy/*               /wine-and-alcohol-shipping            301
 /holiday-pack-ship-guide-2025/*          /   301
 /mil-d-3464e/*                           /   301
 /projects/*                              /   301
